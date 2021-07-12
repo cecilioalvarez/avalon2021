@@ -1,7 +1,5 @@
 package com.arquitecturajava;
 
-import java.nio.file.ReadOnlyFileSystemException;
-
 public class HolaMundo {
 
 	public static void main(String[] args) {
@@ -30,6 +28,8 @@ public class HolaMundo {
 		System.out.println(letra);
 		boolean cierto=true;
 		System.out.println(cierto);
+		boolean falso=false;
+		System.out.println(falso);
 	}
 
 }

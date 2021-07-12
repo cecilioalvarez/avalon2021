@@ -16,8 +16,6 @@ public class HolaMundo6 {
 		
 		if (numero > numero2) {
 			System.out.println("El numero mayor es: " + numero);
-
-			
 		} else {
 			System.out.println("El numero mayor es: " + numero2);
 

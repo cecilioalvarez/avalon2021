@@ -9,8 +9,8 @@ public class HolaMundo3 {
 		Scanner sc= new Scanner(System.in);
 		System.out.println("dame una nota:");
 		int numero=sc.nextInt();
+		
 		if (numero>5) {
-			
 			System.out.println("has aprobado");	
 		}else {
 			System.out.println("has suspendido");
