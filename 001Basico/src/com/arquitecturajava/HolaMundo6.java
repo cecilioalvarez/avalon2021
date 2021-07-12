@@ -13,11 +13,13 @@ public class HolaMundo6 {
 		int numero2 = sc.nextInt();
 		
 		if(numero1>numero2) {
-			System.out.println(numero1);
-			System.out.println(numero2);
+			System.out.println("Orden de números de mayor a menor");
+			System.out.println("1- " + numero1);
+			System.out.println("2- " + numero2);
 		} else {
-			System.out.println(numero2);
-			System.out.println(numero1);
+			System.out.println("Orden de números de mayor a menor");
+			System.out.println("1- " + numero2);
+			System.out.println("2- " + numero1);
 		}
 	}
 }
