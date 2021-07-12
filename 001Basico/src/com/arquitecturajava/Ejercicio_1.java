@@ -2,7 +2,7 @@ package com.arquitecturajava;
 
 import java.util.Scanner;
 
-public class HolaMundo6 {
+public class Ejercicio_1 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
