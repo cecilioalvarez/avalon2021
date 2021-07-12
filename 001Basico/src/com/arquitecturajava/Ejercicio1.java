@@ -15,7 +15,7 @@ public class Ejercicio1 {
 
 			
 		} else {
-			System.out.println(numero2);
+			System.out.println("El numero mayor es: " + numero2);
 
 		}
 	
