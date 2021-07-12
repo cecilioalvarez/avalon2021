@@ -6,12 +6,16 @@ import java.util.Scanner;
 public class Ejercicio1 {
 	
 	private static double askForNumber() {
+		boolean valid = false;
 		double number = 0;
-		try {
-			number = new Scanner(System.in).nextDouble();
-		} catch (InputMismatchException ime_ex) {
-			System.err.println("Error en la entrada de datos.");	
-		}
+		do {
+			try {
+				number = new Scanner(System.in).nextDouble();
+				valid = true;
+			} catch (InputMismatchException ime_ex) {
+				System.err.println("Error en la entrada de datos.");	
+			}
+		} while (!valid);
 		return number;
 	}
 	
