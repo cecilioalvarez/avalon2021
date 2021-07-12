@@ -20,11 +20,11 @@ public class Exercise2 {
         return number;
     }
     
-    private static boolean checkEvenInteger(int number) {
+    private static boolean isEven(int number) {
         return number % 2 == 0;
     }
 
     public static void main(String[] args) {
-        System.out.println("El número es " + (Exercise2.checkEvenInteger(Exercise2.askForInteger()) ? "par." : "impar."));
+        System.out.println("El número es " + (Exercise2.isEven(Exercise2.askForInteger()) ? "par." : "impar."));
     }
 }
