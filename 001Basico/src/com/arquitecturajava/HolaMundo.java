@@ -18,6 +18,17 @@ public class HolaMundo {
 		System.out.println(numero3);
 		System.out.println(numero4);
 		
+		float numero5=2000.20f;
+		double numero6=2000.456;
+		System.out.println(numero5);
+		System.out.println(numero6);
+		
+		char letra='a';
+		System.out.println(letra);
+		boolean cierto=true;
+		System.out.println(cierto);
+		
+		
 		
 		
 	}
