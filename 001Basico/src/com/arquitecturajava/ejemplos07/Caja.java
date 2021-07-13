@@ -37,5 +37,10 @@ public class Caja {
 		return this.getLado1()*this.getLado2()*this.getLado3();
 	}
 	
+	public Caja getCajaVolumenHuecoMinimo() {
+		
+		return new Caja(this.getLado1()*1.20,this.getLado2()*1.20,this.getLado3()*1.20);		
+	}
+	
 	
 }
