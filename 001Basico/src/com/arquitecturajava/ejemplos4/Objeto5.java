@@ -7,6 +7,7 @@ public class Objeto5 {
 		Television t= new Television();
 		t.setMarca("Samsung");
 		t.setEncendido(true);
+		System.out.println(t.isEncendido());
 	}
 
 }
