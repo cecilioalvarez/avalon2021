@@ -1,6 +1,6 @@
 package com.arquitecturajava.poo;
 
-public class Main_Person {
+public class Person_Main {
 
     public static void main(String[] args) {
         Person p1 = new Person();
