@@ -1,22 +1,30 @@
 package ejemplos02;
 
 public class Persona {
-	
+
 	String nombre;
 	int edad;
-	
-	public void isJubilado() {
-		
-		boolean jubilado = true;
-		
+
+	public boolean isJubilado() {
+
 		if (edad > 65) {
-			System.out.println("Está jubilado");
-		}else {
-			System.out.println("No está jubilado");
+			return true;
+		} else {
+			return false;
+
 		}
-		
-		
-		
+
+	}
+
+	public boolean isMayorEdad() {
+
+		if (edad > 18) {
+			return true;
+		} else {
+			return false;
+
+		}
+
 	}
 
 }
