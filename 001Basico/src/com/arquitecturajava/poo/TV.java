@@ -38,4 +38,8 @@ public class TV {
     public void setOn(boolean on) {
         this.on = on;
     }
+    
+    public double getVAT() {
+        return this.price - this.price / 1.21;
+    }
 }
