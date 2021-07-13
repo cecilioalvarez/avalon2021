@@ -10,6 +10,12 @@ public class Caja {
 		this.ancho = ancho;
 		this.alto = alto;
 	}
+	double calcularVolumen() {
+		return getLargo()*getAncho()*getAlto();
+	}
+	public Caja getCajaVolumenHuecoMinimo() {
+		return new Caja(this.getLargo()*1.2,this.getAncho()*1.2,this.getAlto()*1.2);
+	}
 	
 	
 	public double getLargo() {
@@ -42,7 +48,4 @@ public class Caja {
 	}
 
 
-	double calcularVolumen() {
-		return getLargo()*getAncho()*getAlto();
-	}
 }
