@@ -31,7 +31,7 @@ public class Caja {
 	public Caja() {
 
 	}
-	public double getVolumen(double alto, double ancho, double profundo) {
+	public double getVolumen() {
 		return this.getAncho()*this.getAlto()*this.getProfundo();
 		
 	}
