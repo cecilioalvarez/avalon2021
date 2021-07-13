@@ -16,7 +16,6 @@ public class HolaMundo13 {
 			if(lista[i]>=5) {
 				System.out.println("Aprobado: "+lista[i]);
 			}
-			
 		}
 		
 		
