@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package Galletas;
 
 public class Galleta {
 	

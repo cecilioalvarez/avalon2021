@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package Jubilados;
 
 public class DatosJubilado1 {
 

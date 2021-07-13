@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package Rectangulo;
 
 public class AreaRectangulo {
 
