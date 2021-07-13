@@ -7,6 +7,8 @@ public class Objeto5 {
 		Television t= new Television("Samsung",1200,true);
 		
 		System.out.println(t.isEncendido());
+		t.off();
+		System.out.println(t.isEncendido());
 	}
 
 }
