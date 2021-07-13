@@ -37,12 +37,15 @@ public class Caja {
 	}
 	public Caja(double x, double y, double z) {
 		super();
-		this.x=x;
-		this.y=y;
-		this.z=z;
+		this.setX(x);
+		this.setY(y);
+		this.setZ(z);
 	}
 	public double getVolumen() {
 		return this.getX()*getY()*getZ();
+	}
+	public Caja getVolumenHuecoMinimo() {
+		return new Caja(this.getX()*1.20,this.get()*1.20,this.getZ()*1.20));
 	}
 
 
