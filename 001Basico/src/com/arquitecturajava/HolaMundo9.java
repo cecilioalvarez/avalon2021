@@ -14,5 +14,12 @@ public class HolaMundo9 {
 		System.out.println(j);
 		j++;
 	}
-}
+	
+	int k=0;
+	do {
+		
+		System.out.println(k);
+		k++;
+	}while (k<10);
+	}
 }
