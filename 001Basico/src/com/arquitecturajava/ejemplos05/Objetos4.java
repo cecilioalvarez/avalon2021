@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejemplos04;
+package com.arquitecturajava.ejemplos05;
 
 public class Objetos4 {
 
