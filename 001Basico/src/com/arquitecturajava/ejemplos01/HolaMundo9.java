@@ -1,8 +1,8 @@
-package com.arquitecturajava;
+package com.arquitecturajava.ejemplos01;
 
 import java.util.Scanner;
 
-public class HolaMundo8 {
+public class HolaMundo9 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
