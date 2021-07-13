@@ -7,11 +7,17 @@ public class Objetos3 {
 		
 		Persona p=new Persona();
 		p.nombre="Pedro";
-		p.edad=68;
+		p.edad=17;
 		if(p.estaJubilado()) {
 			System.out.println("Está jubilado");
 		}else {
 			System.out.println("No está jubilado");
+		}
+		if(p.mayorEdad()) {
+			System.out.println("Es mayor de edad");
+		}else {
+			System.out.println("Es menor de edad");
+			
 		}
 	}
 

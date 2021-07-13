@@ -14,5 +14,8 @@ public class Persona {
 		
 		return edad>=65;
 	}
+	boolean mayorEdad() {
+		return edad>=18;
+	}
 
 }
