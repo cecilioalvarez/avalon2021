@@ -33,4 +33,13 @@ public class Caja {
 	public double calculoVolumen() {
 		return this.getLado1()*this.getLado2()*this.getLado3();
 	}
+	
+	public Caja calculoVolumenHuecoMinimo() {
+		//return this.calculoVolumen()*1.20;
+		//return this.getLado1()*this.getLado2()*this.getLado3()*1.2;
+		return new Caja(this.getLado1()*1.2,this.getLado2()*1.2,this.getLado3()*1.2);
+		
+	}
+	
+	
 }

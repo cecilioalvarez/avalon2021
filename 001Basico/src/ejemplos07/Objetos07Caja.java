@@ -8,6 +8,12 @@ public class Objetos07Caja {
 		Caja c = new Caja(10, 2, 2);
 		
 		System.out.println(c.calculoVolumen());
+		//System.out.println("Volumen necesario "+c.calculoVolumenHuecoMinimo());
+		Caja contenedor = c.calculoVolumenHuecoMinimo();
+		System.out.println(contenedor.getLado1());
+		System.out.println(contenedor.getLado2());
+		System.out.println(contenedor.getLado3());
+		System.out.println(contenedor.calculoVolumen());
 	}
 
 }
