@@ -1,11 +1,10 @@
-package com.arquitecturajava;
+package com.arquitecturajava.ejemplos01;
 
 
 
 public class HolaMundo13 {
 
 	public static void main(String[] args) {
-		
 		//array
 		int[] lista = new int[5];
 		lista[0]=4;

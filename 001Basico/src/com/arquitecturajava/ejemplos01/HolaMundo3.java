@@ -1,8 +1,8 @@
-package com.arquitecturajava;
+package com.arquitecturajava.ejemplos01;
 
 import java.util.Scanner;
 
-public class HolaMundo5 {
+public class HolaMundo3 {
 
 	public static void main(String[] args) {
 		
@@ -10,12 +10,10 @@ public class HolaMundo5 {
 		System.out.println("Dame una nota");
 		int numero = sc.nextInt();
 		
-		if(numero>5 && numero<7) {
+		if(numero>5) {
 			System.out.println("has aprobado");
-		} else if (numero>=7 && numero<=9) {
-			System.out.println("has notable");
 		} else {
-			System.out.println("Sobresaliente");
+			System.out.println("has suspendido");
 		}
 	}
 
