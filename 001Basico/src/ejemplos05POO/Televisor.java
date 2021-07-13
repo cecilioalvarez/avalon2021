@@ -1,9 +1,15 @@
-package ejemplos04POO;
+package ejemplos05POO;
 
 public class Televisor {
 	private String marca;
 	private double precio;
 	private boolean encendido;
+	
+	public Televisor(String marca,double precio,boolean encendido) {
+		this.marca = marca;
+		this.precio = precio;
+		this.encendido = encendido;
+	}
 	
 	public String getMarca() {
 		return marca;
@@ -20,9 +26,9 @@ public class Televisor {
 	public boolean isEncendido() {
 		return encendido;
 	}
-	public void setEncendido(boolean encendido) {
+	/*public void setEncendido(boolean encendido) {
 		this.encendido = encendido;
-	}
+	}*/
 	
 	public void on() {
 		this.encendido=true;
