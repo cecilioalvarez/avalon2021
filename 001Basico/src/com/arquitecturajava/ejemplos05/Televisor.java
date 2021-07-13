@@ -3,8 +3,14 @@ package com.arquitecturajava.ejemplos05;
 public class Televisor {
 	
 	private String marca;
-	private int precio;
+	private double precio;
 	private boolean encendido;
+	
+	public Televisor(String marca, double precio, boolean encendido) {
+		this.marca = marca;
+		this.precio = precio;
+		this.encendido = encendido;
+	}
 	
 	public String getMarca() {
 		return marca;
@@ -12,7 +18,7 @@ public class Televisor {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 	public void setPrecio(int precio) {
