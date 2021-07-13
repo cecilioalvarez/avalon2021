@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo;
+package com.arquitecturajava.poo.lamp;
 
 public class Lamp {
 
@@ -7,6 +7,7 @@ public class Lamp {
     private boolean on;
 
     public Lamp() {
+        this.setBrand("Marca desconocida");
         this.setOn(false);
         this.setLumens(0);
     }

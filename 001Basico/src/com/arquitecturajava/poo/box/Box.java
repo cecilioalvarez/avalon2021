@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo;
+package com.arquitecturajava.poo.box;
 
 public class Box {
 

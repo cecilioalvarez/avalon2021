@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo;
+package com.arquitecturajava.poo.lamp;
 
 public class Lamp_Main {
 
