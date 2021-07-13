@@ -12,4 +12,13 @@ public class Persona {
 		}
 		
 	}
+	
+	public boolean esMayordeEdad() {
+		if (edad<18) {
+			return false;
+		}else {
+			return true;
+		}
+		
+	}
 }
