@@ -1,6 +1,6 @@
 package com.arquitecturajava.ejemplos05;
 
-public class Televisor 
+public class Televisor {
 
 	private String marca;
 	private double precio;
