@@ -24,6 +24,7 @@ public class Ordenador {
 		return this.getPrecio()*1.21;
 	}
 	
+	//Constructor
 	public Ordenador(String modelo, int numero, int precio) {
 		super();
 		this.modelo = modelo;
