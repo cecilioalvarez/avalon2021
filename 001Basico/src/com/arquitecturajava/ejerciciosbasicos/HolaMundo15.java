@@ -1,10 +1,10 @@
-package com.arquitecturajava;
+package com.arquitecturajava.ejerciciosbasicos;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Exercise3 {
-
+class HolaMundo15 {
+    
     private static int askForInteger() {
         boolean valid = false;
         int number = 0;
@@ -20,14 +20,11 @@ public class Exercise3 {
         return number;
     }
     
-    private static void showMultiplicationTable(int number) {
-        System.out.println("A continuación se muestra la tabla de multiplicar del número " + number + ":");
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(number * i);
-        }
+    private static double sum(int n1, int n2) {
+        return n1 + n2;
     }
-    
+
     public static void main(String[] args) {
-        Exercise3.showMultiplicationTable(Exercise3.askForInteger());
+        HolaMundo15.sum(HolaMundo15.askForInteger(), HolaMundo15.askForInteger());
     }
 }

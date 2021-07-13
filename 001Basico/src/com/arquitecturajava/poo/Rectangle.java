@@ -1,11 +1,11 @@
-package com.arquitecturajava;
+package com.arquitecturajava.poo;
 
-public class Rectangulo {
+public class Rectangle {
 
     private double width;
     private double height;
     
-    Rectangulo(double width, double height) {
+    Rectangle(double width, double height) {
         this.width = width;
         this.height = height;
     }

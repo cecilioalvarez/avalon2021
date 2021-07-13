@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package com.arquitecturajava.ejerciciosbasicos;
 
 public class HolaMundo2 {
 
