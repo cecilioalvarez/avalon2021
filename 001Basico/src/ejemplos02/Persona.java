@@ -4,12 +4,12 @@ public class Persona {
 	String nombre;
 	int edad;
 	
-	public String jubilado() {
-		String jubilado;
+	public boolean jubilado() {
+		boolean jubilado;
 		if (edad>65) {
-			jubilado= "Jubilado";
+			jubilado= true;
 		}else {
-			jubilado= "No Jubilado";
+			jubilado= false;
 		}
 		return jubilado;
 		

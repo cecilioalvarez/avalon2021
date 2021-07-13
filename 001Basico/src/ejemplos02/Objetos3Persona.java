@@ -9,13 +9,13 @@ public class Objetos3Persona {
 		p1.nombre="Pedro";
 		p1.edad = 67;
 		
-		System.out.println(p1.nombre+" "+p1.jubilado());
+		System.out.println(p1.jubilado());
 		
 		Persona p2= new Persona();
 		p2.nombre="Pepe";
 		p2.edad = 27;
 		
-		System.out.println(p2.nombre+" "+p2.jubilado());
+		System.out.println(p2.jubilado());
 		
 	}
 
