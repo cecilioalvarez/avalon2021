@@ -4,14 +4,12 @@ public class Televisores {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Televisor t1=new Televisor();
+		Televisor t1=new Televisor("Samsung",100,false);
 
-		t1.setMarca("Sony");
-		t1.setEncendido(true);
-		t1.setPrecio(100);
-		System.out.println(t1.encendido);
-		System.out.println(t1.marca);
-		System.out.println(t1.precio);
+		System.out.println(t1.getMarca());
+		System.out.println(t1.getPrecio());
+		System.out.println(t1.isEncendido());
+		
 		
 	}
 

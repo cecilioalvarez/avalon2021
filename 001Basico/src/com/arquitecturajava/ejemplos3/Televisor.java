@@ -4,11 +4,11 @@ public class Televisor {
 	String marca;
 	double precio;
 	boolean encendido;
-	 public Televisor() {
-		 this.marca= marca;
-		 this.precio= precio;
-		 this.encendido = encendido;
-	 }
+	public Televisor(String marca, double precio, boolean encendido) {
+		this.marca= marca;
+		this.precio= precio;
+		this.encendido = encendido;
+	}
 	
 	public String getMarca() {
 		return marca;
