@@ -35,6 +35,10 @@ public class Caja {
 		return this.getAncho()*this.getAlto()*this.getProfundo();
 		
 	}
+	public Caja getCajaVolumenHuecoMin() {
+		return new Caja(this.getAlto()*1.20, this.getAncho()*1.20, this.getProfundo()*1.20);
+		
+	}
 	
 
 
