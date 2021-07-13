@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package ejemplos01;
 
 import java.util.Scanner;
 

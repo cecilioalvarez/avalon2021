@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package ejemplos01;
 
 public class HolaMundo8 {
 	public static void main(String[] args) {

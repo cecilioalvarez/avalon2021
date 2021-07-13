@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package ejemplos02;
 
 public class Objetos1 {
 
