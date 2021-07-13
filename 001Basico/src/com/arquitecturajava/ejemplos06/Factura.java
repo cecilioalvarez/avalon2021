@@ -32,5 +32,17 @@ public class Factura {
 		this.importe = importe;
 	}
 	
+	public double getImporteConIVA() {
+		return this.getImporte()*1.21;
+	}
+	public double getImporteRetencion() {
+		
+		return this.getImporte()- this.getImporte()*0.15;
+	}
 	
+	public double getImporteConDescuento(int porcentaje) {
+		
+		return this.getImporte()- this.getImporte()*porcentaje/100;
+		
+	}
 }
