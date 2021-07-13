@@ -6,6 +6,15 @@ public class Television {
 	private int precio;
 	private Boolean isEncendido;
 	
+	public Television() {
+	
+	}
+	public Television(String marca, int precio, Boolean isEncendido) {
+		super();
+		this.marca = marca;
+		this.precio = precio;
+		this.isEncendido = isEncendido;
+	}
 	public String getMarca() {
 		return marca;
 	}
