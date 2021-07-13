@@ -5,6 +5,12 @@ public class Television {
 	private double precio;
 	private boolean encendido;
 
+	public Television(String marca, double precio, boolean encendido) {
+		this.setMarca(marca);
+		this.setPrecio(precio);
+		this.setEncendido(encendido);
+	}
+	
 	public String getMarca() {
 		return marca;
 	}
