@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejemplo5;
+package com.arquitecturajava.ejemplo05;
 
 public class FacturaPrincipal {
 
