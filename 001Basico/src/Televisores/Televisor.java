@@ -6,6 +6,12 @@ public class Televisor {
 	private double precio;
 	private boolean encendido;
 	
+	public Televisor(String marca,double precio,boolean encendido) {
+		
+		this.marca=marca;
+		this.precio=precio;
+		this.encendido=encendido;
+	}
 	public String getMarca() {
 		return marca;
 	}
@@ -23,6 +29,12 @@ public class Televisor {
 	}
 	public void setEncendido(boolean encendido) {
 		this.encendido = encendido;
+	}
+	public void on() {
+		this.encendido = true;
+	}
+	public void off() {
+		this.encendido = false;
 	}
 		
 }
