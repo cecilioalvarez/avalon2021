@@ -1,6 +1,6 @@
-package com.arquitecturajava.ejemplos3;
+package com.arquitecturajava.ejemplos4;
 
-public class Objetos3 {
+public class Objetos4 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
