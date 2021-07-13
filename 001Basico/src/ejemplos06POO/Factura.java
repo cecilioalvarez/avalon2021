@@ -31,17 +31,17 @@ public class Factura {
 	}
 	
 	public double importeConIVA() {
-		return importeF*1.21;
+		return this.getImporteF()*1.21;
 	}
 	
 	public double importeConRetenciones(double retenciones) {
 		
-		return importeF*(1-(retenciones/100));
+		return this.getImporteF()*(1-(retenciones/100));
 	}
 	
 	public double importeConDescuento(double descuento) {
 		
-		return importeF*(1-(descuento/100));
+		return this.getImporteF()*(1-(descuento/100));
 	}
 	
 	
