@@ -1,8 +1,8 @@
-package ejemplos02;
+package ejemplos03POO;
 
 public class Persona {
-	String nombre;
-	int edad;
+	private String nombre;
+	private int edad;
 	
 	
 	
