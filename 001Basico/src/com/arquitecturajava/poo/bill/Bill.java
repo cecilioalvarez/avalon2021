@@ -1,5 +1,7 @@
 package com.arquitecturajava.poo.bill;
 
+import java.util.Formatter;
+
 public class Bill {
     
     private static int billCount = 0;
@@ -48,4 +50,13 @@ public class Bill {
     public double getPriceWithDiscount(double discount) {
         return this.price * (100 - discount)/100;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        Formatter formatter = new Formatter(stringBuilder);
+        return formatter.format("El precio de la factura nº " + this.getId() + " con concepto «" + this.getConcept() + "» es de %.2f € sin IVA.", this.getPrice()).toString();
+    }
+    
+    
 }

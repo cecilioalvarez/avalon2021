@@ -7,13 +7,15 @@ class Person {
 
     private String name;
     private int age;
+    private Gender gender;
 
     Person() {
     }
 
-    Person(String name, int age) {
+    Person(String name, int age, Gender gender) {
         this.name = name;
         this.age = age;
+        this.gender = gender;
     }
 
     public String getName() {
@@ -31,6 +33,14 @@ class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
     
     boolean isAdult() {
         return this.age >= LEGAL_AGE;
@@ -42,6 +52,16 @@ class Person {
 
     @Override
     public String toString() {
-        return "La persona se llama " + this.name + " y tiene " + this.age + " años.";
+        String string = this.getName() + " y tiene " + this.getAge() + " años. " 
+                + (this.isAdult() ? "Es" : "No es") + " mayor de edad y "
+                + (this.isRetired() ? "está" : "no está") + " jubilad";
+        switch (this.getGender()) {
+            case FEMALE:
+                return string + "a.";
+            case MALE:
+                return string + "o.";
+            case OTHER: default:
+                return string + "e.";
+        }
     }
 }

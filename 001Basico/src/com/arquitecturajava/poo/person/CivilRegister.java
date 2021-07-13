@@ -1,0 +1,38 @@
+package com.arquitecturajava.poo.person;
+
+class CivilRegister {
+    
+    private Person person;
+
+    private CivilRegister(Person person) {
+        this.setPerson(person);
+    }
+
+    private Person getPerson() {
+        return person;
+    }
+
+    private void setPerson(Person person) {
+        this.person = person;
+    }
+
+    private void showPersonData() {
+        System.out.println(this.person.toString());
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("Manuel");
+        person.setAge(17);
+        person.setGender(Gender.MALE);
+        
+        CivilRegister civilRegister = new CivilRegister(person);
+        civilRegister.showPersonData();
+        
+        civilRegister.setPerson(new Person("Francisca", 89, Gender.FEMALE));
+        civilRegister.showPersonData();
+        
+        civilRegister.setPerson(new Person("Andrea", 52, Gender.OTHER));
+        civilRegister.showPersonData();
+    }
+}
