@@ -1,6 +1,6 @@
 package com.arquitecturajava;
 
-public class HolaMundo13 {
+public class HolaMundo14 {
 
 	public static void main(String[] args) {
 		
@@ -13,13 +13,16 @@ public class HolaMundo13 {
 		lista[4]=9;
 		
 		for ( int i=0;i<lista.length;i++) {
-			
-			if (lista[i]>=5) {
-				System.out.println(lista[i]);
-			}
-			
+			System.out.println(lista[i]);
 		}
 		
+		for ( int i=0;i<lista.length;i++) {
+			lista[i]=lista[i]+1;
+		}
+		
+		for ( int i=0;i<lista.length;i++) {
+			System.out.println(lista[i]);
+		}
 		
 		
 	}
