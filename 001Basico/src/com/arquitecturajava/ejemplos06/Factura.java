@@ -26,7 +26,7 @@ public class Factura {
 		this.importe = importe;
 	}
 	public Factura(int numero, String concepto, double importe) {
-		super();
+		
 		this.numero = numero;
 		this.concepto = concepto;
 		this.importe = importe;
