@@ -1,6 +1,6 @@
-package ejemplos03POO;
+package ejemplos04POO;
 
-public class Objetos3Persona {
+public class Objetos4Persona {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -20,6 +20,9 @@ public class Objetos3Persona {
 		System.out.println(p2.jubilado());
 		System.out.println(p2.esMayordeEdad());
 		System.out.println(p2.getNombre()+" "+p2.getEdad());
+		
+		Persona p3= new Persona();
+		System.out.println(p3.getNombre()+" "+p3.getEdad());
 		
 		
 		
