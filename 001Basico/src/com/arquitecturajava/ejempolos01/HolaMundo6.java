@@ -1,9 +1,9 @@
-package com.arquitecturajava;
+package com.arquitecturajava.ejempolos01;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
 
-public class HolaMundo7 {
+public class HolaMundo6 {
 
 	public static void main(String[] args) {
 		

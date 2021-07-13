@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package com.arquitecturajava.ejemplos02;
 
 public class Galleta {
 	// propiedades

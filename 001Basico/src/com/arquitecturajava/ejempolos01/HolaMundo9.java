@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package com.arquitecturajava.ejempolos01;
 
 public class HolaMundo9 {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.arquitecturajava;
+package com.arquitecturajava.ejempolos01;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
