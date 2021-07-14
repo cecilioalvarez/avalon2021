@@ -37,6 +37,24 @@ public class Persona {
 		}
 		return notaMaxima;
 	}
+	
+	public Nota getNotaMejor(String asignatura) {
+		
+		int maximo = 0;
+		// instanciar la nota del alumno , simplemente referenciariamos
+		// a la que tiene en la lista
+		Nota notaMaxima = null;
+
+		for (Nota n : notas) {
+
+			if (n.getValor() > maximo && n.getAsignatura().equals(asignatura)) {
+				notaMaxima = n;
+				maximo = n.getValor();
+			}
+		}
+		return notaMaxima;
+		
+	}
 
 	public ArrayList<Nota> getNotasMejores() {
 
