@@ -1,4 +1,4 @@
-package ejercicio13;
+package ejercicio14;
 
 public class Nota {
 
@@ -28,5 +28,11 @@ public class Nota {
 		this.asignatura = asignatura;
 		this.valor = valor;
 	}
+
+	@Override
+	public String toString() {
+		return "Nota [asignatura=" + asignatura + ", valor=" + valor + "]";
+	}
+	
 
 }

@@ -30,7 +30,7 @@ public class Main {
 		
 		//Forma cecilio
 		Nota mayor = new Nota ("lengua", 0);
-		for ( Nota nota : notas) {
+		for (Nota nota : notas) {
 			if (mayor.getValor() < nota.getValor()) {
 				mayor = nota;
 			}
