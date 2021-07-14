@@ -1,6 +1,6 @@
 package com.arquitecturajava.ejemplos14;
 
-public class Principal {
+public class Objetos14 {
 
 	public static void main(String[] args) {
 		
