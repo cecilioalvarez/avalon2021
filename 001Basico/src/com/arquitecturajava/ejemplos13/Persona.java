@@ -15,6 +15,32 @@ public class Persona {
 		this.notas = notas;
 	}
 	
+	public void addNota(Nota nota) {
+		
+		this.notas.add(nota);
+	}
+	
+	public Nota getNotaMejor() {
+		
+		int maximo=0;
+		//instanciar la nota del alumno , simplemente referenciariamos
+		// a la que tiene en la lista
+		Nota notaMaxima=null;
+		
+		for (Nota n:notas) {
+			
+			if (n.getValor()>maximo) {
+				notaMaxima=n;
+				maximo=n.getValor();
+			}
+		}
+		return notaMaxima;
+	}
+	
+	public void removenota(Nota nota) {
+		
+		this.notas.remove(nota);
+	}
 	
 	public String getNombre() {
 		return nombre;
