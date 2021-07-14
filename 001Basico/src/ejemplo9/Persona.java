@@ -7,14 +7,15 @@ public class Persona {
 	//variable que no es una cadena 
 	//ni es un tipo basico
 	//
-	private int Telefono
+	private Telefono telefono;
 	
 	
-	public int getTelefono() {
-		return Telefono;
+	
+	public Telefono getTelefono() {
+		return telefono;
 	}
-	public void setTelefono(int telefono) {
-		Telefono = telefono;
+	public void setTelefono(Telefono telefono) {
+		this.telefono = telefono;
 	}
 	public String getNombre() {
 		return nombre;
@@ -28,11 +29,11 @@ public class Persona {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-	public Persona(String nombre, int edad, int telefono) {
+	public Persona(String nombre, int edad, Telefono telefono) {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
-		Telefono = telefono;
+		this.telefono = telefono;
 	}
 	
 	

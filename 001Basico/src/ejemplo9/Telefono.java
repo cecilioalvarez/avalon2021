@@ -17,12 +17,13 @@ public class Telefono {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	
 	public Telefono(int numero, String marca) {
 		super();
 		this.numero = numero;
 		this.marca = marca;
 	}
+	
+	
 	
 	
 }
