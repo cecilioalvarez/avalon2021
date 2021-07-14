@@ -51,7 +51,7 @@ public class Persona {
 		Nota notaMax=null;
 		for (Nota nota : notas) {
 			
-			if (nota.getValor()>notaMax.getValor()) {
+			if (nota.getValor()>valorMax) {
 				notaMax=nota;
 				valorMax=notaMax.getValor();
 			}
@@ -65,37 +65,40 @@ public class Persona {
 		ArrayList<Nota> mejoresNotas = new ArrayList<Nota>();
 		
 		int valorMax=0;
+		
+		//Cecilio
 		for (Nota nota : notas) {
 			
 			if (nota.getValor()>valorMax) {
 				valorMax=nota.getValor();
 			}
-			mejoresNotas.add(nota);
 				
 		}
 		
-		for (Nota nota : mejoresNotas) {
-			if(nota.getValor()<valorMax) {
-				mejoresNotas.remove(nota);
-			}
-		}
-		
-		//Cecilio
-		/*for (Nota nota : notas) {
-			
-			if (nota.getValor()>valorMax) {
-				valorMax=nota.getValor();
-			}
-				
-		}
-		
-		for (Nota nota : mejoresNotas) {
+		for (Nota nota : notas) {
 			if(nota.getValor()==valorMax) {
 				mejoresNotas.add(nota);
 			}
-		}*/
+		}
 		
 		return mejoresNotas;
+		
+	}
+	
+	public Nota getNotaMejor(String asignatura) {
+		
+		int valorMax=0;
+		Nota notaMax=null;
+		for (Nota nota : notas) {
+			
+			if (nota.getValor()>valorMax 
+					&& nota.getAsignatura().equals(asignatura)) {
+				notaMax=nota;
+				valorMax=notaMax.getValor();
+			}
+				
+		}
+		return notaMax;
 		
 	}
 	
