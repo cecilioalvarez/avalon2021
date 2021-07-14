@@ -27,7 +27,8 @@ public class Persona {
 		// instanciar la nota del alumno , simplemente referenciariamos
 		// a la que tiene en la lista
 		Nota notaMaxima = null;
-
+		
+		
 		for (Nota n : notas) {
 
 			if (n.getValor() > maximo) {
@@ -44,7 +45,7 @@ public class Persona {
 		// instanciar la nota del alumno , simplemente referenciariamos
 		// a la que tiene en la lista
 		Nota notaMaxima = null;
-
+		//es una variable local que se inicializa
 		for (Nota n : notas) {
 
 			if (n.getValor() > maximo && n.getAsignatura().equals(asignatura)) {
