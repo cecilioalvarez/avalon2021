@@ -1,9 +1,9 @@
-package ejemplos02;
+package ejercicio09;
 
 public class Persona {
-
 	String nombre;
 	int edad;
+	Telefono mitel;
 	
 	
 
@@ -24,27 +24,21 @@ public class Persona {
 	}
 	
 
-
-	public boolean isJubilado() {
-
-		if (edad > 65) {
-			return true;
-		} else {
-			return false;
-
-		}
-
+	public Telefono getMitel() {
+		return mitel;
 	}
 
-	public boolean isMayorEdad() {
-
-		if (edad > 18) {
-			return true;
-		} else {
-			return false;
-
-		}
-
+	public void setMitel(Telefono mitel) {
+		this.mitel = mitel;
 	}
+
+	public Persona(String nombre, int edad, Telefono mitel) {
+		super();
+		this.nombre = nombre;
+		this.edad = edad;
+		this.mitel = mitel;
+	}
+
+
 
 }
