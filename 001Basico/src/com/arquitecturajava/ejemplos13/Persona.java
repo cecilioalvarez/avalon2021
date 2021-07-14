@@ -1,9 +1,21 @@
 package com.arquitecturajava.ejemplos13;
 
+import java.util.ArrayList;
+
 public class Persona {
 
 	private String nombre;
 	private int edad;
+	private ArrayList<Nota> notas= new ArrayList<Nota>();
+	
+	public ArrayList<Nota> getNotas() {
+		return notas;
+	}
+	public void setNotas(ArrayList<Nota> notas) {
+		this.notas = notas;
+	}
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
