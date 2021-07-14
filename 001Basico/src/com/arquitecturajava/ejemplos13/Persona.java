@@ -37,6 +37,10 @@ public class Persona {
 		return notaMaxima;
 	}
 	
+	
+	
+	
+	
 	public void removenota(Nota nota) {
 		
 		this.notas.remove(nota);
