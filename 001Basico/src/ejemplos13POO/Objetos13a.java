@@ -22,7 +22,7 @@ public class Objetos13a {
 			System.out.println("Notas Máximas: "+n);
 		}
 		System.out.println("-----------");
-		Nota nota = p.getNotaMejor("lengua");
+		Nota nota = p.getNotaMax("lengua");
 		System.out.println("Mejor Nota en "+nota.getAsignatura()+": "+nota.getValor());
 		
 		

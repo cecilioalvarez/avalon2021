@@ -60,6 +60,22 @@ public class Persona {
 		return notaMax;
 		
 	}
+	public Nota getNotaMax(String asignatura) {
+		
+		int valorMax=0;
+		Nota notaMax=null;
+		for (Nota nota : notas) {
+			
+			if (nota.getValor()>valorMax 
+					&& nota.getAsignatura().equals(asignatura)) {
+				notaMax=nota;
+				valorMax=notaMax.getValor();
+			}
+				
+		}
+		return notaMax;
+		
+	}
 	
 	public ArrayList<Nota> getMejoresNotas() {
 		ArrayList<Nota> mejoresNotas = new ArrayList<Nota>();
@@ -85,22 +101,7 @@ public class Persona {
 		
 	}
 	
-	public Nota getNotaMejor(String asignatura) {
-		
-		int valorMax=0;
-		Nota notaMax=null;
-		for (Nota nota : notas) {
-			
-			if (nota.getValor()>valorMax 
-					&& nota.getAsignatura().equals(asignatura)) {
-				notaMax=nota;
-				valorMax=notaMax.getValor();
-			}
-				
-		}
-		return notaMax;
-		
-	}
+	
 	
 	
 }
