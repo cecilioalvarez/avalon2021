@@ -5,6 +5,10 @@ public class Nota {
 	private String asignatura;
 	private int valor;
 	
+	public Nota(String asignatura) {
+		this.asignatura = asignatura;
+	}
+	
 	public Nota(String asignatura, int valor) {
 		super();
 		this.asignatura = asignatura;

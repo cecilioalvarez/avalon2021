@@ -47,15 +47,42 @@ public class Persona {
 	}
 	
 	public Nota getNotaMax() {
-		Nota notaMax=new Nota("",0);
+		int valorMax=0;
+		Nota notaMax=null;
 		for (Nota nota : notas) {
 			
 			if (nota.getValor()>notaMax.getValor()) {
 				notaMax=nota;
+				valorMax=notaMax.getValor();
 			}
 				
 		}
 		return notaMax;
 		
 	}
+	
+	public ArrayList<Nota> getMejoresNotas() {
+		ArrayList<Nota> mejoresNotas = new ArrayList<Nota>();
+		
+		int valorMax=0;
+		for (Nota nota : notas) {
+			
+			if (nota.getValor()>valorMax) {
+				valorMax=nota.getValor();
+			}
+			mejoresNotas.add(nota);
+				
+		}
+		
+		for (Nota nota : mejoresNotas) {
+			if(nota.getValor()<valorMax) {
+				mejoresNotas.remove(nota);
+			}
+		}
+		
+		return mejoresNotas;
+		
+	}
+	
+	
 }
