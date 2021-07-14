@@ -1,0 +1,61 @@
+package ejemplos13POO;
+
+import java.util.ArrayList;
+
+public class Persona {
+
+	private String nombre;
+	private int edad;
+	
+	private ArrayList<Nota> notas = new ArrayList<Nota>();
+	
+	//Constructor
+	public Persona(String nombre, int edad) {
+		super();
+		this.nombre = nombre;
+		this.edad = edad;
+	}
+	
+	
+	//Getter y Setters
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public int getEdad() {
+		return edad;
+	}
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	public ArrayList<Nota> getNotas() {
+		return notas;
+	}
+	public void setNotas(ArrayList<Nota> notas) {
+		this.notas = notas;
+	}
+	
+	//metodos
+	
+	public void addNota(Nota nota) {
+		this.notas.add(nota);
+	}
+	public void removeNota(Nota nota) {
+		this.notas.remove(nota);
+	}
+	
+	public Nota getNotaMax() {
+		Nota notaMax=new Nota("",0);
+		for (Nota nota : notas) {
+			
+			if (nota.getValor()>notaMax.getValor()) {
+				notaMax=nota;
+			}
+				
+		}
+		return notaMax;
+		
+	}
+}
