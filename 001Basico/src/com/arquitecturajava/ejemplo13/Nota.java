@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejemplo14;
+package com.arquitecturajava.ejemplo13;
 
 public class Nota {
 	
@@ -10,6 +10,10 @@ public class Nota {
 		super();
 		this.asignatura = asignatura;
 		this.valor = valor;
+	}
+	public Nota() {
+		this.asignatura = "mates";
+		this.valor = 0;
 	}
 	public String getAsignatura() {
 		return asignatura;

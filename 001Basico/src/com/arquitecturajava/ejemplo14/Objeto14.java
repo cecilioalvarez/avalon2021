@@ -25,6 +25,7 @@ public class Objeto14 {
 			
 		}
 		System.out.println(sumaNotas/notas.size());
+		System.out.println(mayor);
 		
 	}
 	
