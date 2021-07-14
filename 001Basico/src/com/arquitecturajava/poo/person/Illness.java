@@ -6,7 +6,7 @@ public class Illness {
     private Extent extent;
 
     Illness() {
-        this.setName("Desconocida");
+        this.setName("causa desconocida");
         this.setExtent(Extent.MEDIUM);
     }
 

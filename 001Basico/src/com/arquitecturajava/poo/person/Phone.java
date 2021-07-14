@@ -7,7 +7,7 @@ class Phone {
     
     Phone() {
         this.setNumber(600000000);
-        this.setBrand("Sin marca");
+        this.setBrand("sin marca");
     }
 
     Phone(int number, String brand) {

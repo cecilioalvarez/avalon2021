@@ -28,6 +28,6 @@ public class Calification {
 
     @Override
     public String toString() {
-        return this.getSubject() + ": " + this.getValue();
+        return this.getSubject() + " [" + this.getValue() + "]";
     }
 }

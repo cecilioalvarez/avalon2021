@@ -17,7 +17,7 @@ class Person {
     Person() {
         this.setName("Anónimo");
         this.setAge(0);
-        this.setPhone(new Phone());
+        this.setPhone(null);
         this.setPet(null);
         this.setGender(Gender.OTHER);
         this.setCalifications(new ArrayList<>());
@@ -95,7 +95,7 @@ class Person {
     @Override
     public String toString() {
         String string = this.getName() + " tiene " + this.getAge() + " años. "
-                + "Tiene un teléfono " + this.getPhone().toString() + ". "
+                + (this.getPhone() == null ? "No tiene teléfono. " : "Tiene un teléfono " + this.getPhone().toString() + ". ")
                 + (this.getPet() == null ? "No tiene mascota." : this.getPet().toString())
                 + (this.isAdult() ? " Es" : " No es") + " mayor de edad y "
                 + (this.isRetired() ? "está" : "no está") + " jubilad";
