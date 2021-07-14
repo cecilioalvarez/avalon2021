@@ -7,52 +7,79 @@ class Person {
 
     private String name;
     private int age;
+    private Phone phone;
     private Gender gender;
+    private Pet pet;
 
     Person() {
+        this.setName("Anónimo");
+        this.setAge(0);
+        this.setPhone(new Phone());
+        this.setPet(null);
+        this.setGender(Gender.OTHER);
     }
 
-    Person(String name, int age, Gender gender) {
+    Person(String name, int age, Phone phone, Pet pet, Gender gender) {
+        this.setName(name);
+        this.setAge(age);
+        this.setPhone(phone);
+        this.setPet(pet);
+        this.setGender(gender);
+    }
+
+    String getName() {
+        return this.name;
+    }
+
+    void setName(String name) {
         this.name = name;
+    }
+
+    int getAge() {
+        return this.age;
+    }
+
+    void setAge(int age) {
         this.age = age;
+    }
+
+    Phone getPhone() {
+        return this.phone;
+    }
+
+    void setPhone(Phone phone) {
+        this.phone = phone;
+    }
+
+    Gender getGender() {
+        return this.gender;
+    }
+
+    void setGender(Gender gender) {
         this.gender = gender;
     }
 
-    public String getName() {
-        return name;
+    Pet getPet() {
+        return this.pet;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    void setPet(Pet pet) {
+        this.pet = pet;
     }
     
     boolean isAdult() {
-        return this.age >= LEGAL_AGE;
+        return this.getAge() >= LEGAL_AGE;
     }
     
     boolean isRetired() {
-        return this.age >= RETIREMENT_AGE;
+        return this.getAge() >= RETIREMENT_AGE;
     }
 
     @Override
     public String toString() {
-        String string = this.getName() + " y tiene " + this.getAge() + " años. " 
+        String string = this.getName() + " tiene " + this.getAge() + " años. "
+                + "Tiene un teléfono " + this.getPhone().toString() + ". "
+                + (this.getPet() == null ? "No tiene mascota. " : "Su mascota se llama " + this.getPet().getName() + ". ")
                 + (this.isAdult() ? "Es" : "No es") + " mayor de edad y "
                 + (this.isRetired() ? "está" : "no está") + " jubilad";
         switch (this.getGender()) {

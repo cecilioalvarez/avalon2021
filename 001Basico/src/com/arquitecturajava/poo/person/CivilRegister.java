@@ -24,15 +24,16 @@ class CivilRegister {
         Person person = new Person();
         person.setName("Manuel");
         person.setAge(17);
+        person.setPet(new Pet("Calcetines"));
         person.setGender(Gender.MALE);
         
         CivilRegister civilRegister = new CivilRegister(person);
         civilRegister.showPersonData();
         
-        civilRegister.setPerson(new Person("Francisca", 89, Gender.FEMALE));
+        civilRegister.setPerson(new Person("Francisca", 89, new Phone(722597102, "Motorola"), new Pet("Toby"), Gender.FEMALE));
         civilRegister.showPersonData();
         
-        civilRegister.setPerson(new Person("Andrea", 52, Gender.OTHER));
+        civilRegister.setPerson(new Person("Andrea", 52, new Phone(654880307, "Sony"), null, Gender.OTHER));
         civilRegister.showPersonData();
     }
 }
