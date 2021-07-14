@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejemplos6;
+package com.arquitecturajava.ejemplos06;
 
 public class Factura {
 	private int numero;
