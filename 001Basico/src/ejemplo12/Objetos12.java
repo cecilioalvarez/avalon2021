@@ -1,15 +1,17 @@
 package ejemplo12;
 
+import java.util.ArrayList;
+
 public class Objetos12 {
 
 	public static void main(String[] args) {
 
-		ArrayList<String> lista= new ArrayList<String>();
-		
+		ArrayList<String> lista = new ArrayList<String>();
+
 		lista.add("hola");
 		lista.add("que");
 		lista.add("tal");
-		lista.add("estas");
+		list a.add("estas");
 		lista.remove(0);
 		lista.remove("estas");
 
@@ -20,6 +22,7 @@ public class Objetos12 {
 		System.out.println("***************");
 
 		Iterator<String> it = lista.iterator();
+
 		while (it.hasNext()) {
 
 			System.out.println(it.next());
