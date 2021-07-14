@@ -24,22 +24,7 @@ class CivilRegister {
     
     private void showCalifications() {
         this.PEOPLE.forEach(person -> {
-            if (person.getCalifications().isEmpty()) {
-                System.out.println(person.getName() + " no tiene notas registradas.");
-            } else {
-                int califications_count = 0, califications_sum = 0;
-                Calification highest_calification = null;
-                
-                for (Calification calification : person.getCalifications()) {
-                    califications_count++;
-                    califications_sum += calification.getValue();
-                    if (highest_calification == null || calification.getValue() >= highest_calification.getValue()) {
-                        highest_calification = calification;
-                    }
-                }
-                System.out.println(person.getName() + " tiene " + califications_count + " notas registradas. Su media es de " 
-                        + (califications_sum/califications_count) + " y su nota más alta es " + highest_calification.toString() + ".");
-            }
+            System.out.println(person.getName() + " " + (person.getCalificationsResume() == null ? "no tiene notas registradas." : person.getCalificationsResume().toString()));
         });
     }
 

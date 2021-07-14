@@ -84,6 +84,24 @@ class Person {
         this.califications.add(calification);
     }
     
+    CalificationsResume getCalificationsResume() {
+        if (this.getCalifications().isEmpty()) {
+                return null;
+            } else {
+                int califications_count = 0, califications_sum = 0;
+                Calification highest_calification = null;
+                
+                for (Calification calification : this.getCalifications()) {
+                    califications_count++;
+                    califications_sum += calification.getValue();
+                    if (highest_calification == null || calification.getValue() >= highest_calification.getValue()) {
+                        highest_calification = calification;
+                    }
+                }
+                return new CalificationsResume(califications_count, (califications_sum/califications_count), highest_calification);
+            }
+    }
+    
     boolean isAdult() {
         return this.getAge() >= LEGAL_AGE;
     }
@@ -106,6 +124,49 @@ class Person {
                 return string + "o.";
             case OTHER: default:
                 return string + "e.";
+        }
+    }
+    
+    class CalificationsResume {
+        
+        private int califications_count;
+        private int califications_average;
+        private Calification highest_calification;
+
+        public CalificationsResume(int califications_count, int califications_average, Calification highest_calification) {
+            this.setCalifications_count(califications_count);
+            this.setCalifications_average(califications_average);
+            this.setHighest_calification(highest_calification);
+        }
+
+        public int getCalifications_count() {
+            return this.califications_count;
+        }
+
+        public void setCalifications_count(int califications_count) {
+            this.califications_count = califications_count;
+        }
+
+        public int getCalifications_average() {
+            return this.califications_average;
+        }
+
+        public void setCalifications_average(int califications_average) {
+            this.califications_average = califications_average;
+        }
+
+        public Calification getHighest_calification() {
+            return this.highest_calification;
+        }
+
+        public void setHighest_calification(Calification highest_calification) {
+            this.highest_calification = highest_calification;
+        }
+
+        @Override
+        public String toString() {
+            return "tiene " + this.getCalifications_count() + " notas registradas y una media de " + this.getCalifications_average()
+                    + ". Su nota más alta es " + this.getHighest_calification().toString() + ".";
         }
     }
 }
