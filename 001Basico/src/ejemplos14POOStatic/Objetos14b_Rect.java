@@ -12,7 +12,7 @@ public class Objetos14b_Rect {
 		Rectangulo r= new Rectangulo(3,4);
 		System.out.println(Rectangulo.getPerimeter(r.getLado1(), r.getLado2()));
 		System.out.println(Rectangulo.getArea(r.getLado1(), r.getLado2()));
-		System.out.println(r.area);
+		System.out.println(r.getArea());
 	}
 
 }
