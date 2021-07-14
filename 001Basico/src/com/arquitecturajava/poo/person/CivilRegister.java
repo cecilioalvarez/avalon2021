@@ -38,11 +38,13 @@ class CivilRegister {
         person.setGender(Gender.MALE);
         person.addCalification(new Calification("Sistemas informáticos", 4));
         person.addCalification(new Calification("Programación", 9));
-        person.addCalification(new Calification("Entornos de desarrollo", 7));
+        person.addCalification(new Calification("Entornos de desarrollo", 9));
         person.addCalification(new Calification("Lenguajes de marcas y sistemas de gestión de la información", 7));
         person.addCalification(new Calification("Formación y orientación laboral", 5));
         
         civilRegister.addPerson(person);
+        // person.removeCalification("Sistemas informáticos");
+        // person.removeCalification(0);
         civilRegister.addPerson(new Person("Francisca", 89, new Phone(722597102, "Motorola"), new Pet("Toby", new Illness("fibrosis", Extent.ACUTE)), Gender.FEMALE));
         civilRegister.addPerson(new Person("Andrea", 52, new Phone(654880307, "Sony"), null, Gender.OTHER));
         

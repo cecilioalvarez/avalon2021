@@ -84,21 +84,40 @@ class Person {
         this.califications.add(calification);
     }
     
+    void removeCalification(int index) {
+        this.califications.remove(index);
+    }
+    
+    void removeCalification(String subject) {
+        this.califications.forEach(calification -> {
+            if (calification.getSubject().equalsIgnoreCase(subject)) {
+                this.califications.remove(calification);
+            }
+        });
+    }
+    
     CalificationsResume getCalificationsResume() {
         if (this.getCalifications().isEmpty()) {
                 return null;
             } else {
                 int califications_count = 0, califications_sum = 0;
-                Calification highest_calification = null;
+                ArrayList<Calification> highest_califications = new ArrayList<>();
                 
                 for (Calification calification : this.getCalifications()) {
                     califications_count++;
                     califications_sum += calification.getValue();
-                    if (highest_calification == null || calification.getValue() >= highest_calification.getValue()) {
-                        highest_calification = calification;
+                    if (highest_califications.isEmpty()) {
+                        highest_califications.add(calification);
+                    } else {
+                        if (calification.getValue() > highest_califications.get(0).getValue()) {
+                            highest_califications.clear();
+                            highest_califications.add(calification);
+                        } else if (calification.getValue() == highest_califications.get(0).getValue()) {
+                            highest_califications.add(calification);
+                        }
                     }
                 }
-                return new CalificationsResume(califications_count, (califications_sum/califications_count), highest_calification);
+                return new CalificationsResume(califications_count, (califications_sum/califications_count), highest_califications);
             }
     }
     
@@ -131,12 +150,12 @@ class Person {
         
         private int califications_count;
         private int califications_average;
-        private Calification highest_calification;
+        private ArrayList<Calification> highest_califications;
 
-        public CalificationsResume(int califications_count, int califications_average, Calification highest_calification) {
+        public CalificationsResume(int califications_count, int califications_average, ArrayList<Calification> highest_califications) {
             this.setCalifications_count(califications_count);
             this.setCalifications_average(califications_average);
-            this.setHighest_calification(highest_calification);
+            this.setHighest_califications(highest_califications);
         }
 
         public int getCalifications_count() {
@@ -155,18 +174,18 @@ class Person {
             this.califications_average = califications_average;
         }
 
-        public Calification getHighest_calification() {
-            return this.highest_calification;
+        public ArrayList<Calification> getHighest_califications() {
+            return this.highest_califications;
         }
 
-        public void setHighest_calification(Calification highest_calification) {
-            this.highest_calification = highest_calification;
+        public void setHighest_califications(ArrayList<Calification> highest_califications) {
+            this.highest_califications = highest_califications;
         }
 
         @Override
         public String toString() {
             return "tiene " + this.getCalifications_count() + " notas registradas y una media de " + this.getCalifications_average()
-                    + ". Su nota más alta es " + this.getHighest_calification().toString() + ".";
+                    + ". Su(s) nota(s) más alta(s) es/son " + this.getHighest_califications().toString() + ".";
         }
     }
 }
