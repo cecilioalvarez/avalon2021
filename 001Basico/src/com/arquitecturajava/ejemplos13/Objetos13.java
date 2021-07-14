@@ -28,7 +28,9 @@ public class Objetos13 {
 			sumaNotas+=nota.getValor();
 		}
 
+	
 		System.out.println(sumaNotas/notas.size());
+		System.out.println(mayor);
 	}
 
 }
