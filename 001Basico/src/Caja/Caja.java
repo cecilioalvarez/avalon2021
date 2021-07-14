@@ -5,6 +5,7 @@ public class Caja {
 	private double lado1;
 	private double lado2;
 	private double lado3;
+	
 	public double getLado1() {
 		return lado1;
 	}
@@ -25,11 +26,18 @@ public class Caja {
 	}
 	public Caja(double lado1,double lado2,double lado3) {
 		super();
-		this.lado1=lado1;
-		this.lado2=lado2;
-		this.lado3=lado3;
+		this.setLado1(lado1);
+		this.setLado2(lado2);
+		this.setLado3(lado3);
 	}
+	
 	public double getVolumen() {
-		return this.getLado1()*getLado3()*getLado2();
+		return this.getLado1()*this.getLado3()*this.getLado2();
+		}
+	public double getVolumenHuecoMinimo() {
+		return this.getVolumen()*1.20;
+		}
+	public Caja getCajaVolumenHuecoMinimo() {
+		return new Caja(this.getLado1()*1.20,this.getLado2()*1.20,this.getLado3()*1.20);
 		}
 }

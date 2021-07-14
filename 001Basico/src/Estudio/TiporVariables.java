@@ -12,6 +12,7 @@ public class TiporVariables {
 		double valor6 = 87692.232332;
 		boolean valor7 = true;
 		char valor8 = 't';
+		String valor9 = "cadena de texto";
 		
 		System.out.println(valor);
 		System.out.println(valor2);
@@ -21,6 +22,7 @@ public class TiporVariables {
 		System.out.println(valor6);
 		System.out.println(valor7);
 		System.out.println(valor8);
+		System.out.println(valor9);
 		
 
 	}
