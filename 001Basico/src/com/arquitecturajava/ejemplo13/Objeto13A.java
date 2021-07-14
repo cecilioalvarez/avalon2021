@@ -10,6 +10,7 @@ public class Objeto13A {
 		p.addNota(new Nota("mates",7));
 		p.addNota(new Nota("ingles",8));
 		p.addNota(new Nota("fisica",8));
+		p.addNota(new Nota("lengua",7));
 		
 		for( Nota n: p.getNotas()) {
 			System.out.println(n);
@@ -18,6 +19,8 @@ public class Objeto13A {
 		System.out.println(p.getNotaMejor());
 		System.out.println("**********");
 		System.out.println(p.getMejoresNotas());
+		System.out.println("**********");
+		System.out.println(p.getNotaMejorAsignatura("lengua"));
 		
 
 	}

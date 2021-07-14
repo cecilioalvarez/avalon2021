@@ -73,7 +73,19 @@ public class Persona {
 		
 		return listanotas;
 		
-		
 	}
+	
+	public Nota getNotaMejorAsignatura(String asignatura) {
+		Nota notamax=new Nota();
+		for(Nota  n: notas) {
+			if(n.getAsignatura().equals(asignatura)) {
+				if(n.getValor()>notamax.getValor()) {
+					notamax=n;
+				}
+			}
+		}
+		return notamax;
+	}
+	
 
 }
