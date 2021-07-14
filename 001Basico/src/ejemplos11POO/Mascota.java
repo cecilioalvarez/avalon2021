@@ -3,6 +3,7 @@ package ejemplos11POO;
 public class Mascota {
 
 	private String nombre;
+	private Enfermedad enfermedad;
 
 	public Mascota(String nombre) {
 		super();
@@ -15,6 +16,14 @@ public class Mascota {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public Enfermedad getEnfermedad() {
+		return enfermedad;
+	}
+
+	public void setEnfermedad(Enfermedad enfermedad) {
+		this.enfermedad = enfermedad;
 	}
 	
 	
