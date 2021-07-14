@@ -2,5 +2,19 @@ package ejemplo11;
 
 public class Mascota {
 	String nombre;
-	int edad;
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Mascota(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+	
+	
 }
