@@ -22,4 +22,12 @@ public class Nota {
 		this.asignatura = asignatura;
 		this.valor = valor;
 	}
+	
+	//Metodo toString
+	@Override
+	public String toString() {
+		return "Nota [asignatura=" + asignatura + ", valor=" + valor + "]";
+	}
+	
+	
 }
