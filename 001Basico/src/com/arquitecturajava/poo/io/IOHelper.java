@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class IOHelper {
     
-    public static String askForText() {
+    public static String askForText(String dataName) {
         String string = null;
         boolean valid = false;
         do {
-            System.out.print("Introduce el texto:\t");
+            System.out.print("Introduce " + dataName + ":\t");
             try {
                 string = new Scanner(System.in).next();
                 valid = true;
@@ -20,11 +20,11 @@ public class IOHelper {
         return string;
     }
     
-    public static int askForInt() {
+    public static int askForInt(String dataName) {
         int number = 0;
         boolean valid = false;
         do {
-            System.out.print("Introduce el número entero:\t");
+            System.out.print("Introduce " + dataName + ":\t");
             try {
                 number = new Scanner(System.in).nextInt();
                 valid = true;
@@ -35,11 +35,11 @@ public class IOHelper {
         return number;
     }
     
-    public static double askForDouble() {
+    public static double askForDouble(String dataName) {
         double number = 0;
         boolean valid = false;
         do {
-            System.out.print("Introduce el número decimal:\t");
+            System.out.print("Introduce " + dataName + ":\t");
             try {
                 number = new Scanner(System.in).nextDouble();
                 valid = true;

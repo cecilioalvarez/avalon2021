@@ -2,7 +2,7 @@ package com.arquitecturajava.poo.geometry;
 
 class Circle implements GeometricFigure {
 
-    private static final String NAME = "círculo";
+    static final String NAME = "círculo";
     private double radius;
 
     Circle(double radius) {
@@ -14,7 +14,13 @@ class Circle implements GeometricFigure {
     }
 
     void setRadius(double radius) {
-        this.radius = radius;
+        if (this.validateRadius(radius)) {
+            this.radius = radius;
+        }
+    }
+    
+    boolean validateRadius(double radius) {
+        return radius > 0;
     }
     
     @Override
@@ -23,8 +29,8 @@ class Circle implements GeometricFigure {
     }
 
     @Override
-    public double getLength() {
-        return GeometryCalculator.getLength(this);
+    public double getPerimeter() {
+        return GeometryCalculator.getPerimeter(this);
     }
 
     @Override

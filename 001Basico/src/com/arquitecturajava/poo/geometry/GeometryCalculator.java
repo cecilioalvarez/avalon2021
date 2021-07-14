@@ -10,11 +10,11 @@ class GeometryCalculator {
         return circle.getRadius() * Math.pow(Math.PI, 2);
     }
     
-    static double getLength(Rectangle rectangle) {
+    static double getPerimeter(Rectangle rectangle) {
         return rectangle.getHeight() * 2 + rectangle.getWidth() * 2;
     }
     
-    static double getLength(Circle circle) {
+    static double getPerimeter(Circle circle) {
         return circle.getRadius() * 2 * Math.PI;
     }
 }

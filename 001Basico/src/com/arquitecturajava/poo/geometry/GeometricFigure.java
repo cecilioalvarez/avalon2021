@@ -3,6 +3,6 @@ package com.arquitecturajava.poo.geometry;
 interface GeometricFigure {
     
     double getArea();
-    double getLength();
+    double getPerimeter();
     String getName();
 }

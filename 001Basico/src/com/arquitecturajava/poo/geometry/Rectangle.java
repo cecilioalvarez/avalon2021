@@ -2,7 +2,7 @@ package com.arquitecturajava.poo.geometry;
 
 class Rectangle implements GeometricFigure {
 
-    private static final String NAME = "rectángulo";
+    static final String NAME ="rectángulo";
     private double width;
     private double height;
     
@@ -21,7 +21,9 @@ class Rectangle implements GeometricFigure {
     }
 
     void setWidth(double width) {
-        this.width = width;
+        if (this.validateSide(width)) {
+            this.width = width;
+        }
     }
 
     double getHeight() {
@@ -29,7 +31,13 @@ class Rectangle implements GeometricFigure {
     }
 
     void setHeight(double height) {
-        this.height = height;
+        if (this.validateSide(height)) {
+            this.height = height;
+        }
+    }
+    
+    private boolean validateSide(double side) {
+        return side > 0;
     }
     
     @Override
@@ -38,8 +46,8 @@ class Rectangle implements GeometricFigure {
     }
     
     @Override
-    public double getLength() {
-        return GeometryCalculator.getLength(this);
+    public double getPerimeter() {
+        return GeometryCalculator.getPerimeter(this);
     }
 
     @Override
