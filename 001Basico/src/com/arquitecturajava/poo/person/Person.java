@@ -79,8 +79,8 @@ class Person {
     public String toString() {
         String string = this.getName() + " tiene " + this.getAge() + " años. "
                 + "Tiene un teléfono " + this.getPhone().toString() + ". "
-                + (this.getPet() == null ? "No tiene mascota. " : "Su mascota se llama " + this.getPet().getName() + ". ")
-                + (this.isAdult() ? "Es" : "No es") + " mayor de edad y "
+                + (this.getPet() == null ? "No tiene mascota." : this.getPet().toString())
+                + (this.isAdult() ? " Es" : " No es") + " mayor de edad y "
                 + (this.isRetired() ? "está" : "no está") + " jubilad";
         switch (this.getGender()) {
             case FEMALE:
