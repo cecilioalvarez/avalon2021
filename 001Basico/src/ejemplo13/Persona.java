@@ -1,5 +1,7 @@
 package ejemplo13;
 
+import java.util.ArrayList;
+
 public class Persona {
 	
 	private String nombre;
@@ -25,14 +27,14 @@ public class Persona {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-	public Persona(String nombre, int edad, ArrayList<Nota> notas) {
+	public Persona(String nombre, int edad) {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
-		this.notas = notas;
+		
 	}
 	
 	
-	}
+	
 
 }

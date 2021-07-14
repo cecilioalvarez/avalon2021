@@ -17,4 +17,9 @@ public class Mascota {
 	public void setGravedad(int gravedad) {
 		this.gravedad = gravedad;
 	}
+	public Mascota(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
+	
 }
