@@ -1,6 +1,7 @@
 package com.arquitecturajava.poo.person;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 class Person {
     
@@ -88,37 +89,51 @@ class Person {
         this.califications.remove(index);
     }
     
-    void removeCalification(String subject) {
-        this.califications.forEach(calification -> {
+    Calification getHighestCalification(String subject) {
+        Calification highestCalification = null;
+        for (Calification calification : this.califications) {
             if (calification.getSubject().equalsIgnoreCase(subject)) {
-                this.califications.remove(calification);
+                if (highestCalification == null || calification.getValue() > highestCalification.getValue()) {
+                    highestCalification = calification;
+                }
             }
-        });
+        }
+        return highestCalification;
+    }
+    
+    void removeCalification(String subject) {
+        Iterator<Calification> iterator = this.califications.iterator();
+        while (iterator.hasNext()) {
+            Calification calification = iterator.next();
+            if (calification.getSubject().equalsIgnoreCase(subject)) {
+                iterator.remove();
+            }
+        }
     }
     
     CalificationsResume getCalificationsResume() {
         if (this.getCalifications().isEmpty()) {
-                return null;
-            } else {
-                int califications_count = 0, califications_sum = 0;
-                ArrayList<Calification> highest_califications = new ArrayList<>();
-                
-                for (Calification calification : this.getCalifications()) {
-                    califications_count++;
-                    califications_sum += calification.getValue();
-                    if (highest_califications.isEmpty()) {
+            return null;
+        } else {
+            int califications_count = 0, califications_sum = 0;
+            ArrayList<Calification> highest_califications = new ArrayList<>();
+
+            for (Calification calification : this.getCalifications()) {
+                califications_count++;
+                califications_sum += calification.getValue();
+                if (highest_califications.isEmpty()) {
+                    highest_califications.add(calification);
+                } else {
+                    if (calification.getValue() > highest_califications.get(0).getValue()) {
+                        highest_califications.clear();
                         highest_califications.add(calification);
-                    } else {
-                        if (calification.getValue() > highest_califications.get(0).getValue()) {
-                            highest_califications.clear();
-                            highest_califications.add(calification);
-                        } else if (calification.getValue() == highest_califications.get(0).getValue()) {
-                            highest_califications.add(calification);
-                        }
+                    } else if (calification.getValue() == highest_califications.get(0).getValue()) {
+                        highest_califications.add(calification);
                     }
                 }
-                return new CalificationsResume(califications_count, (califications_sum/califications_count), highest_califications);
             }
+            return new CalificationsResume(califications_count, (califications_sum/califications_count), highest_califications);
+        }
     }
     
     boolean isAdult() {

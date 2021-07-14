@@ -1,5 +1,7 @@
 package com.arquitecturajava.poo.rectangle;
 
+import com.arquitecturajava.poo.io.IOHelper;
+
 public class DimensionViewer {
     
     private Rectangle rectangle;
@@ -14,6 +16,6 @@ public class DimensionViewer {
     }
     
     public static void main(String[] args) {
-        new DimensionViewer(new Rectangle(10, 5)).showDimensions();
+        new DimensionViewer(new Rectangle(IOHelper.askForDouble(), IOHelper.askForDouble())).showDimensions();
     }
 }
