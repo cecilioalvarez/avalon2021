@@ -23,6 +23,11 @@ public class Nota {
 	public void setValor(int valor) {
 		this.valor = valor;
 	}
+
+	@Override
+	public String toString() {
+		return "Nota [asignatura=" + asignatura + ", valor=" + valor + "]";
+	}
 	
 	
 }

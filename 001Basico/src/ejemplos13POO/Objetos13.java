@@ -28,6 +28,7 @@ public class Objetos13 {
 		System.out.println("La suma de Notas: "+suma);
 		System.out.println("La Media de Notas: "+suma/notas.size());
 		System.out.println("La Nota Maxima: "+notaMax.getValor());
+		System.out.println(notaMax);
 		
 	}
 
