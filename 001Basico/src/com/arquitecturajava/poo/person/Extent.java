@@ -1,6 +1,6 @@
 package com.arquitecturajava.poo.person;
 
-public enum Extent {
+enum Extent {
     ACUTE("aguda"), 
     MEDIUM("media"),
     SERIOUS("grave");

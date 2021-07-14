@@ -1,5 +1,7 @@
 package com.arquitecturajava.poo.person;
 
+import java.util.ArrayList;
+
 class Person {
     
     private static final int RETIREMENT_AGE = 65;
@@ -10,13 +12,15 @@ class Person {
     private Phone phone;
     private Gender gender;
     private Pet pet;
-
+    private ArrayList<Calification> califications;
+    
     Person() {
         this.setName("Anónimo");
         this.setAge(0);
         this.setPhone(new Phone());
         this.setPet(null);
         this.setGender(Gender.OTHER);
+        this.setCalifications(new ArrayList<>());
     }
 
     Person(String name, int age, Phone phone, Pet pet, Gender gender) {
@@ -25,6 +29,7 @@ class Person {
         this.setPhone(phone);
         this.setPet(pet);
         this.setGender(gender);
+        this.setCalifications(new ArrayList<>());
     }
 
     String getName() {
@@ -65,6 +70,18 @@ class Person {
 
     void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    ArrayList<Calification> getCalifications() {
+        return this.califications;
+    }
+
+    void setCalifications(ArrayList<Calification> califications) {
+        this.califications = califications;
+    }
+    
+    void addCalification(Calification calification) {
+        this.califications.add(calification);
     }
     
     boolean isAdult() {
