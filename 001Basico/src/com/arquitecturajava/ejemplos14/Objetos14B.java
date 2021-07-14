@@ -8,5 +8,7 @@ public static void main(String[] args) {
 	
 	System.out.println(r1.area());
 	System.out.println(r1.perimetro());
+	
+	System.out.println(Rectangulo.area(5, 5));
 }
 }

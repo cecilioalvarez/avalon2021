@@ -23,11 +23,21 @@ public class Rectangulo {
 		this.lado2 = lado2;
 	}
 	
-	public double area() {
+	//staticos e implementados como estaticos
+	public static  double area(int lado1,int lado2) {
 		
 		return lado1*lado2;
 	}
-	public double perimetro() {
+	public static double perimetro(int lado1,int lado2) {
 		return lado1*2+lado2*2;
+	}
+	
+	//funciones a nivel de instancia  que delegan en los metodos staticos
+	public   double area() {
+		// aqui delego en el metodo estatico
+		return area(this.getLado1(),this.getLado2());
+	}
+	public  double perimetro() {
+		return perimetro(this.getLado1(),this.getLado2());
 	}
 }
