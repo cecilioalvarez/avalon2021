@@ -7,7 +7,7 @@ class DimensionViewer {
     private GeometricFigure figure;
 
     private DimensionViewer(GeometricFigure figure) {
-        this.figure = figure;
+        this.setFigure(figure);
     }
 
     private void setFigure(GeometricFigure figure) {
@@ -24,6 +24,7 @@ class DimensionViewer {
         Rectangle rectangle = new Rectangle(IOHelper.askForDouble(), IOHelper.askForDouble());
         DimensionViewer dimensionViewer = new DimensionViewer(rectangle);
         dimensionViewer.showDimensions();
+        
         System.out.println("Vamos a crear un círculo:");
         Circle circle = new Circle(IOHelper.askForDouble());
         dimensionViewer.setFigure(circle);

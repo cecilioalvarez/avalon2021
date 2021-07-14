@@ -1,6 +1,6 @@
 package com.arquitecturajava.poo.geometry;
 
-public class Rectangle implements GeometricFigure {
+class Rectangle implements GeometricFigure {
 
     private static final String NAME = "rectángulo";
     private double width;

@@ -1,19 +1,19 @@
 package com.arquitecturajava.poo.geometry;
 
-public class Circle implements GeometricFigure {
+class Circle implements GeometricFigure {
 
     private static final String NAME = "círculo";
     private double radius;
 
-    public Circle(double radius) {
+    Circle(double radius) {
         this.setRadius(radius);
     }
 
-    public double getRadius() {
+    double getRadius() {
         return radius;
     }
 
-    public void setRadius(double radius) {
+    void setRadius(double radius) {
         this.radius = radius;
     }
     
