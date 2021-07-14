@@ -80,6 +80,21 @@ public class Persona {
 			}
 		}
 		
+		//Cecilio
+		/*for (Nota nota : notas) {
+			
+			if (nota.getValor()>valorMax) {
+				valorMax=nota.getValor();
+			}
+				
+		}
+		
+		for (Nota nota : mejoresNotas) {
+			if(nota.getValor()==valorMax) {
+				mejoresNotas.add(nota);
+			}
+		}*/
+		
 		return mejoresNotas;
 		
 	}
