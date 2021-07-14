@@ -3,17 +3,19 @@ package ejemplos13POO;
 import java.util.ArrayList;
 
 public class Objetos13 {
+
 	public static void main(String[] args) {
-		ArrayList<Persona> listaPersonas= new ArrayList<Persona>();
+
+		ArrayList<Nota> notas = new ArrayList<Nota>();
+		notas.add(new Nota("mate", 5));
+		notas.add(new Nota("lengua", 6));
+		notas.add(new Nota("ingles", 2));
+		notas.add(new Nota("fisica", 10));
 		
-		listaPersonas.add(new Persona("Pepe",23));
-		listaPersonas.add(new Persona("Pedro",26));
-		listaPersonas.add(new Persona("Maria",24));
-		listaPersonas.add(new Persona("Mario",28));
-		
-		for (int i = 0; i < listaPersonas.size(); i++) {
-			System.out.println(listaPersonas.get(i).getNombre()+"-"+listaPersonas.get(i).getEdad());
-			System.out.println("-------------");
+		for (Nota nota : notas) {
+			System.out.println(nota.getValor());
 		}
+
 	}
+
 }

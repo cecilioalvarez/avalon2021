@@ -1,4 +1,4 @@
-package ejemplos13POO;
+package ejemplos12BPOO;
 
 public class Persona {
 
