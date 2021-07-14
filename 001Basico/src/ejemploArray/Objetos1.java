@@ -14,7 +14,11 @@ public class Objetos1 {
 		lista.add(new Persona("hola"));
 		
 		for (Persona p : lista) {
-			System.out.println(p.getNombre());
+			
+			if(p.getNombre().equals("hola")) {
+				System.out.println(p.getNombre());
+			}
+		
 		}
 		
 	}
