@@ -10,7 +10,7 @@ class Circle implements GeometricFigure {
     }
 
     double getRadius() {
-        return radius;
+        return this.radius;
     }
 
     void setRadius(double radius) {

@@ -7,7 +7,7 @@ class GeometryCalculator {
     }
     
     static double getArea(Circle circle) {
-        return circle.getRadius() * Math.pow(Math.PI, 2);
+        return  Math.pow(circle.getRadius(), 2) * Math.PI;
     }
     
     static double getPerimeter(Rectangle rectangle) {

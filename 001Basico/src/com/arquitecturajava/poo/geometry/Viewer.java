@@ -15,7 +15,7 @@ class Viewer {
     }
     
     private void showDimensions() {
-        System.out.printf("El " + this.figure.getName() + " tiene un perímetro de %.2f cm y un área de %.2f cm².\n", + this.figure.getPerimeter(), this.figure.getArea());
+        System.out.printf("El " + this.figure.getName() + " tiene un perímetro de %.2f cm y un área de %.2f cm².\n", this.figure.getPerimeter(), this.figure.getArea());
     }
     
     public static void main(String[] args) {
