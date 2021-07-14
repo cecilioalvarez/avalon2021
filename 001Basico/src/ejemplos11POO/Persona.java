@@ -1,20 +1,21 @@
-package ejemplos10POO;
+package ejemplos11POO;
 
 public class Persona {
 
 	private String nombre;
 	private int edad;
 	
-	//Propiedad Telefono 
-	private Telefono telefono;
+	//Propiedad Mascota
+	private Mascota mascota;
 	
 	//Constructor
-	public Persona(String nombre, int edad, Telefono telefono) {
+	public Persona(String nombre, int edad, Mascota mascota) {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
-		this.telefono = telefono;
+		this.mascota = mascota;
 	}
+	
 	
 	//Getter y Setters
 	public String getNombre() {
@@ -29,13 +30,11 @@ public class Persona {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-
-	public Telefono getTelefono() {
-		return telefono;
+	public Mascota getMascota() {
+		return mascota;
 	}
-
-	public void setTelefono(Telefono telefono) {
-		this.telefono = telefono;
+	public void setMascota(Mascota mascota) {
+		this.mascota = mascota;
 	}
 	
 	
