@@ -29,4 +29,9 @@ public class Libro extends Documento {
 		this.editorial=editorial;
 	}
 
+	public void imprimir() {
+		
+		System.out.println("el libro se imprime por capitulos");
+	}
+
 }

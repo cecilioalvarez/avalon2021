@@ -13,5 +13,7 @@ public class Objetos16 {
 		System.out.println(l.getPeso());		
 		System.out.println(d.getTitulo());
 		System.out.println(d.getAutor());
+		d.imprimir();
+		l.imprimir();
 	}
 }

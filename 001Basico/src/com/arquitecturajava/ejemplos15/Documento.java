@@ -31,5 +31,8 @@ public class Documento {
 		this.autor = autor;
 		this.paginas = paginas;
 	}
-
+	//impresion que pertenece a documento
+	public void imprimir() {
+		System.out.println("el documento se imprime");
+	}
 }
