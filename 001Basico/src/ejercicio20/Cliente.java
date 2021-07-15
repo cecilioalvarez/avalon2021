@@ -27,6 +27,10 @@ public class Cliente {
 		this.pedidos.add(pedido);
 	}
 	
+	public void getGastoFinalTotal() {
+		
+	}
+	
 	
 
 }

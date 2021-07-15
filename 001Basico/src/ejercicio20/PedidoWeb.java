@@ -2,8 +2,8 @@ package ejercicio20;
 
 public class PedidoWeb extends Pedido{
 
-	public PedidoWeb(double precio, double importe) {
-		super(precio, importe);
+	public PedidoWeb(String concepto, double importe) {
+		super(concepto, importe);
 		// TODO Auto-generated constructor stub
 	}
 

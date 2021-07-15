@@ -2,8 +2,8 @@ package ejercicio20;
 
 public class PedidoBarra extends Pedido{
 
-	public PedidoBarra(double precio, double importe) {
-		super(precio, importe);
+	public PedidoBarra(String concepto, double importe) {
+		super(concepto, importe);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -4,8 +4,9 @@ public abstract class Pedido {
 	private String concepto;
 	private double importe;
 
-	public Pedido(double precio, double importe) {
+	public Pedido(String concepto, double importe) {
 		super();
+		this.concepto=concepto;
 		this.importe= importe;
 		
 	}
