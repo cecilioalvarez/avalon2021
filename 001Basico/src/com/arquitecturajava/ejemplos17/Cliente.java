@@ -9,6 +9,10 @@ public class Cliente {
 	private ArrayList<Pedido> pedidos= new ArrayList<Pedido>();
 	
 	
+	public Cliente(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -25,5 +29,21 @@ public class Cliente {
 	public void addPedido (Pedido pedido) {
 		
 		pedidos.add(pedido);
+	}
+	
+	public double getGastoFinalTotal() {
+		
+		double gastoFinal=0;
+		for (Pedido p : pedidos) {
+			
+			gastoFinal+= p.getImporteFinal();
+			
+		}
+		return gastoFinal;
+	}
+	
+	public boolean esVip() {
+		
+		return pedidos.size()>5;
 	}
 }
