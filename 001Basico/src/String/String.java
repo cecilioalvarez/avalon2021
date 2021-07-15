@@ -23,8 +23,28 @@ public class String {
 		for (int i=0;i< caracteres.length;i++) {
 			System.out.println(caracteres[i]);
 		}
-		for (int i=0;i< cadena2.length();i++) {
+		for (int i=0;i<cadena2.length();i++) {
 			 System.out.println(cadena2.charAt(i));
 		}
+	}
+
+	private String[] split(java.lang.String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private char[] repeat(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private char[] length() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private char[] charAt(int i) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
