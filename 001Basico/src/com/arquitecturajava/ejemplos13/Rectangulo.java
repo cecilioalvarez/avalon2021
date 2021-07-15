@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejemplos14;
+package com.arquitecturajava.ejemplos13;
 
 public class Rectangulo {
 	private int lado1;

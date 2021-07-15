@@ -1,6 +1,6 @@
-package com.arquitecturajava.ejemplos14;
+package com.arquitecturajava.ejemplos13;
 
-public class Objetos15 {
+public class Objetos14b {
 	public static void main(String[] args) {
 		Rectangulo r = new Rectangulo(2,2);
 		
