@@ -1,7 +1,5 @@
 package com.arquitecturajava.ejemplos16;
 
-import java.util.ArrayList;
-
 public class Objeto16B {
 
 	public static void main(String[] args) {

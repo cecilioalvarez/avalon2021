@@ -7,6 +7,13 @@ public class CompraStandard extends Compra {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public CompraStandard() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public double getImporteTotal() {
 		
 		return getImporte()+10;

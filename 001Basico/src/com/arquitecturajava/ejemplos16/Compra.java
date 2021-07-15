@@ -1,6 +1,7 @@
 package com.arquitecturajava.ejemplos16;
+// sea instanciable
 
-public class Compra {
+public abstract class Compra {
 
 	private String cliente;
 	private String concepto;
@@ -30,12 +31,9 @@ public class Compra {
 		this.concepto = concepto;
 		this.importe = importe;
 	}
-	
 	public Compra() {
 	
 	}
-	public double getImporteTotal() {
-		return this.getImporte();
-	}
+	public abstract double getImporteTotal();
 	
 }

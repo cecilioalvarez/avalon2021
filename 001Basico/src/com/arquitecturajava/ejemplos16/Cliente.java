@@ -46,11 +46,11 @@ public class Cliente {
 	public Compra getCompraMasCara() {
 
 	
-		Compra compraCara= new Compra();
+		Compra compraCara= null;
 		
 		for (Compra c : compras) {
 
-			if (c.getImporteTotal()>compraCara.getImporteTotal()) {
+			if (compraCara ==null || c.getImporteTotal()>compraCara.getImporteTotal()) {
 				compraCara=c;
 			}
 
