@@ -4,6 +4,32 @@ public class Azulejo {
 
 	private int lado1;
 	private int lado2;
+	
+	// un numero especifico para este objeto
+	// esta ligado a las propiedades del azulejo
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + lado1;
+		result = prime * result + lado2;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Azulejo other = (Azulejo) obj;
+		if (lado1 != other.lado1)
+			return false;
+		if (lado2 != other.lado2)
+			return false;
+		return true;
+	}
 	public int getLado1() {
 		return lado1;
 	}
@@ -26,5 +52,7 @@ public class Azulejo {
 		
 		return lado1*lado2;
 	}
+	
+	
 	
 }

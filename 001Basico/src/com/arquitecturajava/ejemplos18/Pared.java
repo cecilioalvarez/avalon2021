@@ -25,6 +25,10 @@ public class Pared {
 		Collections.addAll(lista, azulejos);
 	}
 	
+	public void removeAzulejo(Azulejo a) {
+		lista.remove(a);
+	}
+	
 	public double area() {
 		
 		double total=0;
