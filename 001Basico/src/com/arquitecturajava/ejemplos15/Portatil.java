@@ -10,6 +10,22 @@ public class Portatil extends Ordenador {
 		
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public void encender() {
+		// TODO Auto-generated method stub
+		System.out.println("el portatil se enciende en 15s");
+	}
+
+	public int getBateria() {
+		return bateria;
+	}
+
+	public void setBateria(int bateria) {
+		this.bateria = bateria;
+	}
+	
+	
 	
 	
 }

@@ -22,6 +22,9 @@ public class Ordenador {
 		this.precio = precio;
 	}
 	
-	
+	public void encender() {
+		
+		System.out.println("el ordenador enciende en 10s");
+	}
 
 }
