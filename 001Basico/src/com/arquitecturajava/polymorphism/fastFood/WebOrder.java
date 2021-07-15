@@ -4,18 +4,18 @@ class WebOrder extends TelematicOrder {
 
     private String email;
 
-    public WebOrder(String client, String location, String email) {
+    WebOrder(String client, String location, String email) {
         super(client, location);
         this.email = email;
     }
 
     @Override
-    String getWelcomeMessage() {
-        return super.getWelcomeMessage() + " Te enviaremos un e-mail a " + this.email + " cuando el repartidor llegue a " + this.location + ".";
+    protected String getArrivalCommunicationMethod() {
+        return "email a " + this.email;
     }
 
     @Override
     protected String getChannelDeliveryInfo() {
-        return " " + this.getArrivalConfirmation() + " y recibirás un email en " + this.email + " para valorar la la experiencia.";
+        return " " + this.getArrivalConfirmationMessage() + " y recibirás un email en " + this.email + " confirmando la entrega.";
     }
 }

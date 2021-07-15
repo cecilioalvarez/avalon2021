@@ -7,12 +7,12 @@ public class PremisesOrder extends Order {
     }
 
     @Override
-    protected String getChannelDeliveryInfo() {
-        return " Puedes acercarte por el mostrador a recogerlo cuando quieras.";
+    String getWelcomeMessage() {
+        return super.getWelcomeMessage() + " Te llamaremos al mostrador cuando esté listo.";
     }
 
     @Override
-    String getWelcomeMessage() {
-        return super.getWelcomeMessage() + " Te llamaremos al mostrador cuando tu pedido esté listo.";
+    protected String getChannelDeliveryInfo() {
+        return " Puedes acercarte por el mostrador a recogerlo cuando quieras.";
     }
 }
