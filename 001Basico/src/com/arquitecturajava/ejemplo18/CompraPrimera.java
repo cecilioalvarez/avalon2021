@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejemplos16;
+package com.arquitecturajava.ejemplo18;
 
 public class CompraPrimera  extends Compra{
 

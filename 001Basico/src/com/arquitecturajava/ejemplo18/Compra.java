@@ -1,6 +1,6 @@
-package com.arquitecturajava.ejemplos16;
+package com.arquitecturajava.ejemplo18;
 
-import com.arquitecturajava.ejemplos16.String;
+
 
 public class Compra {
 
