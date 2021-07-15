@@ -32,7 +32,7 @@ class Client {
     private void showOrders() {
         double totalPrice = 0;
         for (Order order : this.orders) {
-            totalPrice += order.getDefinitivePrice();
+            totalPrice += order.getDefinitivePriceIncludingVipDiscount();
         }
         System.out.printf("El importe total de las comandas de " + this.getName() + " asciende a %.2f €.\n", totalPrice);
     }
