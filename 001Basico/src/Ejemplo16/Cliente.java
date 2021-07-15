@@ -6,7 +6,7 @@ public class Cliente {
 	
 	private String nombre;
 	private ArrayList<Compra> compras= new ArrayList<Compra>();
-	private ArrayList<Compra> compras= new ArrayList<Compra>();
+	
 
 	public String getNombre() {
 		return nombre;
@@ -31,13 +31,8 @@ public class Cliente {
 	
 	public void addCompra (Compra c) {
 
-	public void addCompra(Compra c) {
 		compras.add(c);
 	}
-	
-	public double  getImporteTotalCompras() {
-		
-		double total=0;
 
 	public double getImporteTotalCompras() {
 
