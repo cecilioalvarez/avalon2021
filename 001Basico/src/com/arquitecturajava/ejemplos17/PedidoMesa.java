@@ -8,8 +8,7 @@ public class PedidoMesa extends Pedido {
 	}
 	
 	public double getImporteFinal() {
-		// TODO Auto-generated method stub
-		return getImporte()*1.10;
+		return Pedidos.descuentoVip(getCliente(), getImporte()*1.10);
 	}
 
 }

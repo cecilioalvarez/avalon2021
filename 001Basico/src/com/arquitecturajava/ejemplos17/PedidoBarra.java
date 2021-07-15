@@ -9,8 +9,7 @@ public class PedidoBarra extends Pedido {
 
 	
 	public double getImporteFinal() {
-		// TODO Auto-generated method stub
-		return getImporte();
+		return Pedidos.descuentoVip(getCliente(), getImporte());
 	}
 
 }

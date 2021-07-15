@@ -6,9 +6,9 @@ public class PedidoWeb extends Pedido {
 		super(concepto, importe, cliente);
 	}
 	
-	@Override
+	
 	public double getImporteFinal() {
-		return getImporte()*0.8;
+		return Pedidos.descuentoVip(getCliente(), getImporte()*0.8);
 	}
 
 }
