@@ -38,4 +38,15 @@ public class Cliente {
 		return total;
 	}
 	
+	public Compra getCompraMasCara() {
+		Compra cCara = new Compra();
+		for (Compra compra : getListadoCompras()) {
+			if (compra.getImporteTotal()>cCara.getImporteTotal()) {
+				cCara=compra;
+			}
+		}
+		
+		return cCara;
+	}
+	
 }

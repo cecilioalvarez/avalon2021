@@ -42,6 +42,8 @@ public class Objetos16Compra {
 		System.out.println(cli.sumaCompras());
 		cli.addCompra(new CompraPrimera("Pepe", "Ordena3", 100));
 		System.out.println(cli.sumaCompras());
+		Compra comp=cli.getCompraMasCara();
+		System.out.println(comp.getConcepto()+"-"+comp.getImporteTotal());
 	}
 
 }

@@ -6,6 +6,8 @@ public class Compra {
 	private String concepto;
 	private double importe;
 	
+	public Compra() {}
+	
 	public Compra(String cliente, String concepto, double importe) {
 		super();
 		this.cliente = cliente;
