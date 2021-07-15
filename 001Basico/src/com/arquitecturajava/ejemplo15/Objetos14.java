@@ -1,6 +1,6 @@
 package com.arquitecturajava.ejemplo15;
 
-public class Principal {
+public class Objetos14 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
