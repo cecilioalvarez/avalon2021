@@ -43,6 +43,7 @@ class Bill {
         return FinancialMath.applyVAT(this.getPrice());
     }
     
+    // Descuento en porcentaje.
     double getPriceWithDiscount(double discount) {
         return this.price * (100 - discount)/100;
     }
