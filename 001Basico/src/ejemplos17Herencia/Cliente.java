@@ -32,13 +32,11 @@ public class Cliente {
 		this.listadoPedidos = listadoPedidos;
 		numPedidos=listadoPedidos.size();			
 		
-		vipClient();
 	}
 	
 	public void addPedido(Pedido pedido) {
 		listadoPedidos.add(pedido);
 		numPedidos++;
-		vipClient();
 	}
 	
 	public double sumaPedidos() {
@@ -50,12 +48,11 @@ public class Cliente {
 		return total;
 	}
 	
-	public void vipClient() {
-		if(numPedidos>5) {
-			for (int i=5;i<getListadoPedidos().size();i++) {
-				Pedido p=getListadoPedidos().get(i);
-				p.setImporte(p.getImporteFinal()*0.75);
-			}
+	public boolean esVip() {
+		if(getNumPedidos()>5) {
+			return true;
+		}else {
+			return false;
 		}
 		
 	}
