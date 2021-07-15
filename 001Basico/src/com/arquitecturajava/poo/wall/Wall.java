@@ -1,13 +1,18 @@
 package com.arquitecturajava.poo.wall;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Wall {
+class Wall {
 
     private ArrayList<Tile> tiles = new ArrayList<>();
     
     private void addTile(Tile tile) {
         this.tiles.add(tile);
+    }
+    
+    private void addTile(Tile ...tiles) {
+        Collections.addAll(this.tiles, tiles);
     }
     
     private void showTotalPrice() {
@@ -29,10 +34,8 @@ public class Wall {
     public static void main(String[] args) {
         Wall wall = new Wall();
         int[] dimensions = {2, 2};
-        wall.addTile(new Tile(dimensions, 2));
-        wall.addTile(new Tile(dimensions, 2));
-        wall.addTile(new Tile(dimensions, 3));
-        wall.addTile(new Tile(dimensions, 3));
+        Tile[] azulejos = {new Tile(dimensions, 2.4), new Tile(dimensions, 2.4), new Tile(dimensions, 3.5), new Tile(dimensions, 3.5)};
+        wall.addTile(azulejos);
         wall.showTotalArea();
         wall.showTotalPrice();
     }

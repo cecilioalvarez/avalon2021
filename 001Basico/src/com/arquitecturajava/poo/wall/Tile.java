@@ -10,10 +10,6 @@ class Tile {
         this.setPrice(price);
     }
 
-    int[] getDimensions() {
-        return this.dimensions;
-    }
-
     void setDimensions(int[] dimensions) {
         this.dimensions[0] = dimensions[0];
         this.dimensions[1] = dimensions[1];
