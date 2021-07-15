@@ -13,7 +13,7 @@ public class Objeto16B {
 		c.addCompra(cs);
 		c.addCompra(cp);
 		System.out.println(c.getImporteTotalCompras());
-		
+		System.out.println(c.getCompraMasCara().getImporteTotal());
 		
 		
 		

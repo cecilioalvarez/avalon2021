@@ -25,5 +25,7 @@ public class Objeto16 {
 		System.out.println(total);
 		
 		
+		
+		
 	}
 }

@@ -31,6 +31,9 @@ public class Compra {
 		this.importe = importe;
 	}
 	
+	public Compra() {
+	
+	}
 	public double getImporteTotal() {
 		return this.getImporte();
 	}
