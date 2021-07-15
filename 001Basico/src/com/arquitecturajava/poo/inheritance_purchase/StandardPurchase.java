@@ -7,8 +7,8 @@ class StandardPurchase extends Purchase {
     private static final double FIRST_PURCHASE_DISCOUNT = 50;
     private static int purchaseCounter = 0;
 
-    public StandardPurchase(String client, String product, double price) {
-        super(client, product, price);
+    public StandardPurchase(String product, double price) {
+        super(product, price);
         this.nPurchase = ++StandardPurchase.purchaseCounter;
     }
 
@@ -16,6 +16,7 @@ class StandardPurchase extends Purchase {
         return nPurchase;
     }
     
+    @Override
     double getTotalPrice() {
         return this.getStandardPrice();
     }

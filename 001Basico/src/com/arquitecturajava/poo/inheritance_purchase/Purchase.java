@@ -2,22 +2,12 @@ package com.arquitecturajava.poo.inheritance_purchase;
 
 abstract class Purchase {
     
-    private String client;
     private String product;
     private double price;
 
-    Purchase(String client, String product, double price) {
-        this.setClient(client);
+    Purchase(String product, double price) {
         this.setProduct(product);
         this.setPrice(price);
-    }
-
-    String getClient() {
-        return this.client;
-    }
-
-    void setClient(String client) {
-        this.client = client;
     }
 
     String getProduct() {
@@ -36,7 +26,5 @@ abstract class Purchase {
         this.price = price;
     }
     
-    double getTotalPrice() {
-        return this.getPrice();
-    }
+    abstract double getTotalPrice();
 }
