@@ -5,6 +5,7 @@ public class Compra {
 	private String cliente;
 	private String concepto;
 	private double importe;
+	
 	public String getCliente() {
 		return cliente;
 	}
@@ -28,6 +29,10 @@ public class Compra {
 		this.cliente = cliente;
 		this.concepto = concepto;
 		this.importe = importe;
+	}
+	
+	public double getImporteTotal() {
+		return this.getImporte();
 	}
 	
 }

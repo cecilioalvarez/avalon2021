@@ -6,7 +6,7 @@ public class CompraPrime extends Compra {
 		super(cliente, concepto, importe);
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
 	public double getImporteTotal() {
 
 		return getImporte();
