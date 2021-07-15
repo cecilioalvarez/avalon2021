@@ -1,6 +1,7 @@
 package ejemplos18Herencia;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Pared {
 	
@@ -22,6 +23,11 @@ public class Pared {
 	
 	public void addAzulejo(Azulejo az) {
 		getListadoAzulejos().add(az);
+	}
+	
+	//funcion de argumentos variables
+	public void addAzulejos(Azulejo...azs) {
+		Collections.addAll(listadoAzulejos, azs);
 	}
 	
 	public double getAreaCubierta() {

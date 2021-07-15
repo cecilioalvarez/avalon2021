@@ -1,5 +1,7 @@
 package ejemplos18Herencia;
 
+import java.util.Objects;
+
 public class Azulejo {
 	private double lado1;
 	private double lado2;
@@ -42,5 +44,26 @@ public class Azulejo {
 	public double getAreaAzulejo() {
 		return getLado1()*getLado2();
 	}
+
+	//HashCode Genera numero especifico para el objeto 
+	//que está ligado a las propiedades del objeto
+	@Override
+	public int hashCode() {
+		return Objects.hash(lado1, lado2);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Azulejo other = (Azulejo) obj;
+		return Double.doubleToLongBits(lado1) == Double.doubleToLongBits(other.lado1)
+				&& Double.doubleToLongBits(lado2) == Double.doubleToLongBits(other.lado2);
+	}
+	
 	
 }

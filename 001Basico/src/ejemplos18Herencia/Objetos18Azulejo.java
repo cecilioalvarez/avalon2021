@@ -13,6 +13,7 @@ public class Objetos18Azulejo {
 		listaAz.add(new Azulejo(4, 4, 40, "Marron"));
 		
 		Pared p = new Pared(listaAz);
+		p.addAzulejos(new Azulejo(4, 4, 40, "Marron"),new Azulejo(2, 2, 10, "Marron"));
 		
 		System.out.println("Area:"+p.getAreaCubierta());
 		System.out.println("Coste:"+p.getCoste());
