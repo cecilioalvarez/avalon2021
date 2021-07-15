@@ -24,12 +24,8 @@ class Client {
     int getOrderCount() {
         return this.orderCount;
     }
-
-    void setOrderCount(int orderCount) {
-        this.orderCount = orderCount;
-    }
     
-    private void showOrders() {
+    private void showOrdersTotalPrice() {
         double totalPrice = 0;
         for (Order order : this.orders) {
             totalPrice += order.getDefinitivePriceIncludingVipDiscount();
@@ -45,7 +41,6 @@ class Client {
         client.addOrder(new TableOrder(client, 10));
         client.addOrder(new WebOrder(client, 10));
         client.addOrder(new BarOrder(client, 10));
-        System.out.println(client.getOrderCount());
-        client.showOrders();
+        client.showOrdersTotalPrice();
     }
 }

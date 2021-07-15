@@ -1,6 +1,6 @@
 package com.arquitecturajava.poo.inheritance_order;
 
-public class WebOrder extends Order {
+class WebOrder extends Order {
 
     private static final double DISCOUNT = 20; // Descuento en porcentaje.
 
