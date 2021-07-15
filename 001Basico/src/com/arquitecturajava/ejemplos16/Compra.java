@@ -34,6 +34,9 @@ public abstract class Compra {
 	public Compra() {
 	
 	}
+	// para poder aplicar el concepto de polimorfismo
+	// que es todas las clases puedan usar este metodo
+	// desde el enfoque de la clase abstract 
 	public abstract double getImporteTotal();
 	
 }
