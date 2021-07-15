@@ -24,13 +24,12 @@ class Chart {
     
     private void showMostExpensivePurchase() {
         Purchase mostExpensivePurchase = null;
-        
         for (Purchase purchase : this.LIST) {
             if (mostExpensivePurchase == null || purchase.getTotalPrice() > mostExpensivePurchase.getTotalPrice())
                 mostExpensivePurchase = purchase;
         }
-        System.out.printf("La compra más cara es de " + mostExpensivePurchase.getProduct() 
-                + " con un coste de %.2f €.\n", mostExpensivePurchase.getTotalPrice());
+        System.out.printf("La compra más cara es de «" + mostExpensivePurchase.getProduct() 
+                + "» con un coste de %.2f €.\n", mostExpensivePurchase.getTotalPrice());
     }
 
     public static void main(String[] args) {
