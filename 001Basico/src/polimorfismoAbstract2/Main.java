@@ -13,6 +13,8 @@ public class Main {
 		
 		System.out.println("Area " +  p.getArea());
 		System.out.println("Superficie " + p.getSuperficie());
+		
+		
 	}
 
 }

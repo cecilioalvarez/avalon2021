@@ -1,5 +1,7 @@
 package polimorfismoAbstract2;
 
+import java.util.Objects;
+
 public class Azulejo {
 	private int lado1;
 	private int lado2;
@@ -14,13 +16,31 @@ public class Azulejo {
 		this.color = color;
 	}
 
-
 	public Azulejo(int lado1, int lado2) {
 		super();
 		this.lado1 = lado1;
 		this.lado2 = lado2;
-	
+
 	}
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(lado1, lado2);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Azulejo other = (Azulejo) obj;
+		return lado1 == other.lado1 && lado2 == other.lado2;
+	}
+
 	public int getLado1() {
 		return lado1;
 	}
@@ -54,10 +74,10 @@ public class Azulejo {
 	}
 
 	public double area() {
-		return lado1*lado2;
+		return lado1 * lado2;
 	}
-	
+
 	public double superficie() {
-		return lado1*2 + lado2*2;
+		return lado1 * 2 + lado2 * 2;
 	}
 }
