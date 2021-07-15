@@ -30,6 +30,11 @@ public class Documento {
 		this.titulo = titulo;
 		this.numPag = numPag;
 	}
+	
+	//Metodo de documento, que puede ser sobrecargado a traves de sus hijos
+	public void imprimir() {
+		System.out.println("El documento se imprime");
+	}
 
 	
 
