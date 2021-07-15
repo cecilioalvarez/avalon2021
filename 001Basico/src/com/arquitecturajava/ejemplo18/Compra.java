@@ -10,6 +10,11 @@ public class Compra {
 	public String getCliente() {
 		return cliente;
 	}
+	
+	public Compra() {
+		super();
+	}
+
 	public void setCliente(String cliente) {
 		this.cliente = cliente;
 	}
