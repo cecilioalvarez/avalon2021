@@ -5,8 +5,14 @@ public class Factura {
 	private int numero;
 	private String concepto;
 	private double importe;
-
-	
+		
+	public Factura(int numero, String concepto, double importe) {
+		super();
+		this.numero = numero;
+		this.concepto = concepto;
+		this.importe = importe;
+		
+	}
 	public double getImporte() {
 		return importe;
 	}
@@ -30,8 +36,9 @@ public class Factura {
 	}
 	
 	public double getImporteConIVA() {
-		// metodos y variables estaticas para copartir el codigo
-		
+		// metodos y variables estaticas para copartir el codigo		
 		return MatematicaFinanciera.importeConIVA(this.getImporte());
 	}
+	
+	
 }

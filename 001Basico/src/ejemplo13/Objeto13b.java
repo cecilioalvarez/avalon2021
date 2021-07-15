@@ -13,12 +13,13 @@ public class Objeto13b {
 		
 		System.out.println(p.getNotaMejor("lengua"));
 		
-//		for (Nota n: p.getNotasMejores()) {
-//			
-//			System.out.println(n);
-//		}
-//		System.out.println("**************");
-//		System.out.println(p.getNotaMejor());
+		/*
+		for (Nota n: p.getNotasMejores()) {
+			
+			System.out.println(n);
+		}
+		System.out.println("**************");
+		*/
 	}
 }
 	

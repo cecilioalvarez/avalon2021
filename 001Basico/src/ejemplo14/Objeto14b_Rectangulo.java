@@ -1,6 +1,6 @@
 package ejemplo14;
 
-public class Objeto14b {
+public class Objeto14b_Rectangulo {
 
 	public static void main(String[] args) {
 		

@@ -8,8 +8,8 @@ public class Objeto13 {
 		
 		ArrayList<Nota> notas = new ArrayList<Nota>();
 		notas.add(new Nota("mates", 5));
-		notas.add(new Nota("lengua", 10));
-		notas.add(new Nota("ingles", 10));
+		notas.add(new Nota("lengua", 6));
+		notas.add(new Nota("ingles", 2));
 		notas.add(new Nota("fisica", 10));
 
 		Nota mayor = new Nota("lengua", 0);
@@ -31,8 +31,6 @@ public class Objeto13 {
 	
 		System.out.println(sumaNotas/notas.size());
 		System.out.println(mayor);
-		
-
 	}
 
 }
