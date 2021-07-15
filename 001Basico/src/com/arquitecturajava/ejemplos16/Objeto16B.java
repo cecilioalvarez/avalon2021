@@ -16,7 +16,7 @@ public class Objeto16B {
 
 		System.out.println(c.getImporteTotalCompras());
 		System.out.println(c.getImporteMasAlto());
-		/*System.out.println(c.getCompraMasCara().getImporteTotal());*/
+		System.out.println(c.getCompraMasCara().getImporteTotal());
 			
 	}
 }

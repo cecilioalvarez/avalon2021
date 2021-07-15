@@ -31,7 +31,7 @@ public class Cliente {
 	}
 	
 	//Con polimorfismo
-	/*public Compra getCompraMasCara() {
+	public Compra getCompraMasCara() {
 		Compra compraCara = null;
 		for(Compra c: comprasTotales) {
 			if(compraCara == null || c.getImporteTotal()>compraCara.getImporteTotal()) {
@@ -39,7 +39,8 @@ public class Cliente {
 			}
 		}
 		return compraCara;
-	}*/
+	}
+	
 	//Mismo metodo anterior sin polimorfismo.
 	public double getImporteMasAlto() {
 		double maximo = 0;

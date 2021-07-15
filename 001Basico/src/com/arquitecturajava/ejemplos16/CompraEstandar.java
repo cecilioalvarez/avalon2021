@@ -8,7 +8,7 @@ public class CompraEstandar extends Compra {
 	}
 
 	public CompraEstandar() {
-		
+		super();
 	}
 	
 	public double getImporteTotal() {
