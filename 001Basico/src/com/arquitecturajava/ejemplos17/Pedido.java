@@ -5,17 +5,12 @@ public abstract class Pedido {
 	private String concepto;
 	private double importe;
 	private Cliente cliente;
+	
 	public String getConcepto() {
 		return concepto;
 	}
 	public void setConcepto(String concepto) {
 		this.concepto = concepto;
-	}
-	public double getImporte() {
-		return importe;
-	}
-	public void setImporte(double importe) {
-		this.importe = importe;
 	}
 	public Cliente getCliente() {
 		return cliente;
@@ -29,6 +24,12 @@ public abstract class Pedido {
 		this.importe = importe;
 		this.cliente = cliente;
 	}
+	public double getImporte() {
+		return importe;
+	}
+	public void setImporte(double importe) {
+		this.importe = importe;
+	}
 	
 	public abstract double getImporteFinal(); 
 		/*if (getCliente().esVip()) {
@@ -37,5 +38,5 @@ public abstract class Pedido {
 			return getImporteSencillo();
 		}*/
 	
-	protected abstract double getImporteSencillo();
+	/*protected abstract double getImporteSencillo();*/
 }
