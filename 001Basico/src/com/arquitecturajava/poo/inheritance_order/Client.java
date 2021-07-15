@@ -5,9 +5,28 @@ import java.util.ArrayList;
 class Client {
 
     private ArrayList<Order> orders = new ArrayList<>();
+    private int orderCount = 0;
+    private String name;
+
+    private Client(String name) {
+        this.name = name;
+    }
+
+    private String getName() {
+        return name;
+    }
     
     private void addOrder(Order order) {
+        this.orderCount++;
         this.orders.add(order);
+    }
+
+    int getOrderCount() {
+        return this.orderCount;
+    }
+
+    void setOrderCount(int orderCount) {
+        this.orderCount = orderCount;
     }
     
     private void showOrders() {
@@ -15,17 +34,18 @@ class Client {
         for (Order order : this.orders) {
             totalPrice += order.getDefinitivePrice();
         }
-        System.out.printf("El importe total de las comandas asciende a %.2f €.\n", totalPrice);
+        System.out.printf("El importe total de las comandas de " + this.getName() + " asciende a %.2f €.\n", totalPrice);
     }
     
     public static void main(String[] args) {
-        Client client = new Client();
-        client.addOrder(new WebOrder(10));
-        client.addOrder(new BarOrder(10));
-        client.addOrder(new TableOrder(10));
-        client.addOrder(new TableOrder(10));
-        client.addOrder(new WebOrder(10));
-        client.addOrder(new BarOrder(10));
+        Client client = new Client("Francisca");
+        client.addOrder(new WebOrder(client, 10));
+        client.addOrder(new BarOrder(client, 10));
+        client.addOrder(new TableOrder(client, 10));
+        client.addOrder(new TableOrder(client, 10));
+        client.addOrder(new WebOrder(client, 10));
+        client.addOrder(new BarOrder(client, 10));
+        System.out.println(client.getOrderCount());
         client.showOrders();
     }
 }

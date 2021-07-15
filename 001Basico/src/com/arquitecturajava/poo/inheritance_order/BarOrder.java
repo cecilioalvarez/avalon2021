@@ -2,12 +2,12 @@ package com.arquitecturajava.poo.inheritance_order;
 
 class BarOrder extends Order {
 
-    public BarOrder(double price) {
-        super(price);
+    public BarOrder(Client client, double price) {
+        super(client, price);
     }
 
     @Override
-    double getTotalPrice() {
+    protected double getTotalPrice() {
         return this.getPrice();
     }
 }

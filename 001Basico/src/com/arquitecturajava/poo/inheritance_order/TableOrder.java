@@ -4,12 +4,12 @@ class TableOrder extends Order {
     
     private static final double SURCHARGE = 10; // Plus en porcentaje.
 
-    TableOrder(double price) {
-        super(price);
+    TableOrder(Client client, double price) {
+        super(client, price);
     }
 
     @Override
-    double getTotalPrice() {
+    protected double getTotalPrice() {
         return this.getPrice() + this.getPrice() * SURCHARGE / 100;
     }
 }
