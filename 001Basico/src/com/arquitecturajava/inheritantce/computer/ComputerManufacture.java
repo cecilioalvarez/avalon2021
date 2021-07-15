@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo.inheritance_computer;
+package com.arquitecturajava.inheritantce.computer;
 
 public class ComputerManufacture {
     

@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo.inheritance_document;
+package com.arquitecturajava.inheritantce.document;
 
 class DigitalBook extends Document {
 

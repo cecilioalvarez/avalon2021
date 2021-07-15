@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo.inheritance_purchase;
+package com.arquitecturajava.polymorphism.purchase;
 
 public class PrimePurchase extends Purchase {
 

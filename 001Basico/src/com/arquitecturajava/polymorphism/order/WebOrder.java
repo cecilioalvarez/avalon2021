@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo.inheritance_order;
+package com.arquitecturajava.polymorphism.order;
 
 class WebOrder extends Order {
 
