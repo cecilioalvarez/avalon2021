@@ -7,7 +7,7 @@ class BarOrder extends Order {
     }
 
     @Override
-    protected double getTotalPrice() {
-        return this.getPrice();
+    protected double getPriceIncludingParticularChannelCharges() {
+        return this.price;
     }
 }

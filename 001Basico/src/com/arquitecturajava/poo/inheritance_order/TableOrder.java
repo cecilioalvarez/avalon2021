@@ -9,7 +9,7 @@ class TableOrder extends Order {
     }
 
     @Override
-    protected double getTotalPrice() {
-        return this.getPrice() + this.getPrice() * SURCHARGE / 100;
+    protected double getPriceIncludingParticularChannelCharges() {
+        return this.price + this.price * SURCHARGE / 100;
     }
 }

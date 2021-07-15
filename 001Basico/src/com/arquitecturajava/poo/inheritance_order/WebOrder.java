@@ -9,7 +9,7 @@ public class WebOrder extends Order {
     }
 
     @Override
-    protected double getTotalPrice() {
-        return this.getPrice() - this.getPrice() * DISCOUNT / 100;
+    protected double getPriceIncludingParticularChannelCharges() {
+        return this.price - this.price * DISCOUNT / 100;
     }
 }
