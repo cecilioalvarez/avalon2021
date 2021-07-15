@@ -1,3 +1,4 @@
+//suma de resultados de un array
 package ejemplo16;
 
 import java.util.ArrayList;

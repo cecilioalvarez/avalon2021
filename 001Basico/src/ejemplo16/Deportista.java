@@ -16,8 +16,4 @@ public class Deportista extends Persona {
 	public void setDeporte(String deporte) {
 		this.deporte = deporte;
 	}
-	
-	
-	 
-	
 }
