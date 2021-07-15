@@ -8,9 +8,9 @@ public class PedidoMesa  extends Pedido{
 	}
 
 	@Override
-	protected double getImporteSencillo() {
-		// TODO Auto-generated method stub
-		return getImporte()*1.10;
+	public double getImporteFinal() {
+		
+		return Pedidos.descuentoVIP( getCliente(),getImporte() * 1.10);
 	}
 
 }

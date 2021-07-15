@@ -11,11 +11,9 @@ public class Objeto17 {
 		c.addPedido(new PedidoWeb("hamburgesa", 10,c));
 		c.addPedido(new PedidoMesa("nachos", 10,c));
 		
-		for (Pedido p : c.getPedidos()) {
-			
-			System.out.println(p);
-			
-		}
+		System.out.println(c.getGastoFinalTotal());
+		
+
 		
 		
 

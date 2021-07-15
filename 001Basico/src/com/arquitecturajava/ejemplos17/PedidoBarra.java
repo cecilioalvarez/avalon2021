@@ -7,9 +7,10 @@ public class PedidoBarra extends Pedido {
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	protected double getImporteSencillo() {
-		// TODO Auto-generated method stub
-		return getImporte();
+	public double getImporteFinal() {
+		
+		//estatico
+		return Pedidos.descuentoVIP( getCliente(),getImporte());
 	}
 
 	
