@@ -39,9 +39,9 @@ public class Cliente {
 	}
 	
 	public Compra getCompraMasCara() {
-		Compra cCara = new Compra();
+		Compra cCara = null;
 		for (Compra compra : getListadoCompras()) {
-			if (compra.getImporteTotal()>cCara.getImporteTotal()) {
+			if (cCara==null || compra.getImporteTotal()>cCara.getImporteTotal()) {
 				cCara=compra;
 			}
 		}

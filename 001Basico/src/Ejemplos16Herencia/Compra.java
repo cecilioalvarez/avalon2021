@@ -1,6 +1,6 @@
 package Ejemplos16Herencia;
 
-public class Compra {
+public abstract class Compra {
 
 	private String cliente;
 	private String concepto;
@@ -39,8 +39,8 @@ public class Compra {
 		this.importe = importe;
 	}
 	
-	public double getImporteTotal() {
-		return this.getImporte();
-	}
+	//Abstracto para hacer polimorfismo, 
+	//haciendo que clases hijas puedan usar este método pero con distinta funcionalidad
+	public abstract double getImporteTotal();
 	
 }
