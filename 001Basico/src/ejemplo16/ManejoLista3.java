@@ -16,10 +16,11 @@ public class ManejoLista3 {
 		numeros.add(3);
 		int total = 0;
 		for (int numero : numeros) {
-			total += numero;
+			
+			if (numero>5)
 			System.out.println(numeros);
-			//System.out.println(total);
+		
 		}
-		System.out.println(numeros.get(5));
+	
 	}
 }
