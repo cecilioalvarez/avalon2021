@@ -6,7 +6,6 @@ public class PedidoBarra extends Pedido {
 		super(concepto, importe,cliente);
 		// TODO Auto-generated constructor stub
 	}
-
 	@Override
 	protected double getImporteSencillo() {
 		// TODO Auto-generated method stub
