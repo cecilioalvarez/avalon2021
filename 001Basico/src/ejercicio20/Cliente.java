@@ -27,8 +27,20 @@ public class Cliente {
 		this.pedidos.add(pedido);
 	}
 	
-	public void getGastoFinalTotal() {
-		
+	public double getGastoFinalTotal() {
+		double gastoFinal=0;
+		for (Pedido p : pedidos) {
+			gastoFinal+=p.getImporteFinal();
+		}
+		return gastoFinal;
+	}
+	
+	public boolean esVip() {
+		if(pedidos.size()>5) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	
