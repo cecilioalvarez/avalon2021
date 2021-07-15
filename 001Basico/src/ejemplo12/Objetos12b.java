@@ -1,10 +1,12 @@
 package ejemplo12;
 
+import java.util.ArrayList;
+
 public static void main(String[] args) {
 
 	ArrayList<Persona> lista = new ArrayList<Persona>();
 
-	lista.add(new Persona("juan", 30));
+	lista.add(new Persona("fran",50));
 	lista.add(new Persona("david", 50));
 	lista.add(new Persona("ana", 20));
 
