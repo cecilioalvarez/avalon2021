@@ -17,6 +17,7 @@ public class Objetos19 {
 		h.addBombilla(new Bombilla(3,30,false));
 		
 		System.out.println(h.getPotenciaTotal());
+		
 	}
 
 }
