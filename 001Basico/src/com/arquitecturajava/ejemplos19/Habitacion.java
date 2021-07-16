@@ -48,7 +48,7 @@ public class Habitacion {
 
 	public void encender() {
 
-		for (Bombilla b : bombillas) {
+		for (Bombilla b : this.getBombillas()) {
 
 			b.encender();
 		}
@@ -60,5 +60,20 @@ public class Habitacion {
 
 			b.apagar();
 		}
+	}
+	
+
+	public Bombilla getBombillaGastoMaximo() {
+
+		Bombilla bombillaMaximo=null;
+		
+		for (Bombilla b : this.getBombillas()) {
+
+			if (bombillaMaximo==null || bombillaMaximo.getPotencia()<b.getPotencia()) {
+				
+				bombillaMaximo=b;
+			}
+		}
+		return bombillaMaximo;
 	}
 }

@@ -30,9 +30,13 @@ public class Bombilla {
 	}
 	public Bombilla(int id, int potencia, boolean encendida) {
 		super();
-		this.id = id;
-		this.potencia = potencia;
-		this.encendida = encendida;
+		this.setId(id);
+		this.setPotencia(potencia);
+		this.encendida=encendida;
+	}
+	@Override
+	public String toString() {
+		return "Bombilla [id=" + id + ", potencia=" + potencia + ", encendida=" + encendida + "]";
 	}
 	public int getPotencia() {
 		return potencia;
