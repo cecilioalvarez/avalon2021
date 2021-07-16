@@ -1,6 +1,6 @@
 package com.arquitecturajava.poo.bulb_2;
 
-public class Bulb {
+class Bulb {
 
     private static int count;
     private int id;
@@ -31,6 +31,10 @@ public class Bulb {
         this.power = power;
     }
     
+    int getWattage() {
+        return this.wattage;
+    }
+    
     boolean isOn() {
         return this.power;
     }
@@ -41,6 +45,6 @@ public class Bulb {
 
     @Override
     public String toString() {
-        return "La bombilla nº " + this.id + " tiene una potencia de " + this.wattage + " W y está " + (this.power ? "encendida." : "apagada.");
+        return "La bombilla nº " + this.id + " tiene una potencia de " + this.wattage + " W (vatios) y está " + (this.power ? "encendida." : "apagada.");
     }
 }

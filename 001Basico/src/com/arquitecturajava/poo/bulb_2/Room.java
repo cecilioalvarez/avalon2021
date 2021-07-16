@@ -18,6 +18,11 @@ class Room {
     private void showBulbsStatus() {
         this.bulbs.forEach(bulb -> System.out.println(bulb.toString()));
     }
+    
+    private void showWattage() {
+        int wattage = this.bulbs.stream().mapToInt(bulb -> bulb.getWattage()).sum();
+        System.out.println("La potencia total de la habitación son " + wattage + " W (vatios).");
+    }
 
     public static void main(String[] args) {
         Room bedroom = new Room();
@@ -27,5 +32,6 @@ class Room {
         bedroom.showBulbsStatus();
         bedroom.turnLights(false);
         bedroom.showBulbsStatus();
+        bedroom.showWattage();
     }
 }
