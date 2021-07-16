@@ -8,5 +8,9 @@ public static void main(String[] args) {
 	
 	i= new FotoCopiadoraImpresora();
 	i.imprimir();
+	
+	CopiableImprimible c = new FotoCopiadoraImpresora();
+	c.copiar();
+	c.imprimir();
 }
 }

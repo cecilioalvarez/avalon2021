@@ -1,6 +1,6 @@
 package com.arquitecturajava.ejemplos22;
 
-public class FotoCopiadoraImpresora implements Imprimible,Copiable{
+public class FotoCopiadoraImpresora implements CopiableImprimible{
 
 	@Override
 	public void copiar() {
