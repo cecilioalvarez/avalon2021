@@ -12,15 +12,20 @@ public class Arrays_Propiedad_length_NuevoArray {
 				numeroAprobados++;
 			}
 		}		
-		//System.out.println(numeroAprobados);
+		System.out.println(numeroAprobados);
+		System.out.println("--------------------------");
 		
 		int[] listaAprobados= new int[numeroAprobados];
 		int posicionAprobados=0;
 		for (int i=0;i<listaNumeros.length;i++) {
 			if (listaNumeros[i]>=5) {
 				listaAprobados[posicionAprobados]=listaNumeros[i];
-				System.out.println(listaAprobados[posicionAprobados]);
+				posicionAprobados++;
 			}
-		}		
+		}
+		System.out.println(listaAprobados.length);
+		for (int i=0;i<listaAprobados.length;i++) {
+			System.out.println("posicion :"+i+" valor :"+listaAprobados[i]);
+		}
 	}
 }
