@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo.bulb;
+package com.arquitecturajava.poo.bulb_1;
 
 class Room {
     

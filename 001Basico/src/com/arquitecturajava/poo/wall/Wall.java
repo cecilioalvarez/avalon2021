@@ -7,10 +7,6 @@ class Wall {
 
     private ArrayList<Tile> tiles = new ArrayList<>();
     
-    private void addTile(Tile tile) {
-        this.tiles.add(tile);
-    }
-    
     private void addTile(Tile ...tiles) {
         Collections.addAll(this.tiles, tiles);
     }
@@ -34,8 +30,7 @@ class Wall {
     public static void main(String[] args) {
         Wall wall = new Wall();
         int[] dimensions = {2, 2};
-        Tile[] azulejos = {new Tile(dimensions, 2.4), new Tile(dimensions, 2.4), new Tile(dimensions, 3.5), new Tile(dimensions, 3.5)};
-        wall.addTile(azulejos);
+        wall.addTile(new Tile(dimensions, 2.4), new Tile(dimensions, 2.4), new Tile(dimensions, 3.5), new Tile(dimensions, 3.5));
         wall.showTotalArea();
         wall.showTotalPrice();
     }
