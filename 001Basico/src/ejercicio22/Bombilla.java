@@ -2,7 +2,7 @@ package ejercicio22;
 
 import java.util.Objects;
 
-public class Bombilla {
+public class Bombilla implements Conectable {
 	private int id;
 	private double potencia;
 	private boolean estaEncendida;
