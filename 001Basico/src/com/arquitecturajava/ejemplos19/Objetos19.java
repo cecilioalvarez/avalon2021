@@ -10,8 +10,8 @@ public class Objetos19 {
 		
 		System.out.println(h.getPotenciaTotal());
 		h.getBombillaMaxConsumo();
+		System.out.println(h.getBombillaGastoMaximo());
 		h.apagarBombillas();
 		h.encenderBombillas();
 	}
-
 }

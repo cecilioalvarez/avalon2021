@@ -54,12 +54,15 @@ public class Habitacion {
 	}
 	
 	//Manera Cecilio
-	/*public Bombilla getBombillaGastoMaximo() {
+	public Bombilla getBombillaGastoMaximo() {
 		Bombilla bombillaMaximo = null;
 		for(Bombilla b: this.getBombillas()) {
-			if(bombillaMaximo == null || )
+			if(bombillaMaximo == null || bombillaMaximo.getPotencia()>b.getPotencia() ) {
+				bombillaMaximo=b;
+			}
 		}
-	}*/
+		return bombillaMaximo;
+	}
 	
 	//metodo apagar todas las bombillas
 	public void apagarBombillas() {
