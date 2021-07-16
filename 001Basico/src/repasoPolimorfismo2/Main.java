@@ -6,6 +6,8 @@ public class Main {
 		System.out.println(pack.getDonut1().getSabor());
 		System.out.println(pack.getDonut2().getSabor());
 		System.out.println(pack.getPrecio());
+		pack.setSabor("melocoton");
+		System.out.println(pack.getDonut2().getSabor());
 	}
 
 }

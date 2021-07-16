@@ -11,6 +11,10 @@ public class PackDonuts {
 	public Donut getDonut2() {
 		return donut2;
 	}
+	public void setSabor(String sabor) {
+		this.donut1.setSabor(sabor);
+		this.donut2.setSabor(sabor);
+	}
 
 	public PackDonuts(String sabor, double precio) {
 		super();
