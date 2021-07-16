@@ -3,7 +3,6 @@ package com.arquitecturajava.interfaces.office;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 class Office {
     
     private static ArrayList<Copier> copierDevices = new ArrayList<>();

@@ -16,5 +16,4 @@ class MultifunctionDevice implements Copier, Printer, Scanner {
     public String scan() {
         return "El dispositivo multifunción escanea.";
     }
-
 }
