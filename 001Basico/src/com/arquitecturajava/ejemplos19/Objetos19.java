@@ -9,7 +9,7 @@ public class Objetos19 {
 		
 		Habitacion h= new Habitacion();
 		ArrayList<Bombilla> lista= new ArrayList<Bombilla>();
-		lista.add
+	
 		
 		
 		h.addBombilla(new Bombilla(1,60,true),new Bombilla(2,70,true));
