@@ -54,12 +54,12 @@ public class Bombilla implements Conectable {
 		return encendida;
 	}
 	
-	@Override
+	
 	public void encender() {
 		System.out.println("bombilla" +id +" encendica");
 		this.encendida=true;
 	}
-	@Override
+	
 	public void apagar() {
 		System.out.println("bombilla" +id +" apagada");
 		this.encendida=false;
