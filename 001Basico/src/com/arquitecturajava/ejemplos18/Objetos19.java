@@ -14,6 +14,7 @@ public class Objetos19 {
 		p.addAzulejo(new Azulejo(2, 2));
 		p.addAzulejo(new Azulejo(2, 2),new Azulejo(2,3));
 		
+		
 		System.out.println(p.area());
 	}
 }
