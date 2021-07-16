@@ -1,6 +1,6 @@
-package com.arquitecturajava.poo.bulb_2;
+package com.arquitecturajava.interfaces.bulb;
 
-class Bulb {
+class Bulb implements Connectable {
 
     private static int count;
     private int id;
@@ -35,11 +35,13 @@ class Bulb {
         return this.wattage;
     }
     
-    boolean isOn() {
+    @Override
+    public boolean isOn() {
         return this.power;
     }
     
-    void setPower(boolean power) {
+    @Override
+    public void setPower(boolean power) {
         this.power = power;
     }
 
