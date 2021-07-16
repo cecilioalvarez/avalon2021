@@ -2,11 +2,11 @@ package com.arquitecturajava.poo.factoryMethod;
 
 class BabyFactory {
 
-    static Baby getBaby(Gender gender, String name) {
-        switch (gender) {
-            case BOY:
+    static Baby getBaby(String gender, String name) {
+        switch (gender.toLowerCase()) {
+            case "niño":
                 return new Boy(name);
-            case GIRL:
+            case "niña":
                 return new Girl(name);
             default:
                 return null;
