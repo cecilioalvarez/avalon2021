@@ -18,6 +18,8 @@ public class Objetos19 {
 		
 		System.out.println(h.getPotenciaTotal());
 		
+		h.encender();
+		h.apagar();
 	}
 
 }

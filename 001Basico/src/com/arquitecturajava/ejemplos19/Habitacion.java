@@ -27,15 +27,16 @@ public class Habitacion {
 	}
 
 	// sencillez que no simplicidad esta orientado a un elemento
-	// a futuro puede ser que mañana en el futuro 
+	// a futuro puede ser que mañana en el futuro
 	// añadir una bombilla no sea lo mismo que añadir una coleccion
 	public void addBombilla(Bombilla bombilla) {
-			
-			bombillas.add(bombilla);
-			
+
+		bombillas.add(bombilla);
+
 	}
+
 	// las cosas enrevesadas a una coleccion
-	public void addBombilla(Bombilla ... bombillas) {
+	public void addBombilla(Bombilla... bombillas) {
 
 		Collections.addAll(this.bombillas, bombillas);
 	}
@@ -45,4 +46,19 @@ public class Habitacion {
 		bombillas.remove(bombilla);
 	}
 
+	public void encender() {
+
+		for (Bombilla b : bombillas) {
+
+			b.encender();
+		}
+	}
+
+	public void apagar() {
+
+		for (Bombilla b : bombillas) {
+
+			b.apagar();
+		}
+	}
 }
