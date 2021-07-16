@@ -12,6 +12,17 @@ public class Objetos22 {
 		imFoto.copiar();
 		multi.copiar();
 		multi.escanear();
+		
+		//LLAMAR A LOS INTERFACES Y ASIGNARLE UN OBJETO QUE IMPLEMENTE LA INTERFAZ
+		Imprimir i = new Impresora();
+		i.imprimir();
+		i = new ImpresoraFotocopiadora();
+		i.imprimir();
+		
+		CopiarImprimir cp = new ImpresoraFotocopiadora();
+		cp.imprimir();
+		cp.copiar();
+		
 
 	}
 

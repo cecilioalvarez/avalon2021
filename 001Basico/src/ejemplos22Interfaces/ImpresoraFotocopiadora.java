@@ -1,6 +1,6 @@
 package ejemplos22Interfaces;
 
-public class ImpresoraFotocopiadora implements Imprimir,Copiar{
+public class ImpresoraFotocopiadora implements CopiarImprimir{
 
 	@Override
 	public void copiar() {
