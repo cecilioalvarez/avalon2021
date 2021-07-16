@@ -13,6 +13,8 @@ public class Objeto21a {
 		p.removeAzulejo(l2);
 		
 		System.out.println(l1.equals(l2));
+		
+		System.out.println(p.getAreaCubierta());
 
 	}
 
