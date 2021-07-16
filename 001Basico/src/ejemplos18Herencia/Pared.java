@@ -30,6 +30,10 @@ public class Pared {
 		Collections.addAll(listadoAzulejos, azs);
 	}
 	
+	public void removeAzulejo(Azulejo a) {
+		listadoAzulejos.remove(a);
+	}
+	
 	public double getAreaCubierta() {
 		double areaTotal=0;
 		for (Azulejo azulejo : listadoAzulejos) {
