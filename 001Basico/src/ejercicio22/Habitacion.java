@@ -21,7 +21,7 @@ public class Habitacion {
 	public void addBombilla(Bombilla bombilla) {
 		lista.add(bombilla);
 	}
-	public double getPotencia() {
+	public double getPotenciaTotal() {
 		double potenciaTotal=0;
 		for(Bombilla b: lista) {
 			potenciaTotal+=b.getPotencia();

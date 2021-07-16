@@ -13,7 +13,7 @@ public class Objeto22 {
 		h.addBombilla(new Bombilla(1,12,true));
 		h.addBombilla(new Bombilla(1,12,true));
 		
-		System.out.println(h.getPotencia());
+		System.out.println(h.getPotenciaTotal());
 	}
 
 }
