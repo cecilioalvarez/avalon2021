@@ -1,7 +1,9 @@
 package com.arquitecturajava.poo.bulb_2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.OptionalInt;
 
 class Room {
     
@@ -9,6 +11,10 @@ class Room {
 
     private void addBulbs(Bulb ...bulbs) {
         Collections.addAll(this.bulbs, bulbs);
+    }
+    
+    private void removeBulbs(Bulb ...bulbs) {
+        this.bulbs.removeAll(Arrays.asList(bulbs));
     }
     
     private void turnLights(boolean power) {
@@ -23,6 +29,11 @@ class Room {
         int wattage = this.bulbs.stream().mapToInt(bulb -> bulb.getWattage()).sum();
         System.out.println("La potencia total de la habitación son " + wattage + " W (vatios).");
     }
+    
+    private void showMaxWattage() {
+        OptionalInt maxWattage = this.bulbs.stream().mapToInt(bulb -> bulb.getWattage()).max();
+        System.out.println("La(s) bombilla(s) con mayor potencia de la habitación tienen " + maxWattage.getAsInt() + " W (vatios).");
+    }
 
     public static void main(String[] args) {
         Room bedroom = new Room();
@@ -33,5 +44,6 @@ class Room {
         bedroom.turnLights(false);
         bedroom.showBulbsStatus();
         bedroom.showWattage();
+        bedroom.showMaxWattage();
     }
 }
