@@ -1,5 +1,7 @@
 package ejercicio22;
 
+import java.util.Objects;
+
 public class Bombilla {
 	private int id;
 	private double potencia;
@@ -14,6 +16,11 @@ public class Bombilla {
 	}
 	
 	
+	public Bombilla() {
+		super();
+	}
+
+
 	public int getId() {
 		return id;
 	}
@@ -45,11 +52,40 @@ public class Bombilla {
 
 
 	public void encender() {
+		System.out.println("bombilla "+id +" encendida");
 		this.setEstaEncendida(true);
 		
 	}
 	public void apagar() {
+		System.out.println("bombilla "+id +" apagada");
 		this.setEstaEncendida(false);
 	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bombilla other = (Bombilla) obj;
+		return id == other.id;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Bombilla [id=" + id + ", potencia=" + potencia + ", estaEncendida=" + estaEncendida + "]";
+	}
+	
+	
 
 }

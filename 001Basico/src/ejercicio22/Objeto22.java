@@ -8,12 +8,17 @@ public class Objeto22 {
 		Habitacion h=new Habitacion();
 		
 		h.addBombilla(new Bombilla(1,12,true));
-		h.addBombilla(new Bombilla(1,12,true));
-		h.addBombilla(new Bombilla(1,12,true));
-		h.addBombilla(new Bombilla(1,12,true));
-		h.addBombilla(new Bombilla(1,12,true));
+		h.addBombilla(new Bombilla(2,12,true));
+		h.addBombilla(new Bombilla(3,12,true));
+		h.addBombilla(new Bombilla(4,12,true));
+		h.addBombilla(new Bombilla(5,14,true));
 		
 		System.out.println(h.getPotenciaTotal());
+		
+		System.out.println("Bombilla con mas potencia :"+ h.getBombillaMayorPotencia());
+		
+		h.apagarHabitacion();
+		h.encenderHabitacion();
 	}
 
 }
