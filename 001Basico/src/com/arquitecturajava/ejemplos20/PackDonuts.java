@@ -16,6 +16,16 @@ public class PackDonuts {
 		return donut1;
 	}
 	
+	public String getSabor(){
+		
+		return donut1.getSabor();
+	}
+	public void setSabor(String sabor) {
+		
+		this.getDonut1().setSabor(sabor);
+		this.getDonut2().setSabor(sabor);
+	}
+	
 	public Donut getDonut2() {
 		return donut2;
 	}

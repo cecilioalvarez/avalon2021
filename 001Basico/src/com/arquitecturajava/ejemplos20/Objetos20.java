@@ -7,7 +7,9 @@ public static void main(String[] args) {
 	System.out.println(pack.getDonut1().getSabor());
 	System.out.println(pack.getDonut2().getSabor());
 	System.out.println(pack.getPrecio());
-	
-	
+	pack.setSabor("fresa");
+	System.out.println(pack.getDonut1().getSabor());
+	System.out.println(pack.getDonut2().getSabor());
+	System.out.println(pack.getSabor());
 }
 }
