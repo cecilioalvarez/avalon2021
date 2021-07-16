@@ -1,9 +1,10 @@
-package ejemplos19_ejerciciosrepaso1;
+package ejemplos21Interfaces;
 
 import java.util.Objects;
 
+import ejemplos21Interfaces.Conectable;
 
-public class Bombilla {
+public class Bombilla implements Conectable {
 
 	private int id;
 	private int potencia;
@@ -55,12 +56,14 @@ public class Bombilla {
 		return on;
 	}
 
-	public void encenderBombilla() {
+	@Override
+	public void encender() {
 		System.out.println("Bombilla "+id+" encendida");
 		this.on = true;
 	}
 	
-	public void apagarBombilla() {
+	@Override
+	public void apagar() {
 		System.out.println("Bombilla "+id+" apagada");
 		this.on = false;
 	}

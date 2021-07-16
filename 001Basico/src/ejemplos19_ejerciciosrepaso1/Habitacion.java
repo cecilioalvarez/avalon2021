@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import ejemplos18Herencia.Azulejo;
+import ejemplos21Interfaces.Conectable;
 
 public class Habitacion {
 
@@ -41,7 +42,7 @@ public class Habitacion {
 		Collections.addAll(listadoBombillas, boms);
 	}
 	
-	public void removeBombillas(Bombilla bom) {
+	public void removeBombillas(Conectable bom) {
 		this.getListadoBombillas().remove(bom);
 	}
 	

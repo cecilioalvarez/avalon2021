@@ -22,7 +22,8 @@ public class Objetos19 {
 			System.out.println(bom.getId()+"-"+bom.isOn());
 		}
 		System.out.println("-------------");
-		System.out.println(h.getBombillaMasPotencia().getId());
+		Bombilla b =h.getBombillaMasPotencia();
+		System.out.println(b.getId()+"-"+b.getPotencia());
 		h.apagarBombillas();
 		h.encenderBombillas();
 	}
