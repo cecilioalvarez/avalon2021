@@ -16,9 +16,11 @@ public class Objeto27 {
 			System.out.println("llega");
 			
 			
-		} catch (Exception e) {
+		} catch (SuperFicheroExcepcion e) {
 		
 			System.out.println("ha fallado main :"+ e.getMessage());
+			System.out.println("ha fallado main :"+ e.getClass());
+			
 		} finally {
 
 		}
@@ -51,7 +53,7 @@ public class Objeto27 {
 			
 			//una excepcion sin chequear
 			// convertido una excepcion chequeada en una sin chequear;
-			throw new RuntimeException(e);
+			throw new SuperFicheroExcepcion(e);
 			
 			//aqui has capturado la excepion
 			//no has hecho nada

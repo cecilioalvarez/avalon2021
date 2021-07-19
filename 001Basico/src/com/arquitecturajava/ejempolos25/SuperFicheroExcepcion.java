@@ -1,0 +1,31 @@
+package com.arquitecturajava.ejempolos25;
+
+public class SuperFicheroExcepcion extends RuntimeException {
+
+	public SuperFicheroExcepcion() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public SuperFicheroExcepcion(String message, Throwable cause, boolean enableSuppression,
+			boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+		// TODO Auto-generated constructor stub
+	}
+
+	public SuperFicheroExcepcion(String message, Throwable cause) {
+		super(message, cause);
+		// TODO Auto-generated constructor stub
+	}
+
+	public SuperFicheroExcepcion(String message) {
+		super(message);
+		// TODO Auto-generated constructor stub
+	}
+
+	public SuperFicheroExcepcion(Throwable cause) {
+		super(cause);
+		// TODO Auto-generated constructor stub
+	}
+
+}
