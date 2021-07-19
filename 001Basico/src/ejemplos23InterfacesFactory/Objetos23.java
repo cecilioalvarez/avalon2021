@@ -1,4 +1,4 @@
-package ejemplos23Interfaces;
+package ejemplos23InterfacesFactory;
 
 public class Objetos23 {
 
