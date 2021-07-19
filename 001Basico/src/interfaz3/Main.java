@@ -6,6 +6,10 @@ public class Main {
 		GestorDocumentalWord gd= new GestorDocumentalWord();
 		gd.salvar(d);
 		gd.versionar(d);
+		
+		GestorDocumental gd1 = new GestorDocumentalWordpress();
+		gd1.salvar(d);
+		gd1.versionar(d);
 	}
 
 }
