@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejempolos25;
+package com.arquitecturajava.ejemplos25;
 
 import java.io.File;
 import java.io.IOException;

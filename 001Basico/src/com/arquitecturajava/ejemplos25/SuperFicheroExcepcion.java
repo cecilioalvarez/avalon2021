@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejempolos25;
+package com.arquitecturajava.ejemplos25;
 
 public class SuperFicheroExcepcion extends RuntimeException {
 

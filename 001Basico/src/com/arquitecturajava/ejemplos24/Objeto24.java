@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejempolos24;
+package com.arquitecturajava.ejemplos24;
 
 public class Objeto24 {
 
