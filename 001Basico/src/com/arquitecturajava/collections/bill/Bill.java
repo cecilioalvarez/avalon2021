@@ -41,4 +41,29 @@ class Bill {
     void addDetail(BillDetail ...details) {
         this.details.addAll(Arrays.asList(details));
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.ID;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Bill other = (Bill) obj;
+        if (this.ID != other.ID) {
+            return false;
+        }
+        return true;
+    }
 }
