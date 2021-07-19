@@ -7,9 +7,15 @@ public class Objeto25 {
 	public static void main(String[] args) {
 
 		// yo se que este bloque debe ser controlado
+		File fichero;
 		try {
-			File fichero= new File("f:/mifichero");
+			fichero = new File("f:/mifichero");
+			// lanza una excepcion
+			// nose genera la excepcion de java io
+			// una excepcion de null pointer
+			lanzaError();
 			fichero.createNewFile();
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
@@ -18,10 +24,16 @@ public class Objeto25 {
 //				System.out.println(elemento);
 //			}
 			e.printStackTrace();
+		} finally {
+			// siempre se ejecutan pase lo que pase
+			System.out.println("se cierran los recursos");
 		}
+
+	}
+	
+	public static void lanzaError() {
 		
-		
-		
+		throw new NullPointerException("error basico");
 	}
 
 }
