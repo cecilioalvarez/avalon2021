@@ -1,57 +1,47 @@
 package com.arquitecturajava.ejemplos25;
 
-
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 public class Objeto26 {
 
 	public static void main(String[] args) {
 
-		
+		//no hace falta poner un try catch
 		try {
-			leerFichero();
-		} catch (Exception e) {
-			System.out.println("ha fallado main: " + e.getMessage());
-			} finally {
-
-			}
-
+			lanzarError();
+		} catch (IOException e) {
+			System.out.println("ojo esto salen en una ventana");
+			System.out.println("el fichero da error:" +e.getMessage());
+		}finally {
+			
+			System.out.println("cerrando recursos");
+		}
+		
+		
+		
 	}
 
-
-
-	public static void leerFichero() throws IOException {
-
-		BufferedReader lector = null;
-
-		String linea;
-
-		try {
-			lector = new BufferedReader(new FileReader("C:\\Users\\Ruben\\git\\avalon2021\\001Basico\\hola.txt"));
-
-			while ((linea = lector.readLine()) != null) {
-				//tienes algun problema por aqui dentro
-				//aqui se genera una excepcion
-				System.out.println(Integer.parseInt(linea));
-			}
-		} catch (IOException e) {
-			throw e;
-			//aqui has capturado la excepcion
-			//no has hecho nada
-			//el fichero ni siquiera es distinto de null
-		}finally {
-			if(lector!=null) {
-				lector.close();
-				System.out.println("pasa por finally y cierra los recursos");
-			}
-		}
+	// que este método este en una claes
+	// y sea clase no tenga acceso al interface de usuario
 	
+	public static void lanzarError() throws IOException  {
 
+		//nos estariamos merendando el error
+		File fichero = null;
+		
+
+			try {
+				fichero= new File("f:/mifichero");
+				// se produce un error
+				fichero.createNewFile();
+			} catch (IOException e) {
+				throw e;
+			}finally {
+				
+				System.out.println("cerrando recursos "+ fichero.getName());
+			}
+	
+		
 	}
 }
-
-
