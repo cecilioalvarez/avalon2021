@@ -1,6 +1,6 @@
 package com.arquitecturajava.ejemplos23;
 
-/*public class GestorDocumental {
+public abstract class GestorDocumental {
 
 	public GestorDocumental() {
 		super();
