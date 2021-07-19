@@ -8,12 +8,14 @@ public class Objeto25 {
 
 		// yo se que este bloque debe ser controlado
 		File fichero;
+	
 		try {
 			fichero = new File("f:/mifichero");
 			// lanza una excepcion
 			// nose genera la excepcion de java io
 			// una excepcion de null pointer
 			lanzaError();
+			//nunca vamos a llegar 
 			fichero.createNewFile();
 
 		} catch (IOException e) {
@@ -31,7 +33,7 @@ public class Objeto25 {
 
 	}
 	
-	public static void lanzaError() {
+	public  static void lanzaError() {
 		
 		throw new NullPointerException("error basico");
 	}
