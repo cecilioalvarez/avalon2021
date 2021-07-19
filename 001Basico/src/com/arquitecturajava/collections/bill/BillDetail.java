@@ -2,42 +2,30 @@ package com.arquitecturajava.collections.bill;
 
 class BillDetail {
 
-    private int id;
-    private String concept;
-    private double amount;
+    private final int ID;
+    private final String CONCEPT;
+    private final float AMOUNT;
 
-    public BillDetail(int id, String concept, double amount) {
-        this.id = id;
-        this.concept = concept;
-        this.amount = amount;
+    BillDetail(int id, String concept, float amount) {
+        this.ID = id;
+        this.CONCEPT = concept;
+        this.AMOUNT = amount;
     }
 
-    int getId() {
-        return this.id;
+    int getID() {
+        return this.ID;
     }
 
-    void setId(int id) {
-        this.id = id;
+    String getCONCEPT() {
+        return this.CONCEPT;
     }
-
-    String getConcept() {
-        return this.concept;
-    }
-
-    void setConcept(String concept) {
-        this.concept = concept;
-    }
-
-    double getAmount() {
-        return this.amount;
-    }
-
-    void setAmount(double amount) {
-        this.amount = amount;
+    
+    float getAMOUNT() {
+        return this.AMOUNT;
     }
 
     @Override
     public String toString() {
-        return "Línea " + this.id + ". Concepto: " + this.concept + ". Importe: " + this.amount + " €.";
+        return "Línea " + this.ID + ". Concepto: " + this.CONCEPT + ". Importe: " + String.format("%.2f", this.AMOUNT) + " €.";
     }
 }
