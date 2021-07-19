@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo.factoryMethod;
+package com.arquitecturajava.patterns.factoryMethod;
 
 abstract class Baby {
 
@@ -8,6 +8,14 @@ abstract class Baby {
     public Baby(Gender gender, String name) {
         this.gender = gender;
         this.name = name;
+    }
+    
+    Gender getGender() {
+        return this.gender;
+    }
+    
+    String getName() {
+        return this.name;
     }
 
     @Override

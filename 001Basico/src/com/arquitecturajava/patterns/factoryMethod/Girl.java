@@ -1,9 +1,13 @@
-package com.arquitecturajava.poo.factoryMethod;
+package com.arquitecturajava.patterns.factoryMethod;
 
 class Girl extends Baby {
 
     Girl(String name) {
         super(Gender.GIRL, name);
+    }
+    
+    String draw() {
+        return this.getName() + " juega dibujando.";
     }
 
     @Override

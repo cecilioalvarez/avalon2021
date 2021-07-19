@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo.factoryMethod;
+package com.arquitecturajava.patterns.factoryMethod;
 
 class BabyFactory {
 

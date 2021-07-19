@@ -1,4 +1,4 @@
-package com.arquitecturajava.poo.factoryMethod;
+package com.arquitecturajava.patterns.factoryMethod;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,6 +15,14 @@ class Nanny {
         this.BABIES.forEach(baby -> System.out.println(baby.pee()));
     }
     
+    private void letBoysSing() {
+        this.BABIES.stream().filter(baby -> baby.getGender() == Gender.BOY).forEach(baby -> System.out.println(((Boy) baby).sing()));
+    }
+    
+    private void letGirlsDraw() {
+        this.BABIES.stream().filter(baby -> baby.getGender() == Gender.GIRL).forEach(baby -> System.out.println(((Girl) baby).draw()));
+    }
+    
     public static void main(String[] args) {
         Baby baby1 = BabyFactory.getBaby("niña", "Carla");
         Baby baby2 = BabyFactory.getBaby("niña", "Isabel");
@@ -25,6 +33,10 @@ class Nanny {
         
         Nanny nanny = new Nanny();
         nanny.addBabies(baby1, baby2, baby3, baby4, baby5, baby6);
+        
         nanny.takeToBathroom();
+        
+        nanny.letGirlsDraw();
+        nanny.letBoysSing();
     }
 }
