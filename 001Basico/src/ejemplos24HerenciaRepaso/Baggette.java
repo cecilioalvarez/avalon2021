@@ -9,7 +9,11 @@ public class Baggette extends Pan {
 
 	@Override
 	public void cocer() {
-		System.out.println("Se cuece baggete en 10 mins");
+		if (getPeso()>1) {
+			System.out.println("Se cuece baggete en 20 mins");
+		}else {
+			System.out.println("Se cuece baggete en 10 mins");
+		}
 	}
 
 	
