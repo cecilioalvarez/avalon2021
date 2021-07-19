@@ -38,10 +38,9 @@ class Enterprise {
             for (Entry<String, Worker> entry : this.EMPLOYEES.entrySet()) {
                 ageSum += entry.getValue().getAge();
             }
-            double avgAge = ageSum / this.EMPLOYEES.size();
+            float avgAge = (float) ageSum / this.EMPLOYEES.size();
             System.out.println("La edad media de los empleados es de " + String.format("%,.2f", avgAge) + " años.");
         }
-        
     }
     
     private void showMaxAge() {
@@ -62,11 +61,13 @@ class Enterprise {
     
     public static void main(String[] args) {
         Enterprise enterprise = new Enterprise();
-        enterprise.addEmployee("00000000T", new Worker("Alberto", 44));
+        enterprise.addEmployee("00000000T", new Worker("Alberto", 45));
         enterprise.addEmployee("11111111H", new Worker("Juana", 58));
         enterprise.addEmployee("22222222J", new Worker("Nuria", 33));
-        // enterprise.showEmployeeData(enterprise.searchEmployee());
+        enterprise.addEmployee("33333333P", new Worker("Alba", 24));
+        enterprise.addEmployee("44444444A", new Worker("Carlo", 39));
         enterprise.showEmployeeData();
+        enterprise.showEmployeeData(enterprise.searchEmployee());
         enterprise.showMaxAge();
         enterprise.showAverageAge();
     }
