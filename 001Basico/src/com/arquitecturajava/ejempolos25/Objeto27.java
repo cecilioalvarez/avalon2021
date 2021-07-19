@@ -12,9 +12,12 @@ public class Objeto27 {
 
 		//no le puedo cerrar porque no puedo acceder a el
 		try {
-			leerFichero();
+			leerFicheroOtra();
+			System.out.println("llega");
+			
 			
 		} catch (Exception e) {
+		
 			System.out.println("ha fallado main :"+ e.getMessage());
 		} finally {
 
@@ -22,7 +25,12 @@ public class Objeto27 {
 
 	}
 
-	public static void leerFichero() throws IOException {
+	public static void leerFicheroOtra()  {
+		
+		leerFichero();
+	}
+	
+	public static void leerFichero() {
 
 		//no cerre aqui el fichero
 		BufferedReader lector = null;
@@ -40,15 +48,24 @@ public class Objeto27 {
 		}  catch (IOException e) {
 			//ubicado aqui no tiene acceso al interface de ventanas
 			//System.out.println("ha ocurrido un error"+ e.getMessage());
-			throw e;
+			
+			//una excepcion sin chequear
+			// convertido una excepcion chequeada en una sin chequear;
+			throw new RuntimeException(e);
+			
 			//aqui has capturado la excepion
 			//no has hecho nada
 			// elfichero ni siquiera es distinto de null;
 			
 		}finally {
-			
+			System.out.println("clausula finally");
 			if (lector!=null) {
-				lector.close();
+				try {
+					lector.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println("pasa por finally y cierra los recursos");
 			}
 		}
