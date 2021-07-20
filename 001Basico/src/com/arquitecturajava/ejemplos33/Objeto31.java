@@ -14,9 +14,9 @@ public class Objeto31 {
 		}
 		
 		Bolsa<Producto> b1 = new Bolsa<Producto>(3);
-		b.add(new Producto("peras"));
-		b.add(new Producto("tomates"));
-		b.add(new Producto("anchoas"));
+		b1.add(new Producto("peras"));
+		b1.add(new Producto("tomates"));
+		b1.add(new Producto("anchoas"));
 		
 		for( Producto p: b1.getLista()) {
 			System.out.println(p.getNombre());

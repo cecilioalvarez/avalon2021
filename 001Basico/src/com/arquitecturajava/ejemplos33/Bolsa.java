@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Bolsa<T> {
 	private int tope;
-	private List<T> lista = new ArrayList<>();
+	private List<T> lista = new ArrayList<T>();
 	
 	public void add(T o) {
 		if(lista.size()<tope) {
