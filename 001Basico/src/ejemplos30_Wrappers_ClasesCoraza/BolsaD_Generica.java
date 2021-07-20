@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BolsaD_Generica<T> {
-	//Creación de Clase genérica que acepta objetos tipo T
+	//Creación de Clase genérica que acepta objetos tipo T 
+	//T es cualquier tipode objeto que se pase en la creación de la bolsa)
 	private int tope;
 	private List<T> lista = new ArrayList<T>();
 	
