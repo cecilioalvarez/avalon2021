@@ -16,6 +16,10 @@ class CustomersAccounting {
         }
     }
     
+    private void addBillDetails(Bill bill, BillDetail ...billDetails) {
+        Arrays.asList(billDetails).forEach(billDetail ->  bill.addDetail(billDetail));
+    }
+    
     private void showBills() {
         this.CUSTOMERS.keySet().forEach(key -> this.showBills(key));
     }
@@ -41,6 +45,8 @@ class CustomersAccounting {
         BillDetail bill2_detail3 = new BillDetail("Fundas A4", 1.19f, bill2);
         
         CustomersAccounting ca = new CustomersAccounting();
+        ca.addBillDetails(bill1, bill1_detail1, bill1_detail2, bill1_detail3);
+        ca.addBillDetails(bill2, bill2_detail1, bill2_detail2, bill2_detail3);
         ca.addBills("Manuel", bill1, bill2);
         ca.addBills("Coral", bill2, bill1);
         ca.showBills();
