@@ -1,4 +1,4 @@
-package com.arquitecturajava.collections.employees.ext;
+package com.arquitecturajava.apis.collections.employees.ext;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

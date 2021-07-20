@@ -1,4 +1,4 @@
-package com.arquitecturajava.collections.bill;
+package com.arquitecturajava.apis.collections.bill;
 
 import java.util.ArrayList;
 import java.util.Arrays;

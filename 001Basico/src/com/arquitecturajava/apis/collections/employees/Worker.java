@@ -1,4 +1,4 @@
-package com.arquitecturajava.collections.employees;
+package com.arquitecturajava.apis.collections.employees;
 
 class Worker {
 

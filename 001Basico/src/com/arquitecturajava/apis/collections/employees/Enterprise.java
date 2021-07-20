@@ -1,6 +1,6 @@
-package com.arquitecturajava.collections.employees;
+package com.arquitecturajava.apis.collections.employees;
 
-import com.arquitecturajava.collections.employees.ext.IOHelper;
+import com.arquitecturajava.apis.collections.employees.ext.IOHelper;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
