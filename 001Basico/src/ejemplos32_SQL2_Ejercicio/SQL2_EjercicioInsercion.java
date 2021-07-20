@@ -32,7 +32,9 @@ public class SQL2_EjercicioInsercion {
 			System.out.println("Inserta edad");
 			int edad = sc.nextInt();
 			
-			String queryInsert="INSERT INTO personas(dni, nombre, edad) VALUES("+dni+",'"+nombre+"',"+ edad+")";
+			String queryInsert="INSERT INTO personas(dni, nombre, edad) VALUES"
+					+ "("+dni+",'"+nombre+"',"+ edad+")";
+			
 			sentencia.executeUpdate(queryInsert);
 			
 			//Para Resultados de SELECT
