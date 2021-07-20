@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import com.arquitecturajava.ejemplos26.Persona;
 
@@ -17,7 +18,7 @@ public static void main(String[] args) {
 	Factura f2= new Factura(2,"compraB");
 	f2.addLineaFactura(new LineaFactura(1,"leche",2,f2));
 	f2.addLineaFactura(new LineaFactura(2,"galletas",3,f2));
-	Map<String,List<Factura>> mapa= new HashMap<String,List<Factura>>();
+	Map<String,List<Factura>> mapa= new TreeMap<String,List<Factura>>();
 	List<Factura> lista1= new ArrayList<Factura>();
 	lista1.add(f);
 	lista1.add(f2);
