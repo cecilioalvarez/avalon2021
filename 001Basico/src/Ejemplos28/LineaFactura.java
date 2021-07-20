@@ -1,4 +1,4 @@
-package EjercicioFactura;
+package Ejemplos28;
 
 import java.util.Objects;
 
@@ -24,6 +24,14 @@ public class LineaFactura {
 	}
 	public void setImporte(double importe) {
 		this.importe = importe;
+	}
+	public LineaFactura() {
+		super();
+	}
+	public LineaFactura(int numero,Factura f) {
+		
+		this.numero=numero;
+		this.factura=f;
 	}
 	public LineaFactura(int numero, String concepto, double importe, Factura factura) {
 		super();

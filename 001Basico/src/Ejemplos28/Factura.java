@@ -1,4 +1,4 @@
-package EjercicioFactura;
+package Ejemplos28;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,27 +7,13 @@ import java.util.Objects;
 
 
 public class Factura {
-	private double importe;
+	private int numero;
 	private String concepto;
 	private List<LineaFactura> lineas = new ArrayList<LineaFactura>();
-	public Factura(double importe, String concepto) {
-		super();
-		this.importe = importe;
-		this.concepto = concepto;
-	}
-	public String getConcepto() {
-		return concepto;
-	}
-	public void setConcepto(String concepto) {
-		this.concepto = concepto;
-	}
-	@Override
-	public String toString() {
-		return "Factura [concepto=" + concepto + ", importe=" + importe + ", lineas=" + lineas + "]";
-	}
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(concepto, importe, lineas);
+		return Objects.hash(concepto, lineas, numero);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -38,12 +24,20 @@ public class Factura {
 		if (getClass() != obj.getClass())
 			return false;
 		Factura other = (Factura) obj;
-		return Objects.equals(concepto, other.concepto)
-				&& Double.doubleToLongBits(importe) == Double.doubleToLongBits(other.importe)
-				&& Objects.equals(lineas, other.lineas);
+		return Objects.equals(concepto, other.concepto) && Objects.equals(lineas, other.lineas)
+				&& numero == other.numero;
 	}
-	public void setImporte(double importe) {
-		this.importe = importe;
+	public int getNumero() {
+		return numero;
+	}
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	public String getConcepto() {
+		return concepto;
+	}
+	public void setConcepto(String concepto) {
+		this.concepto = concepto;
 	}
 	public List<LineaFactura> getLineas() {
 		return lineas;
@@ -51,11 +45,17 @@ public class Factura {
 	public void setLineas(List<LineaFactura> lineas) {
 		this.lineas = lineas;
 	}
+	public Factura(int numero, String concepto) {
+		super();
+		this.numero = numero;
+		this.concepto = concepto;
+	}
 	public double getImporte() {
-		double total=0;
-		for (LineaFactura lf: lineas) {
-			total+=lf.getImporte();
-			
+
+		double total = 0;
+		for (LineaFactura lf : lineas) { 
+			total += lf.getImporte();
+
 		}
 		return total;
 	}
