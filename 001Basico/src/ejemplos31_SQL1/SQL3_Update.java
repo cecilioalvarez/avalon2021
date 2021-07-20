@@ -1,17 +1,18 @@
-package ejemplos32_SQL2_Ejercicio;
+package ejemplos31_SQL1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Scanner;
 
-public class SQL2_EjercicioInsercion {
+public class SQL3_Update {
 	
 	   static final String DB_URL = "jdbc:mysql://localhost:3306/avalon";
-	   static final String USER = "mavalon";
-	   static final String PASS = "avalon2021";
+	   /*static final String USER = "mavalon";
+	   static final String PASS = "avalon2021";*/
+	   static final String USER = "root";
+	   static final String PASS = "";
 	   //Se genera consulta SQL de inserción
 	   //static final String QUERY = "INSERT INTO personas(dni, nombre, edad) VALUES(10,'angel', 20)";
 	   //static final String QUERY = "DELETE FROM personas WHERE dni=10";
@@ -19,25 +20,11 @@ public class SQL2_EjercicioInsercion {
 
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		
-		int dni=0;
-		String nombre =null;
-		int edad=0;
 		try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
 				Statement sentencia = conn.createStatement();) {
-			System.out.println("Inserta dni");
-			dni = sc.nextInt();
-			sc.nextLine();
-			System.out.println("Inserta nombre");
-			nombre = sc.nextLine();
-			System.out.println("Inserta edad");
-			edad = sc.nextInt();
-			sc.nextLine();
-			String queryInsert="INSERT INTO personas(dni, nombre, edad) VALUES"
-					+ "("+dni+",'"+nombre+"',"+ edad+")";
-			
-			sentencia.executeUpdate(queryInsert);
+			//Para Update
+			String queryUpdate = "UPDATE personas set nombre='emilio' WHERE dni=1";
+			sentencia.executeUpdate(queryUpdate);
 			
 			//Para Resultados de SELECT
 			ResultSet rs = sentencia.executeQuery(QUERY);
