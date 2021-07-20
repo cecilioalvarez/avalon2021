@@ -67,7 +67,7 @@ public class Factura {
 	public double getImporte() {
 
 		double total = 0;
-		for (LineaFactura lf : lineas) {
+		for (LineaFactura lf : lineas) { 
 			total += lf.getImporte();
 
 		}
