@@ -5,7 +5,7 @@ import java.util.List;
 
 class Bag<T> {
 
-    private static final int MAX_ELEMENTS = 2;
+    private static final int MAX_ELEMENTS = 3;
     private List<T> list = new ArrayList<>();
     
     void addObject(T object) {
