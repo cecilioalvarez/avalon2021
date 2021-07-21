@@ -19,6 +19,7 @@ public class LibroAR {
 	final static String CONSULTA_INSERTAR = "insert into Libros (isbn,titulo,autor) values (?,?,?)";
 	final static String CONSULTA_BORRAR = "delete from Libros  where isbn =?";
 	final static String CONSULTA_BUSCAR_TODOS = "select * from Libros";
+	final static String CONSULTA_BUSCAR_UNO = "select * from Libros where isbn=?";
 
 	public String getIsbn() {
 		return isbn;
@@ -111,5 +112,30 @@ public class LibroAR {
 		return listaLibros;
 
 	}
+
+	public static LibroAR buscarUno(String isbn) {
+
+		LibroAR libro = null;
+
+		try (Connection conn = helper.getConexion();
+				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_UNO);){
+				sentencia.setString(1, isbn);
+				ResultSet rs = sentencia.executeQuery();
+				rs.next();
+
+			libro = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+
+		
+	}catch(
+
+	SQLException e)
+	{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	return libro;
+
+}
 
 }
