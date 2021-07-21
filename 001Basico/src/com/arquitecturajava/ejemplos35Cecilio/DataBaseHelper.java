@@ -3,6 +3,9 @@ package com.arquitecturajava.ejemplos35Cecilio;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public class DataBaseHelper {
@@ -22,19 +25,18 @@ public class DataBaseHelper {
 	
 	public DataBaseHelper()   {
 		
-
-			try {
-				propiedades.load(new FileInputStream(new File("database.properties")));
-				url=propiedades.getProperty("url");
-				user=propiedades.getProperty("user");
-				password=propiedades.getProperty("password");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				// siguiente capa que seria el main
-				// no se lanza como chequeada sino como no chequeada
-				throw new RuntimeException(e);
-			}
+		try {
+			propiedades.load(new FileInputStream(new File("database.properties")));
+			url=propiedades.getProperty("url");
+			user=propiedades.getProperty("user");
+			password=propiedades.getProperty("password");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			// siguiente capa que seria el main
+			// no se lanza como chequeada sino como no chequeada
+			throw new RuntimeException(e);
+		}
 		
 	}
 	public String getUrl() {
@@ -56,6 +58,7 @@ public class DataBaseHelper {
 		this.password = password;
 	}
 	
-	
-	
+	public Connection getConexion() throws SQLException {
+		return DriverManager.getConnection(getUrl(),getUser(),getPassword());
+	}
 }

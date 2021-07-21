@@ -7,10 +7,10 @@ public class Objetos35 {
 	//hace uso de un properties
 	
 	DataBaseHelper helper= new DataBaseHelper();
-	LibroAR libroAR= new LibroAR("26","java","ana",helper);
-	libroAR.insertar();
-	
-	
+	//LibroAR libroAR= new LibroAR("26","java","ana");
+	//libroAR.insertar();
+	LibroAR libroAR= new LibroAR("26");
+	libroAR.borrar();
 	}
 
 }
