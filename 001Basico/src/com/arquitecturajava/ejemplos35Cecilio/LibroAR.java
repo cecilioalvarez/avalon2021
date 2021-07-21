@@ -17,6 +17,9 @@ public class LibroAR {
 	final static String CONSULTA_INSERTAR = "insert into Libro (isbn,titulo,autor) values (?,?,?)";
 	final static String CONSULTA_BORRAR = "delete from Libro where isbn =?";
 	final static String CONSULTA = "select * from Libro";
+	final static String CONSULTA_BUSCAR_UNO = "select * from Libro where isbn=?";
+	final static String ACTUALIZA_DATO = "update Libro set titulo=?, autor =? where isbn =?";
+	final static String CONSULTA_BUSCAR_TITULO_AUTOR = "select * from Libro where tituto =? and autor =?";
 
 	// private DataBaseHelper helper;
 	public String getIsbn() {
@@ -105,5 +108,47 @@ public class LibroAR {
 		return listaLibros;
 
 	}
+	
+	public static LibroAR buscarUno(String isbn) {
+
+		LibroAR libro = null;
+		
+		try (Connection conn = helper.getConexion();
+				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_UNO);){
+				sentencia.setString(1, isbn);
+				ResultSet rs = sentencia.executeQuery();
+				rs.next();
+
+				libro = new LibroAR(rs.getString("isbn"),rs.getString("titulo"), rs.getString("autor"));
+				
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return libro;
+
+	}
+	
+	public void actualizar() {
+
+		try (Connection conn = helper.getConexion();
+				PreparedStatement sentencia = conn.prepareStatement(ACTUALIZA_DATO);) {
+
+			sentencia.setString(1, this.getTitulo());
+			sentencia.setString(2, this.getAutor());
+			sentencia.setString(3, this.getIsbn());
+			sentencia.execute();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+
+
 
 }
