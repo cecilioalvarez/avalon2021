@@ -26,10 +26,8 @@ public class SQL1Cecilio {
 			System.out.println(l.getIsbn());
 			System.out.println(l.getTitulo());
 			System.out.println(l.getAutor());
-			
 		}
 		
-
 	}
 	
 	private static  List<Libro>  buscarTodosLosLibros() {
