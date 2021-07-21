@@ -18,11 +18,13 @@ public class LibroAR {
 	private String isbn;
 	private String titulo;
 	private String autor;
+	private static DataBaseHelper helper= new DataBaseHelper();
 	
-	final String CONSULTA_INSERTAR = "insert into Libros (isbn,titulo,autor) values (?,?,?)";
-	final String CONSULTA_BORRAR = "delete from Libros  where isbn =?";
+	final static  String CONSULTA_INSERTAR = "insert into Libros (isbn,titulo,autor) values (?,?,?)";
+	final static String CONSULTA_BORRAR = "delete from Libros  where isbn =?";
+	final static String CONSULTA_BUSCAR_TODOS = "select * from Libros";
 	
-	private DataBaseHelper helper;
+
 	public String getIsbn() {
 		return isbn;
 	}
@@ -41,18 +43,18 @@ public class LibroAR {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
-	public LibroAR(String isbn, String titulo, String autor,DataBaseHelper helper) {
+	public LibroAR(String isbn, String titulo, String autor) {
 		super();
 		this.isbn = isbn;
 		this.titulo = titulo;
 		this.autor = autor;
-		this.helper=helper;
+		
 	}
 	
-	public LibroAR(String isbn,DataBaseHelper helper) {
+	public LibroAR(String isbn) {
 		super();
 		this.isbn = isbn;
-		this.helper=helper;
+		
 	}
 	public  void  insertar () {
 		
@@ -92,20 +94,25 @@ public class LibroAR {
 	//no tiene mucho sentido instanciar un libro
 	//para luego más adelante buscar todos
 	
+	
+	
+	
 	public  static  List<LibroAR>  buscarTodos() {
 		
 		
-		 final String CONSULTA = "select * from Libros";
+		 
+		 
 		 DataBaseHelper helper= new DataBaseHelper();
+		 
 		 List<LibroAR> listaLibros= new ArrayList<LibroAR>();
 		
 		try (Connection conn = DriverManager.getConnection(helper.getUrl(),helper.getUser(), helper.getPassword());
 				Statement sentencia = conn.createStatement();
-				ResultSet rs =sentencia.executeQuery(CONSULTA);
+				ResultSet rs =sentencia.executeQuery(CONSULTA_BUSCAR_TODOS);
 				) {
 				while (rs.next()) {
 					
-					LibroAR l= new LibroAR(rs.getString("isbn"),rs.getString("titulo"),rs.getString("autor"),helper);
+					LibroAR l= new LibroAR(rs.getString("isbn"),rs.getString("titulo"),rs.getString("autor"));
 					listaLibros.add(l);
 				}
 		} catch (SQLException e) {
