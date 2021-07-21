@@ -30,13 +30,13 @@ class Book {
     }
 }
 
-class DtoBook {
+class DaoBook {
 
     private final String PK_ISBN;
     private String title;
     private String authorName;
 
-    DtoBook(String ISBN, String title, String authorId) {
+    DaoBook(String ISBN, String title, String authorId) {
         this.PK_ISBN = ISBN;
         this.title = title;
         this.authorName = authorId;

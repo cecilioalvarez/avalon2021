@@ -3,16 +3,19 @@ package com.arquitecturajava.sql.connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 public class DbConnectionSingleton {
-
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/avalon";
-    private static final String USER = "avalon";
-    private static final String PASSWORD = "avalon";
+    
+    private static final Properties PROPERTIES = new DatabaseHelper().getProperties();
     private static Connection conn;
 
     private static void createConnection() throws SQLException {
-        DbConnectionSingleton.conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+        DbConnectionSingleton.conn = DriverManager.getConnection(
+                PROPERTIES.getProperty("url"), 
+                PROPERTIES.getProperty("user"), 
+                PROPERTIES.getProperty("password")
+        );
     }
 
     public static Connection getConnection() {

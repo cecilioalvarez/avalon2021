@@ -180,8 +180,20 @@ class Test {
                 Statement statement = conn.createStatement()) {
             ResultSet resultSet = statement.executeQuery(SELECT_BOOKS_QUERY);
             while (resultSet.next()) {                
-                System.out.println(new DtoBook(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3)));
+                System.out.println(new DaoBook(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3)));
             }    
+        } catch (SQLException sql_ex) {
+            System.err.println("Error al lanzar la consulta de selección: " + sql_ex.getMessage());
+        }
+    }
+    
+    private static void genericIntegerValueUpdate(String table, String column, int newValue, String primaryKeyColumn, String primaryKeyValue) {
+        final String QUERY = "UPDATE " + table + " SET " + column + " = ? WHERE " + primaryKeyColumn + " = ?";
+        try (Connection conn = DbConnectionSingleton.getConnection();
+                PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
+            preparedStatement.setInt(1, newValue);
+            preparedStatement.setString(2, primaryKeyValue);
+            preparedStatement.executeQuery();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de selección: " + sql_ex.getMessage());
         }
