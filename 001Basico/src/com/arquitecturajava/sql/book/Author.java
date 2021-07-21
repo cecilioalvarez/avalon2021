@@ -1,4 +1,4 @@
-package com.arquitecturajava.sql.person;
+package com.arquitecturajava.sql.book;
 
 class Author {
 

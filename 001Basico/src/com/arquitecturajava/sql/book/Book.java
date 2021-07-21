@@ -1,4 +1,4 @@
-package com.arquitecturajava.sql.person;
+package com.arquitecturajava.sql.book;
 
 class Book {
 
@@ -26,7 +26,7 @@ class Book {
 
     @Override
     public String toString() {
-        return "[" + this.PK_ISBN + "] " + this.title + " - Autor: " + this.fk_id + ".";
+        return "[" + this.PK_ISBN.toUpperCase() + "] " + this.title + " - Autor: " + this.fk_id + ".";
     }
 }
 
@@ -56,6 +56,6 @@ class DtoBook {
 
     @Override
     public String toString() {
-        return "[" + this.PK_ISBN + "] " + this.title + " - Autor: " + this.authorName + ".";
+        return "[" + this.PK_ISBN.toUpperCase() + "] " + this.title + " - Autor: " + this.authorName + ".";
     }
 }
