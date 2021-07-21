@@ -1,5 +1,8 @@
 package com.arquitecturajava.ejemplos35;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 public class DataBaseHelper {
@@ -7,7 +10,7 @@ public class DataBaseHelper {
 	private String url;
 	private String user;
 	private String password;
-	Properties propiedades= new Properties();
+	private Properties propiedades= new Properties();
 	
 	
 	public DataBaseHelper(String url, String user, String password) {
@@ -15,6 +18,24 @@ public class DataBaseHelper {
 		this.url = url;
 		this.user = user;
 		this.password = password;
+	}
+	
+	public DataBaseHelper()   {
+		
+
+			try {
+				propiedades.load(new FileInputStream(new File("database.properties")));
+				url=propiedades.getProperty("url");
+				user=propiedades.getProperty("user");
+				password=propiedades.getProperty("password");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				// siguiente capa que seria el main
+				// no se lanza como chequeada sino como no chequeada
+				throw new RuntimeException(e);
+			}
+		
 	}
 	public String getUrl() {
 		return url;
