@@ -1,10 +1,13 @@
 package com.arquitecturajava.ejemplos35;
 
+import java.util.Properties;
+
 public class DataBaseHelper {
 
 	private String url;
 	private String user;
 	private String password;
+	Properties propiedades= new Properties();
 	
 	
 	public DataBaseHelper(String url, String user, String password) {
