@@ -7,11 +7,14 @@ import java.sql.SQLException;
 
 
 
-public class Libro {
+public class LibroAR {
 
 	private String isbn;
 	private String titulo;
 	private String autor;
+	
+	final String CONSULTA_INSERTAR = "insert into Libros (isbn,titulo,autor) values (?,?,?)";
+	
 	private DataBaseHelper helper;
 	public String getIsbn() {
 		return isbn;
@@ -31,7 +34,7 @@ public class Libro {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
-	public Libro(String isbn, String titulo, String autor,DataBaseHelper helper) {
+	public LibroAR(String isbn, String titulo, String autor,DataBaseHelper helper) {
 		super();
 		this.isbn = isbn;
 		this.titulo = titulo;
@@ -39,11 +42,10 @@ public class Libro {
 		this.helper=helper;
 	}
 	
-	public   void  insertar () {
+	public  void  insertar () {
 		
-		 final String CONSULTA = "insert into Libros (isbn,titulo,autor) values (?,?,?)";
 			try (Connection conn = DriverManager.getConnection(helper.getUrl(),helper.getUser(), helper.getPassword());
-					PreparedStatement sentencia = conn.prepareStatement(CONSULTA);
+					PreparedStatement sentencia = conn.prepareStatement(CONSULTA_INSERTAR);
 					) {
 
 					sentencia.setString(1, this.getIsbn());
