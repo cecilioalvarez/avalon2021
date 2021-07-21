@@ -13,6 +13,16 @@ public class Objetos35B {
 			System.out.println(libro.getAutor());
 			
 		}
+		
+		List<LibroAR> lista2= LibroAR.buscarTodosTituloAutor("Harry Potter","J.K.Rowling");
+		
+		for (LibroAR libro2: lista2) {
+			
+			System.out.println(libro2.getIsbn());
+			System.out.println(libro2.getTitulo());
+			System.out.println(libro2.getAutor());
+			
+		}
 	}
 
 }
