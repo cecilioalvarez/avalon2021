@@ -20,6 +20,8 @@ public class LibroAR {
 	final static String CONSULTA_BORRAR = "delete from Libros  where isbn =?";
 	final static String CONSULTA_BUSCAR_TODOS = "select * from Libros";
 	final static String CONSULTA_BUSCAR_UNO = "select * from Libros where isbn=?";
+	final static String CONSULTA_BUSCAR_TITULO_AUTOR = "select * from Libros where titulo=? and autor=?";
+	final static String CONSULTA_ACTUALIZAR = "update Libros set titulo=? , autor=? where isbn=?";
 
 	public String getIsbn() {
 		return isbn;
@@ -56,6 +58,23 @@ public class LibroAR {
 	public LibroAR(String isbn) {
 		super();
 		this.isbn = isbn;
+
+	}
+
+	public void actualizar() {
+
+		try (Connection conn = helper.getConexion();
+				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_ACTUALIZAR);) {
+
+			sentencia.setString(1, this.getTitulo());
+			sentencia.setString(2, this.getAutor());
+			sentencia.setString(3, this.getIsbn());
+			sentencia.execute();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
