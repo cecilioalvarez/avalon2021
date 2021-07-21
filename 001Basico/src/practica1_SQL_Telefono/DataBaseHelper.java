@@ -1,4 +1,4 @@
-package ejemplos33_SQL3_PatronActiveRecord;
+package practica1_SQL_Telefono;
 
 import java.io.File;
 import java.io.FileInputStream;

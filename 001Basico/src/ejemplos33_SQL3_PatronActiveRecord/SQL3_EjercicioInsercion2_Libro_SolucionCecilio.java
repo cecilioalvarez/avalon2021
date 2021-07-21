@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class SQL3_EjercicioInsercion2_Libro_SolucionCecilio {
 	
-	//Se usan para constructor 
+	//Se usan para constructor
 	   static final String DB_URL = "jdbc:mysql://localhost:3306/avalon";
 	   static final String USER = "mavalon";
 	   static final String PASS = "avalon2021";
@@ -20,89 +20,67 @@ public class SQL3_EjercicioInsercion2_Libro_SolucionCecilio {
 
 	public static void main(String[] args) {
 		
-		//List<Libro> myListaLibros = new ArrayList<Libro>();
+		List<Libro_ActiveRecord> myListaLibros = new ArrayList<Libro_ActiveRecord>();
 		//DataBaseHelper helper = new DataBaseHelper(DB_URL, USER, PASS);
-		DataBaseHelper helper = new DataBaseHelper();
-		Libro_ActiveRecord libroToAdd = new Libro_ActiveRecord("A4", "Ana", "Java junior",helper);
+		//DataBaseHelper helper = new DataBaseHelper();
+		//Ahora helper se coge en clase libro directamente
+		Libro_ActiveRecord libroToAdd = new Libro_ActiveRecord("A4", "Ana", "Java junior");
 		
 		libroToAdd.addBook();
-			
-		/*myListaLibros = buscarTodosLibros();
-		for (Libro libro : myListaLibros) {
-			System.out.println(libro.getIsbn()+"-"+libro.getAutor()+"-"+libro.getTitulo());
+		
+		myListaLibros = Libro_ActiveRecord.buscarTodosLibros();
+		
+		for (Libro_ActiveRecord libro : myListaLibros) {
+			System.out.println(libro.toString());
+		}
+		
+		libroToAdd.modifyBook("titulo","Python Jr");
+		myListaLibros = Libro_ActiveRecord.buscarTodosLibros();
+		System.out.println("-------------------------------------------");
+		for (Libro_ActiveRecord libro : myListaLibros) {
+			System.out.println(libro.toString());
+		}
+		
+		libroToAdd.removeBook();
+		myListaLibros = Libro_ActiveRecord.buscarTodosLibros();
+		System.out.println("-------------------------------------------");
+		for (Libro_ActiveRecord libro : myListaLibros) {
+			System.out.println(libro.toString());
+		}
+		System.out.println("-------------------------------------------");
+		Libro_ActiveRecord libroToFind=Libro_ActiveRecord.buscarLibro("A4");
+		/*if (libroToFind!=null) {
+			System.out.println(libroToFind.toString());
+		}else {
+			System.out.println("Libro NO Encontrado en DB");
 		}*/
+		System.out.println(libroToFind == null ? "No se han encontrado coincidencias." : libroToFind.toString());
+		
+		System.out.println("-------------------------------------------");
+		libroToAdd = new Libro_ActiveRecord("A5", "David", "Libro de Pedro");
+		libroToAdd.addBook();
+		myListaLibros = Libro_ActiveRecord.buscarLibroAutor("David");
+		libroToAdd.removeBook();
+		for (Libro_ActiveRecord libro : myListaLibros) {
+			System.out.println(libro.toString());
+		}
+		System.out.println("-------------------------------------------");
+		libroToAdd = new Libro_ActiveRecord("A5", "Ana", "Libro de Pedro");
+		libroToAdd.addBook();
+		myListaLibros = Libro_ActiveRecord.buscarLibroTitulo("Libro de Pedro");
+		libroToAdd.removeBook();
+		for (Libro_ActiveRecord libro : myListaLibros) {
+			System.out.println(libro.toString());
+		}
+		System.out.println("-------------------------------------------");
+		libroToAdd = new Libro_ActiveRecord("A5", "David","Libro de David");
+		libroToAdd.addBook();
+		myListaLibros = Libro_ActiveRecord.buscarLibroAutorTitulo("David","Libro de David");
+		libroToAdd.removeBook();
+		for (Libro_ActiveRecord libro : myListaLibros) {
+			System.out.println(libro.toString());
+		}
 		
 	}
-	
-	/*private static List<Libro>buscarTodosLibros(){
-		final String querySelect = "SELECT * FROM libro";
-		List<Libro> listaLibros = new ArrayList<Libro>();
-		try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
-				Statement sentencia = conn.createStatement();) {
-			//Para Resultados de SELECT
-			ResultSet rs = sentencia.executeQuery(querySelect);
-			
-			while (rs.next()) {
-				Libro l = new Libro(rs.getString("isbn"), rs.getString("autor"), rs.getString("titulo"));
-				listaLibros.add(l);
-			}
-		}catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return listaLibros;
-	}
-	
-	private static void modifyBook(Libro libro) {
-		String queryUpdate = "UPDATE libro set autor=?,titulo=? WHERE isbn=?";
-		try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);){
-			conn.setAutoCommit(false);
-			try(PreparedStatement prepSentencia = conn.prepareStatement(queryUpdate);){
-				//PreparedStatement
-			
-				prepSentencia.setString(1, libro.getAutor());
-				prepSentencia.setString(2, libro.getTitulo());
-				prepSentencia.setString(3, libro.getIsbn());
-			
-				prepSentencia.execute();
-			}catch (Exception ex) {
-				ex.printStackTrace();
-				conn.rollback();
-			}
-			
-			conn.commit();
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	
-
-	private static void removeBook(String isbn) {
-		final String queryDelete= "DELETE FROM libro WHERE isbn=?";
-		try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);){
-			conn.setAutoCommit(false);
-			try(PreparedStatement prepSentencia = conn.prepareStatement(queryDelete);){
-				//PreparedStatement
-			
-				prepSentencia.setString(1, isbn);
-			
-				prepSentencia.execute();
-			}catch (Exception ex) {
-				ex.printStackTrace();
-				conn.rollback();
-			}
-			
-			conn.commit();
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}*/
-	
-	
 	
 }
