@@ -14,6 +14,7 @@ public class LibroAR {
 	private String autor;
 	
 	final String CONSULTA_INSERTAR = "insert into Libro (isbn,titulo,autor) values (?,?,?)";
+	final String CONSULTA_BORRAR = "delete from Libro where isbn =?";
 	
 	private DataBaseHelper helper;
 	public String getIsbn() {
@@ -59,6 +60,19 @@ public class LibroAR {
 				e.printStackTrace();
 			}
 		 
+	}
+	
+	public void borrar() {
+
+		try(Connection conn = DriverManager.getConnection(helper.getUrl(), helper.getUser(), helper.getPassword());
+				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BORRAR);
+			){
+			sentencia.setString(1, this.getIsbn());
+			sentencia.execute();
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
+		
 	}
 	
 }

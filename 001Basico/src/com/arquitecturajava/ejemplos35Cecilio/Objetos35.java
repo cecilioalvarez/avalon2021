@@ -1,7 +1,7 @@
 package com.arquitecturajava.ejemplos35Cecilio;
 
 public class Objetos35 {
-public static void main(String[] args) {
+	public static void main(String[] args) {
 	
 	//DataBaseHelper helper= new DataBaseHelper("jdbc:mysql://localhost:3306/avalon","root","");
 	//hace uso de un properties
@@ -11,6 +11,6 @@ public static void main(String[] args) {
 	libroAR.insertar();
 	
 	
-}
+	}
 
 }
