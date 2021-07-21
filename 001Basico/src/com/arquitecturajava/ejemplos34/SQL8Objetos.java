@@ -79,4 +79,26 @@ public class SQL8Objetos {
 			}
 		 
 	}
+	private static void  borrar (Libro libro) {
+		
+		 final String CONSULTA = "delete from Libros  where ibsn =?";
+		
+
+			try (Connection conn = DriverManager.getConnection(URL, USUARIO, CLAVE);
+					PreparedStatement sentencia = conn.prepareStatement(CONSULTA);
+					
+					
+					) {
+
+					sentencia.setString(1, libro.getIsbn());
+					sentencia.execute();
+				
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 
+	}
+	
 }
