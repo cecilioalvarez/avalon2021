@@ -12,7 +12,8 @@ public static void main(String[] args) {
 	System.out.println(libroAR.getIsbn());
 	System.out.println(libroAR.getTitulo());
 	System.out.println(libroAR.getAutor());
-	
+	// traza
+	System.out.println(libroAR);
 	
 }
 

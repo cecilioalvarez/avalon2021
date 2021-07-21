@@ -118,24 +118,25 @@ public class LibroAR {
 		LibroAR libro = null;
 
 		try (Connection conn = helper.getConexion();
-				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_UNO);){
-				sentencia.setString(1, isbn);
-				ResultSet rs = sentencia.executeQuery();
-				rs.next();
+				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_UNO);) {
+			sentencia.setString(1, isbn);
+			ResultSet rs = sentencia.executeQuery();
+			rs.next();
 
 			libro = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 
-		
-	}catch(
-
-	SQLException e)
-	{
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-	return libro;
+		return libro;
 
-}
+	}
+
+	@Override
+	public String toString() {
+		return "LibroAR [isbn=" + isbn + ", titulo=" + titulo + ", autor=" + autor + "]";
+	}
 
 }
