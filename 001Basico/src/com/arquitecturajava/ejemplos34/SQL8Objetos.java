@@ -101,4 +101,29 @@ public class SQL8Objetos {
 		 
 	}
 	
+	
+	private static void  actualizar (Libro libro) {
+		
+		 final String CONSULTA = "update Libro set titulo=?, autor=? where isbn=?";
+		
+
+			try (Connection conn = DriverManager.getConnection(URL, USUARIO, CLAVE);
+					PreparedStatement sentencia = conn.prepareStatement(CONSULTA);
+					
+					
+					) {
+
+					sentencia.setString(1, libro.getTitulo());
+					sentencia.setString(1, libro.getAutor());
+					sentencia.setString(1, libro.getIsbn());
+					sentencia.execute();
+				
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 
+	}
+	
 }
