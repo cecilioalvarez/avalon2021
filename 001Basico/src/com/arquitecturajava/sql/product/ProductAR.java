@@ -88,7 +88,7 @@ class ProductAr implements ActiveRecord {
         }
     }
     
-    public void delete(String name) {
+    public static void delete(String name) {
         final String QUERY = "DELETE FROM product WHERE name = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
@@ -99,7 +99,7 @@ class ProductAr implements ActiveRecord {
         }
     }
     
-    public void delete(double price) {
+    public static void delete(double price) {
         final String QUERY = "DELETE FROM product WHERE price = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
@@ -110,7 +110,7 @@ class ProductAr implements ActiveRecord {
         }
     }
     
-    public void delete(String name, double price) {
+    public static void delete(String name, double price) {
         final String QUERY = "DELETE FROM product WHERE name = ? AND price = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
@@ -127,8 +127,8 @@ class ProductAr implements ActiveRecord {
         final String QUERY = "SELECT * FROM product WHERE pk_id = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
             preparedStatement.setInt(1, this.product.getPk_id());
+            ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return this.product = new Product(resultSet.getInt(1), resultSet.getString(2), resultSet.getDouble(3));
             } else {
@@ -156,7 +156,7 @@ class ProductAr implements ActiveRecord {
         return PRODUCTS;
     }
     
-    public List<Product> select(String name) {
+    public static List<Product> select(String name) {
         final String QUERY = "SELECT * FROM product WHERE name = ?";
         final List<Product> PRODUCTS = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -172,7 +172,7 @@ class ProductAr implements ActiveRecord {
         return PRODUCTS;
     }
     
-    public List<Product> select(Double price) {
+    public static List<Product> select(Double price) {
         final String QUERY = "SELECT * FROM product WHERE price = ?";
         final List<Product> PRODUCTS = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -188,7 +188,7 @@ class ProductAr implements ActiveRecord {
         return PRODUCTS;
     }
     
-    public List<Product> select(String name, double price) {
+    public static List<Product> select(String name, double price) {
         final String QUERY = "SELECT * FROM product WHERE name = ? AND price ?";
         final List<Product> PRODUCTS = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();

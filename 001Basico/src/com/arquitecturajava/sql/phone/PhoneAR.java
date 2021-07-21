@@ -21,13 +21,22 @@ class PhoneAR implements ActiveRecord {
         this.phone = phone;
     }
 
+    public Phone getPhone() {
+        return phone;
+    }
+
     @Override
-    public Object select() {
+    public String toString() {
+        return this.phone.toString();
+    }
+    
+    @Override
+    public Phone select() {
         final String QUERY = "SELECT * FROM phone WHERE pk_number = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
-            ResultSet resultSet = preparedStatement.executeQuery();
             preparedStatement.setInt(1, this.phone.getPk_number());
+            ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return this.phone = new Phone(resultSet.getInt(1), resultSet.getString(2), resultSet.getDouble(3));
             } else {
@@ -39,7 +48,7 @@ class PhoneAR implements ActiveRecord {
         return null;
     }
     
-    public List<Phone> select(String brand) {
+    public static List<Phone> select(String brand) {
         final String QUERY = "SELECT * FROM phone WHERE brand = ?";
         final List<Phone> PHONES = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -55,7 +64,7 @@ class PhoneAR implements ActiveRecord {
         return PHONES;
     }
     
-    public List<Phone> select(double price) {
+    public static List<Phone> select(double price) {
         final String QUERY = "SELECT * FROM phone WHERE price = ?";
         final List<Phone> PHONES = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -71,7 +80,7 @@ class PhoneAR implements ActiveRecord {
         return PHONES;
     }
     
-    public List<Phone> select(String brand, double price) {
+    public static List<Phone> select(String brand, double price) {
         final String QUERY = "SELECT * FROM phone WHERE brand = ? AND price ?";
         final List<Phone> PHONES = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -89,7 +98,7 @@ class PhoneAR implements ActiveRecord {
     }
 
     @Override
-    public List selectAll() {
+    public List<Phone> selectAll() {
         final String QUERY = "SELECT * FROM phone";
         final List<Phone> PHONES = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -106,11 +115,12 @@ class PhoneAR implements ActiveRecord {
 
     @Override
     public void insert() {
-        final String QUERY = "INSERT INTO phone (brand, price) VALUES (?, ?)";
+        final String QUERY = "INSERT INTO phone (pk_number, brand, price) VALUES (?, ?, ?)";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
-            preparedStatement.setString(1, this.phone.getBrand());
-            preparedStatement.setDouble(2, this.phone.getPrice());
+            preparedStatement.setDouble(1, this.phone.getPk_number());
+            preparedStatement.setString(2, this.phone.getBrand());
+            preparedStatement.setDouble(3, this.phone.getPrice());
             preparedStatement.execute();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de inserción: " + sql_ex.getMessage());
@@ -129,7 +139,7 @@ class PhoneAR implements ActiveRecord {
         }
     }
     
-    public void delete(String brand) {
+    public static void delete(String brand) {
         final String QUERY = "DELETE FROM phone WHERE brand = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
@@ -140,7 +150,7 @@ class PhoneAR implements ActiveRecord {
         }
     }
     
-    public void delete(double price) {
+    public static void delete(double price) {
         final String QUERY = "DELETE FROM phone WHERE price = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {

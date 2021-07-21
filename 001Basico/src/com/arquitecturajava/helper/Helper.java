@@ -1,9 +1,10 @@
 package com.arquitecturajava.helper;
 
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
-public class IOHelper {
+public class Helper {
     
     public static String askForString(String dataName, int minLength, int maxLength) {
         String answer = null;
@@ -13,7 +14,7 @@ public class IOHelper {
             Scanner scanner = new Scanner(System.in);
             try {
                 answer = scanner.next();
-                if (IOHelper.validate(answer.length(), minLength, maxLength)) {
+                if (Helper.validate(answer.length(), minLength, maxLength)) {
                     valid = true;
                 } else {
                     throw new InputMismatchException();
@@ -34,7 +35,7 @@ public class IOHelper {
             Scanner scanner = new Scanner(System.in);
             try {
                 number = scanner.nextInt();
-                if (IOHelper.validate(number, min, max)) {
+                if (Helper.validate(number, min, max)) {
                     valid = true;
                 } else {
                     throw new InputMismatchException();
@@ -54,7 +55,7 @@ public class IOHelper {
             Scanner scanner = new Scanner(System.in);
             try {
                 number = scanner.nextDouble();
-                if (IOHelper.validate(number, min, max)) {
+                if (Helper.validate(number, min, max)) {
                     valid = true;
                 } else {
                     throw new InputMismatchException();
@@ -68,5 +69,13 @@ public class IOHelper {
     
     private static boolean validate(double value, double min, double max) {
         return min <= value && value <= max;
+    }
+    
+    public static int getRandomInteger(int min, int max) {
+        return new Random().nextInt((max - min) + 1) + min;
+    }
+    
+    public static double getRandomDouble(double min, double max) {
+        return min + (new Random().nextDouble()  * (max - min)) ;
     }
 }
