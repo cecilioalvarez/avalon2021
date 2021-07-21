@@ -3,6 +3,9 @@ package com.arquitecturajava.ejemplos35;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public class DataBaseHelper {
@@ -56,6 +59,10 @@ public class DataBaseHelper {
 		this.password = password;
 	}
 	
+	public Connection getConexion() throws SQLException {
+		
+		return DriverManager.getConnection(getUrl(),getUser(), getPassword());
+	}
 	
 	
 }
