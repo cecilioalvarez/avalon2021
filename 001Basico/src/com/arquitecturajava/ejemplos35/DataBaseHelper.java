@@ -24,7 +24,7 @@ public class DataBaseHelper {
 		
 
 			try {
-				propiedades.load(new FileInputStream(new File("database.properties")));
+				propiedades.load(new FileInputStream(new File("./database/database.properties")));
 				url=propiedades.getProperty("url");
 				user=propiedades.getProperty("user");
 				password=propiedades.getProperty("password");

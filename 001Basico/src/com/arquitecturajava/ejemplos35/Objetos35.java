@@ -7,7 +7,7 @@ public static void main(String[] args) {
 	//hace uso de un properties
 	
 	DataBaseHelper helper= new DataBaseHelper();
-	LibroAR libroAR= new LibroAR("26","java","ana",helper);
+	LibroAR libroAR= new LibroAR("27","java","ana",helper);
 	libroAR.insertar();
 	
 	
