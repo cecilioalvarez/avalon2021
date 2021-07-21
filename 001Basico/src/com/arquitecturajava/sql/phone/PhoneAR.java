@@ -188,5 +188,4 @@ class PhoneAR implements ActiveRecord {
             System.err.println("Error al lanzar la consulta de actualización: " + sql_ex.getMessage());
         }
     }
-
 }

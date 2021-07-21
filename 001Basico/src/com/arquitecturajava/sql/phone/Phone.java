@@ -9,6 +9,15 @@ class Phone {
     Phone() {
     }
     
+    Phone(int number) {
+        this.pk_number = number;
+    }
+    
+    Phone(String brand, double price) {
+        this.brand = brand;
+        this.price = price;
+    }
+    
     Phone(int number, String brand, double price) {
         this.pk_number = number;
         this.brand = brand;
