@@ -51,7 +51,7 @@ public class Main_Practica1 {
 		}
 		
 		System.out.println("");
-		System.out.println("Encuentra 1------------------------------");
+		System.out.println("Encuentra 1 por numero------------------------------");
 		System.out.println("");
 		tel1=Telefono.getPhone(1);
 		myPhonesList=Telefono.getAllPhones();
