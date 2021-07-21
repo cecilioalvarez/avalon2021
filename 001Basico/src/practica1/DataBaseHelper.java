@@ -1,4 +1,4 @@
-package ejercicio35;
+package practica1;
 
 import java.io.File;
 import java.io.FileInputStream;
