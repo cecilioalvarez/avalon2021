@@ -11,14 +11,11 @@ public class Telefono {
 	private String marca;
 	private double importe;
 	private static DataBaseHelper helper = new DataBaseHelper();
+	
 	final static String CONSULTA_INSERTAR = "insert into telefonos (numero,marca,importe) values(?,?,?)";
 	final static String CONSULTA_BORRAR = "delete from telefonos where numero=?";
 	final static String CONSULTA_BUSCAR_TODOS = "select * from telefonos";
-	final static String CONSULTA_BUSCAR_UNO = "select * from telefonos where numero=?";
 	final static String CONSULTA_ACTUALIZAR = "update telefonos set numero=?, marca=?, importe=? where numero=?";
-	final static String CONSULTA_BUSCAR_MARCA = "select * from telefonos where marca=?";
-	
-
 	
 	public Telefono() {
 		super();
