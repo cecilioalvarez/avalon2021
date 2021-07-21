@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejemplos35a;
+package com.arquitecturajava.ejemplos35Cecilio;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +13,7 @@ public class LibroAR {
 	private String titulo;
 	private String autor;
 	
-	final String CONSULTA_INSERTAR = "insert into Libros (isbn,titulo,autor) values (?,?,?)";
+	final String CONSULTA_INSERTAR = "insert into Libro (isbn,titulo,autor) values (?,?,?)";
 	
 	private DataBaseHelper helper;
 	public String getIsbn() {
