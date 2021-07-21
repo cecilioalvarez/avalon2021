@@ -132,6 +132,30 @@ public class LibroAR {
 
 	}
 
+	public static List<LibroAR> buscarTituloyAutor(String titulo, String autor) {
+
+		List<LibroAR> listaLibros = new ArrayList<LibroAR>();
+
+		try (Connection conn = helper.getConexion();
+				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_TITULO_AUTOR);) {
+			sentencia.setString(1, titulo);
+			sentencia.setString(2, autor);
+
+			ResultSet rs = sentencia.executeQuery();
+			while (rs.next()) {
+
+				LibroAR l = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+				listaLibros.add(l);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return listaLibros;
+
+	}
+
 	public static LibroAR buscarUno(String isbn) {
 
 		LibroAR libro = null;
