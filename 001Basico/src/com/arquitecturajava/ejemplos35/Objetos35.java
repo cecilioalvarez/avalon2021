@@ -7,8 +7,10 @@ public static void main(String[] args) {
 	//hace uso de un properties
 	
 	DataBaseHelper helper= new DataBaseHelper();
-	LibroAR libroAR= new LibroAR("27","java","ana",helper);
-	libroAR.insertar();
+	LibroAR libroAR= new LibroAR("27",helper);
+	//instancia metodo que accede a cada una de las propiedades del objeto
+	// nosotros con this.getIsbn();
+	libroAR.borrar();
 	
 	
 }
