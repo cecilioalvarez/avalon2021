@@ -20,7 +20,7 @@ public class MoldePersona02 {
 	
 	//con esta opcion necesitamos crear primero una persona en el objeto persona 
 	// a esa persona asignarle un nombre una edad o las propiedades que se han definido 
-	// y luego aho si podemos calcular los años de tiempo para la jubilacion 
+	// y luego ahi si podemos calcular los años de tiempo para la jubilacion 
 	public int tiempoJubilacion() {
 		return 70-edad;
 	}
