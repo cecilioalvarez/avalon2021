@@ -2,7 +2,6 @@ package sql2;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -22,21 +21,24 @@ public class DataBaseHelper {
 	
 	
 
-	public DataBaseHelper(Properties propiedades) {
-		try {
-			propiedades.load(new FileInputStream(new File("database.properties")));
-			url = propiedades.getProperty("url");
-			user = propiedades.getProperty("user");
-			password = propiedades.getProperty("password");
+	public DataBaseHelper()   {
+		
 
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		try {
+			propiedades.load(new FileInputStream(new File("./bbdd/database.properties")));
+			url=propiedades.getProperty("url");
+			user=propiedades.getProperty("user");
+			password=propiedades.getProperty("password");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			// siguiente capa que seria el main
+			// no se lanza como chequeada sino como no chequeada
+			throw new RuntimeException(e);
 		}
-	}
+	
+}
+	
 
 
 
