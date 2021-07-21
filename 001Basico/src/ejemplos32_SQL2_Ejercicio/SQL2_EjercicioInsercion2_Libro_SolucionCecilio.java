@@ -30,7 +30,8 @@ public class SQL2_EjercicioInsercion2_Libro_SolucionCecilio {
 			System.out.println(libro.getIsbn()+"-"+libro.getAutor()+"-"+libro.getTitulo());
 		}
 		
-		modifyBook("A3", "María");
+		Libro lModificar = new Libro("A3", "Pedra", "Libro de Mar");
+		modifyBook(lModificar);
 		
 		System.out.println("------------------------");
 		myListaLibros = buscarTodosLibros();
@@ -45,10 +46,6 @@ public class SQL2_EjercicioInsercion2_Libro_SolucionCecilio {
 		for (Libro libro : myListaLibros) {
 			System.out.println(libro.getIsbn()+"-"+libro.getAutor()+"-"+libro.getTitulo());
 		}
-		
-		
-		
-		
 
 	}
 	
@@ -71,15 +68,16 @@ public class SQL2_EjercicioInsercion2_Libro_SolucionCecilio {
 		return listaLibros;
 	}
 	
-	private static void modifyBook(String isbn,String autor) {
-		String queryUpdate = "UPDATE libro set autor=? WHERE isbn=?";
+	private static void modifyBook(Libro libro) {
+		String queryUpdate = "UPDATE libro set autor=?,titulo=? WHERE isbn=?";
 		try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);){
 			conn.setAutoCommit(false);
 			try(PreparedStatement prepSentencia = conn.prepareStatement(queryUpdate);){
 				//PreparedStatement
 			
-				prepSentencia.setString(1, autor);
-				prepSentencia.setString(2, isbn);
+				prepSentencia.setString(1, libro.getAutor());
+				prepSentencia.setString(2, libro.getTitulo());
+				prepSentencia.setString(3, libro.getIsbn());
 			
 				prepSentencia.execute();
 			}catch (Exception ex) {
