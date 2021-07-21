@@ -131,6 +131,7 @@ public class LibroAR {
 		return listaLibros;
 
 	}
+	
 
 	public static List<LibroAR> buscarTituloyAutor(String titulo, String autor) {
 
