@@ -23,7 +23,7 @@ public class SQL2_EjercicioInsercion2_Libro_SolucionCecilio {
 		
 		Libro l1 = new Libro("A3", "aria", "Libro de Maria");
 		
-		//addBook(l1);
+		addBook(l1);
 			
 		myListaLibros = buscarTodosLibros();
 		for (Libro libro : myListaLibros) {
@@ -38,12 +38,22 @@ public class SQL2_EjercicioInsercion2_Libro_SolucionCecilio {
 			System.out.println(libro.getIsbn()+"-"+libro.getAutor()+"-"+libro.getTitulo());
 		}
 		
+		removeBook("A3");
+		
+		System.out.println("------------------------");
+		myListaLibros = buscarTodosLibros();
+		for (Libro libro : myListaLibros) {
+			System.out.println(libro.getIsbn()+"-"+libro.getAutor()+"-"+libro.getTitulo());
+		}
+		
+		
+		
 		
 
 	}
 	
 	private static List<Libro>buscarTodosLibros(){
-		String querySelect = "SELECT * FROM libro";
+		final String querySelect = "SELECT * FROM libro";
 		List<Libro> listaLibros = new ArrayList<Libro>();
 		try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);
 				Statement sentencia = conn.createStatement();) {
@@ -61,7 +71,7 @@ public class SQL2_EjercicioInsercion2_Libro_SolucionCecilio {
 		return listaLibros;
 	}
 	
-	public static void modifyBook(String isbn,String autor) {
+	private static void modifyBook(String isbn,String autor) {
 		String queryUpdate = "UPDATE libro set autor=? WHERE isbn=?";
 		try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);){
 			conn.setAutoCommit(false);
@@ -85,8 +95,8 @@ public class SQL2_EjercicioInsercion2_Libro_SolucionCecilio {
 		}
 	}
 	
-	public static void addBook(Libro libro) {
-		String queryInsert = "INSERT INTO libro(isbn, titulo, autor) VALUES(?,?,?)";
+	private static void addBook(Libro libro) {
+		final String queryInsert = "INSERT INTO libro(isbn, titulo, autor) VALUES(?,?,?)";
 		try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);){
 			conn.setAutoCommit(false);
 			try(PreparedStatement prepSentencia = conn.prepareStatement(queryInsert);){
@@ -110,4 +120,29 @@ public class SQL2_EjercicioInsercion2_Libro_SolucionCecilio {
 		}
 	}
 
+	private static void removeBook(String isbn) {
+		final String queryDelete= "DELETE FROM libro WHERE isbn=?";
+		try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS);){
+			conn.setAutoCommit(false);
+			try(PreparedStatement prepSentencia = conn.prepareStatement(queryDelete);){
+				//PreparedStatement
+			
+				prepSentencia.setString(1, isbn);
+			
+				prepSentencia.execute();
+			}catch (Exception ex) {
+				ex.printStackTrace();
+				conn.rollback();
+			}
+			
+			conn.commit();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 }
