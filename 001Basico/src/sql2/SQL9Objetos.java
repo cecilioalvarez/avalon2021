@@ -14,8 +14,9 @@ public class SQL9Objetos {
 		//libroAR.insertar();
 		//Mas correcto llamar a las propiedades que usar el toString, pq aporta si quieres logear o usar consola
 		//pero si no, es mas correcto poner los getIsbn o propiedadesq sean
-		//System.out.println(libroAR.buscarUno("25"));
-		libroAR.update("256");
+		System.out.println(libroAR.buscarPorTituloAutor("ee", "ana"));
+		System.out.println(libroAR.buscarPorTituloOAutor("titulo", "ee"));
+		//libroAR.update("256");
 	}
 	
 
