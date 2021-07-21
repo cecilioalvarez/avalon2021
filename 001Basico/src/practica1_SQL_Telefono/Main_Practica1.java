@@ -3,7 +3,6 @@ package practica1_SQL_Telefono;
 import java.util.ArrayList;
 import java.util.List;
 
-import ejemplos33_SQL3_PatronActiveRecord.Libro_ActiveRecord;
 
 
 public class Main_Practica1 {
