@@ -1,4 +1,4 @@
-package Ejemplo36_SQL_FicheroProperties;
+package Ejemplo36C_Telefono;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibroAR {
+public class TelefonoAR {
 	private String isbn;
 	private String titulo;
 	private String autor;
@@ -37,13 +37,13 @@ public class LibroAR {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
-	public LibroAR(String isbn, String titulo, String autor) {
+	public TelefonoAR(String isbn, String titulo, String autor) {
 		super();
 		this.isbn = isbn;
 		this.titulo = titulo;
 		this.autor = autor;
 	}
-	public LibroAR(String isbn) {
+	public TelefonoAR(String isbn) {
 		super();
 		this.isbn = isbn;
 	}
@@ -84,13 +84,13 @@ public class LibroAR {
 	// porque vamos a buscar todos los libros
 	// no tiene mucho sentido instanciar un libro
 	// para luego más adelante buscar todos
-	public static List<LibroAR> buscarTodos() {
-		List<LibroAR> listaLibros = new ArrayList<LibroAR>();
+	public static List<TelefonoAR> buscarTodos() {
+		List<TelefonoAR> listaLibros = new ArrayList<TelefonoAR>();
 		try (Connection conn = helper.getConexion();
 				Statement sentencia = conn.createStatement();
 				ResultSet rs = sentencia.executeQuery(CONSULTA_BUSCAR_TODOS);) {
 			while (rs.next()) {
-				LibroAR l = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+				TelefonoAR l = new TelefonoAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 				listaLibros.add(l);
 			}
 		} catch (SQLException e) {
@@ -102,16 +102,16 @@ public class LibroAR {
 	}
 
 
-	public static List<LibroAR> buscarTituloyAutor(String titulo, String autor) {
+	public static List<TelefonoAR> buscarTituloyAutor(String titulo, String autor) {
 
-		List<LibroAR> listaLibros = new ArrayList<LibroAR>();
+		List<TelefonoAR> listaLibros = new ArrayList<TelefonoAR>();
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_TITULO_AUTOR);) {
 			sentencia.setString(1, titulo);
 			sentencia.setString(2, autor);
 			ResultSet rs = sentencia.executeQuery();
 			while (rs.next()) {
-				LibroAR l = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+				TelefonoAR l = new TelefonoAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 				listaLibros.add(l);
 			}
 		} catch (SQLException e) {
@@ -120,14 +120,14 @@ public class LibroAR {
 		}
 		return listaLibros;
 	}
-	public static LibroAR buscarUno(String isbn) {
-		LibroAR libro = null;
+	public static TelefonoAR buscarUno(String isbn) {
+		TelefonoAR libro = null;
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_UNO);) {
 			sentencia.setString(1, isbn);
 			ResultSet rs = sentencia.executeQuery();
 			rs.next();
-			libro = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+			libro = new TelefonoAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,4 +1,4 @@
-package Ejemplo36_SQL_FicheroProperties;
+package Ejemplo36B_Libro;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +13,8 @@ public class DataBaseHelper {
 	private String url;
 	private String user;
 	private String password;
-	private Properties propiedades = new Properties();
+	private Properties propiedades= new Properties();
+
 
 	public DataBaseHelper(String url, String user, String password) {
 		super();
@@ -22,44 +23,46 @@ public class DataBaseHelper {
 		this.password = password;
 	}
 
+	public DataBaseHelper()   {
+
+
+			try {
+				propiedades.load(new FileInputStream(new File("./database/database.properties")));
+				url=propiedades.getProperty("url");
+				user=propiedades.getProperty("user");
+				password=propiedades.getProperty("password");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				// siguiente capa que seria el main
+				// no se lanza como chequeada sino como no chequeada
+				throw new RuntimeException(e);
+			}
+
+	}
 	public String getUrl() {
 		return url;
 	}
-
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
 	public String getUser() {
 		return user;
 	}
-
 	public void setUser(String user) {
 		this.user = user;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
 	public Connection getConexion() throws SQLException {
-		return DriverManager.getConnection(getUrl(), getUser(), getPassword());
+
+		return DriverManager.getConnection(getUrl(),getUser(), getPassword());
 	}
 
-	public DataBaseHelper() {
-		try {
-			propiedades.load(new FileInputStream(new File("./database/database.properties")));
-			url = propiedades.getProperty("url");
-			user = propiedades.getProperty("user");
-			password = propiedades.getProperty("password");
-		} catch (IOException e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-	}
 
 }

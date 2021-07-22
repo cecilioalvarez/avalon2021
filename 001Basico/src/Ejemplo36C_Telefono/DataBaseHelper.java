@@ -1,4 +1,4 @@
-package Ejemplo36_SQL_FicheroProperties;
+package Ejemplo36C_Telefono;
 
 import java.io.File;
 import java.io.FileInputStream;

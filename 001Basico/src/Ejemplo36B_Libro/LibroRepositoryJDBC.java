@@ -1,4 +1,5 @@
-package Ejemplo36_SQL_FicheroProperties;
+package Ejemplo36B_Libro;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,134 +9,135 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibroAR {
-	private String isbn;
-	private String titulo;
-	private String autor;
+public class LibroRepositoryJDBC implements LibroRepository {
+	
 	private static DataBaseHelper helper = new DataBaseHelper();
+
 	final static String CONSULTA_INSERTAR = "insert into Libro (isbn,titulo,autor) values (?,?,?)";
 	final static String CONSULTA_BORRAR = "delete from Libro  where isbn =?";
 	final static String CONSULTA_BUSCAR_TODOS = "select * from Libro";
 	final static String CONSULTA_BUSCAR_UNO = "select * from Libro where isbn=?";
 	final static String CONSULTA_BUSCAR_TITULO_AUTOR = "select * from Libro where titulo=? and autor=?";
 	final static String CONSULTA_ACTUALIZAR = "update Libro set titulo=? , autor=? where isbn=?";
-	public String getIsbn() {
-		return isbn;
-	}
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-	public String getTitulo() {
-		return titulo;
-	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	public String getAutor() {
-		return autor;
-	}
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-	public LibroAR(String isbn, String titulo, String autor) {
-		super();
-		this.isbn = isbn;
-		this.titulo = titulo;
-		this.autor = autor;
-	}
-	public LibroAR(String isbn) {
-		super();
-		this.isbn = isbn;
-	}
-	public void actualizar() {
+
+
+
+	public void actualizar(Libro libro) {
+
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_ACTUALIZAR);) {
-			sentencia.setString(1, this.getTitulo());
-			sentencia.setString(2, this.getAutor());
-			sentencia.setString(3, this.getIsbn());
+
+			sentencia.setString(1, libro.getTitulo());
+			sentencia.setString(2, libro.getAutor());
+			sentencia.setString(3, libro.getIsbn());
 			sentencia.execute();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
-	public void insertar() {
+
+	public void insertar(Libro libro) {
+
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_INSERTAR);) {
-			sentencia.setString(1, this.getIsbn());
-			sentencia.setString(2, this.getTitulo());
-			sentencia.setString(3, this.getAutor());
+
+			sentencia.setString(1, libro.getIsbn());
+			sentencia.setString(2, libro.getTitulo());
+			sentencia.setString(3, libro.getAutor());
 			sentencia.execute();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
-	public void borrar() {
+
+	public void borrar(Libro libro) {
+
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BORRAR);) {
-			sentencia.setString(1, this.getIsbn());
+			sentencia.setString(1, libro.getIsbn());
 			sentencia.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 	// porque vamos a buscar todos los libros
 	// no tiene mucho sentido instanciar un libro
 	// para luego más adelante buscar todos
-	public static List<LibroAR> buscarTodos() {
-		List<LibroAR> listaLibros = new ArrayList<LibroAR>();
+
+	public  List<Libro> buscarTodos() {
+
+		List<Libro> listaLibros = new ArrayList<Libro>();
+
 		try (Connection conn = helper.getConexion();
 				Statement sentencia = conn.createStatement();
 				ResultSet rs = sentencia.executeQuery(CONSULTA_BUSCAR_TODOS);) {
 			while (rs.next()) {
-				LibroAR l = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+
+				Libro l = new Libro(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 				listaLibros.add(l);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return listaLibros;
 
 	}
 
 
-	public static List<LibroAR> buscarTituloyAutor(String titulo, String autor) {
+	public  List<Libro> buscarTituloyAutor(String titulo, String autor) {
 
-		List<LibroAR> listaLibros = new ArrayList<LibroAR>();
+		List<Libro> listaLibros = new ArrayList<Libro>();
+
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_TITULO_AUTOR);) {
 			sentencia.setString(1, titulo);
 			sentencia.setString(2, autor);
+
 			ResultSet rs = sentencia.executeQuery();
 			while (rs.next()) {
-				LibroAR l = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+
+				Libro l = new Libro(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 				listaLibros.add(l);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return listaLibros;
+
 	}
-	public static LibroAR buscarUno(String isbn) {
-		LibroAR libro = null;
+
+	public  Libro buscarUno(String isbn) {
+
+		Libro libro = null;
+
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_UNO);) {
 			sentencia.setString(1, isbn);
 			ResultSet rs = sentencia.executeQuery();
 			rs.next();
-			libro = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+
+			libro = new Libro(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return libro;
+
 	}
-	@Override
-	public String toString() {
-		return "LibroAR [isbn=" + isbn + ", titulo=" + titulo + ", autor=" + autor + "]";
-	}
+
+
 }

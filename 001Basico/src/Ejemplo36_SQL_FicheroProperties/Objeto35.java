@@ -5,16 +5,17 @@ import java.util.List;
 public class Objeto35 {
 
 	public static void main(String[] args) {
-		
-		//DataBaseHelper helper= new DataBaseHelper("jdbc:mysql://localhost:8889/avalon","root","root");
-		//hace uso de un properties
+
+		// DataBaseHelper helper= new
+		// DataBaseHelper("jdbc:mysql://localhost:8889/avalon","root","root");
+		// hace uso de un properties
 
 //		DataBaseHelper helper= new DataBaseHelper();
 //		LibroAR libroAR= new LibroAR("27");
 //		//instancia metodo que accede a cada una de las propiedades del objeto
 //		// nosotros con this.getIsbn();
 //		libroAR.borrar();
-		
+
 //		LibroAR libroAR=  LibroAR.buscarUno("31");
 //		
 //		System.out.println(libroAR.getIsbn());
@@ -22,8 +23,11 @@ public class Objeto35 {
 //		System.out.println(libroAR.getAutor());
 //		// traza
 //		System.out.println(libroAR);
-		
-		List<LibroAR> lista= LibroAR.buscarTituloyAutor("scala", "toto");
+
+		//DataBaseHelper helper= new DataBaseHelper("jdbc:mysql://localhost:8889/avalon","root","root");
+		//hace uso de un properties
+
+		List<LibroAR> lista= LibroAR.buscarTituloyAutor("java", "pedro");
 
 		for (LibroAR libro: lista) {
 
@@ -32,7 +36,6 @@ public class Objeto35 {
 			System.out.println(libro.getAutor());
 
 		}
-		
 
 	}
 
