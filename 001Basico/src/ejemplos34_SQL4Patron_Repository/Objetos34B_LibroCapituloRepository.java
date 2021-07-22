@@ -16,6 +16,10 @@ public class Objetos34B_LibroCapituloRepository {
 		
 		for (Libro libroItem : lista) {
 			System.out.println(libroItem.toString());
+			for (Capitulo cap : libroItem.getListacoCapitulos()) {
+				System.out.println(cap.toString());
+			}
+			
 		}
 		
 		//repositorio.removeChapter(new Capitulo("Cap 1"));

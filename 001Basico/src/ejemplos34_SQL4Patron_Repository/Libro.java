@@ -50,6 +50,9 @@ public class Libro {
 		this.listacoCapitulos = listacoCapitulos;
 	}
 
+	public void addCapitulo(Capitulo capitulo) {
+		this.getListacoCapitulos().add(capitulo);
+	}
 	@Override
 	public String toString() {
 		return "El libro con ISBN " + this.isbn + " es " + this.titulo + ", de " + this.autor + ".";
