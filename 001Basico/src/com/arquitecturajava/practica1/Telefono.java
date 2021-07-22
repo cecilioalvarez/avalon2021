@@ -17,6 +17,7 @@ public class Telefono {
 	private double importe;
 	private static DataBaseHelper helper = new DataBaseHelper();
 	final static String CONSULTA_INSERTAR = "insert into telefonos (numero,marca,importe) values (?,?,?)";
+	final static String CONSULTA_BORRAR = "delete from telefonos where numero =?";
 	final static String CONSULTA_TODOSLOSTELEFONOS = "select * from telefonos";
 	final static String CONSULTA_BUSCAR_UNO_MARCA = "select * from telefonos where marca=?";
 	final static String CONSULTA_BUSCAR_MARCA_NUMERO = "select * from telefonos where numero =? and marca =?";
@@ -59,6 +60,18 @@ public class Telefono {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void borrar() {
+
+		try (Connection conn = helper.getConexion();
+				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BORRAR);) {
+			sentencia.setInt(1, this.getNumero());
+			sentencia.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 	
 	public static List<Telefono> buscarTodos() {
