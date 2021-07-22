@@ -7,13 +7,15 @@ public interface LibroRepository {
 	void insertar(Libro libro);
 
 	void borrar(Libro libro);
+	
+	void actualizar(Libro libro);
 
 	List<Libro> buscarTodos();
 
 	Libro buscarUno(String isbn);
 
-	void actualizar(Libro libro);
-
+	List<Libro> BuscarTodosConCapitulos();
+	
 	Libro buscarPorTitulo(String titulo);
 
 	Libro buscarPorAutor(String autor);

@@ -15,7 +15,7 @@ public class CapituloRepositoryJDBC implements CapituloRepository {
 
 	private static DataBaseHelper helper = new DataBaseHelper();
 	
-	final static String CONSULTA_INSERTAR = "insert into capitulos (titulo,paginas) values(?,?)";
+	final static String CONSULTA_INSERTAR = "insert into capitulos (titulo,paginas,libro_isbn) values(?,?,?)";
 	final static String CONSULTA_BORRAR = "delete from capitulos where titulo=?";
 	final static String CONSULTA_BUSCAR_TODOS = "select * from capitulos";
 	final static String CONSULTA_ACTUALIZAR = "update capitulos set titulo=?, paginas=?, libros_isbn=? where titulo=?";
@@ -26,7 +26,7 @@ public class CapituloRepositoryJDBC implements CapituloRepository {
 		try {
 			Connection conn = helper.getConexion();
 			PreparedStatement sentencia = conn.prepareStatement(CONSULTA_INSERTAR);
-			sentencia.setString(1, capitulo.getNombre());
+			sentencia.setString(1, capitulo.getTitulo());
 			sentencia.setInt(2, capitulo.getPaginas());
 			
 			sentencia.execute();
@@ -40,7 +40,7 @@ public class CapituloRepositoryJDBC implements CapituloRepository {
 		try {
 			Connection conn = helper.getConexion();
 			PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BORRAR);
-			sentencia.setString(1, capitulo.getNombre());
+			sentencia.setString(1, capitulo.getTitulo());
 			sentencia.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -77,7 +77,7 @@ public class CapituloRepositoryJDBC implements CapituloRepository {
 			Connection conn = helper.getConexion();
 			PreparedStatement sentencia = conn.prepareStatement(CONSULTA_ACTUALIZAR);
 
-			sentencia.setString(1, capitulo.getNombre());
+			sentencia.setString(1, capitulo.getTitulo());
 			sentencia.setInt(2, capitulo.getPaginas());
 			
 			sentencia.execute();
