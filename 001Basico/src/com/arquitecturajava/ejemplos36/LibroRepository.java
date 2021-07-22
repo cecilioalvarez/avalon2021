@@ -38,14 +38,14 @@ public class LibroRepository {
 
 	}
 
-	public void insertar() {
+	public void insertar(Libro libro) {
 
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_INSERTAR);) {
 
-			sentencia.setString(1, this.getIsbn());
-			sentencia.setString(2, this.getTitulo());
-			sentencia.setString(3, this.getAutor());
+			sentencia.setString(1, libro.getIsbn());
+			sentencia.setString(2, libro.getTitulo());
+			sentencia.setString(3, libro.getAutor());
 			sentencia.execute();
 
 		} catch (SQLException e) {
@@ -55,11 +55,11 @@ public class LibroRepository {
 
 	}
 
-	public void borrar() {
+	public void borrar(Libro libro) {
 
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BORRAR);) {
-			sentencia.setString(1, this.getIsbn());
+			sentencia.setString(1, libro.getIsbn());
 			sentencia.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -71,16 +71,16 @@ public class LibroRepository {
 	// no tiene mucho sentido instanciar un libro
 	// para luego más adelante buscar todos
 
-	public static List<LibroRepository> buscarTodos() {
+	public  List<Libro> buscarTodos() {
 
-		List<LibroRepository> listaLibros = new ArrayList<LibroRepository>();
+		List<Libro> listaLibros = new ArrayList<Libro>();
 
 		try (Connection conn = helper.getConexion();
 				Statement sentencia = conn.createStatement();
 				ResultSet rs = sentencia.executeQuery(CONSULTA_BUSCAR_TODOS);) {
 			while (rs.next()) {
 
-				LibroRepository l = new LibroRepository(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+				Libro l = new Libro(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 				listaLibros.add(l);
 			}
 		} catch (SQLException e) {
@@ -93,9 +93,9 @@ public class LibroRepository {
 	}
 	
 
-	public static List<LibroRepository> buscarTituloyAutor(String titulo, String autor) {
+	public  List<Libro> buscarTituloyAutor(String titulo, String autor) {
 
-		List<LibroRepository> listaLibros = new ArrayList<LibroRepository>();
+		List<Libro> listaLibros = new ArrayList<Libro>();
 
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_TITULO_AUTOR);) {
@@ -105,7 +105,7 @@ public class LibroRepository {
 			ResultSet rs = sentencia.executeQuery();
 			while (rs.next()) {
 
-				LibroRepository l = new LibroRepository(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+				Libro l = new Libro(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 				listaLibros.add(l);
 			}
 		} catch (SQLException e) {
@@ -117,9 +117,9 @@ public class LibroRepository {
 
 	}
 
-	public static LibroRepository buscarUno(String isbn) {
+	public  Libro buscarUno(String isbn) {
 
-		LibroRepository libro = null;
+		Libro libro = null;
 
 		try (Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_UNO);) {
@@ -127,7 +127,7 @@ public class LibroRepository {
 			ResultSet rs = sentencia.executeQuery();
 			rs.next();
 
-			libro = new LibroRepository(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+			libro = new Libro(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -138,9 +138,5 @@ public class LibroRepository {
 
 	}
 
-	@Override
-	public String toString() {
-		return "LibroAR [isbn=" + isbn + ", titulo=" + titulo + ", autor=" + autor + "]";
-	}
 
 }

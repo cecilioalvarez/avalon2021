@@ -7,13 +7,16 @@ public static void main(String[] args) {
 	//hace uso de un properties
 	
 	
-	LibroRepository libroAR=  LibroRepository.buscarUno("1");
+	LibroRepository repositorio= new LibroRepository();
 	
-	System.out.println(libroAR.getIsbn());
-	System.out.println(libroAR.getTitulo());
-	System.out.println(libroAR.getAutor());
-	// traza
-	System.out.println(libroAR);
+	Libro libro= repositorio.buscarUno("1");
+	System.out.println(libro.getIsbn());
+	System.out.println(libro.getTitulo());
+	System.out.println(libro.getAutor());
+	
+	
+	repositorio.borrar(new Libro("3"));
+	
 	
 }
 
