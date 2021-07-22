@@ -8,8 +8,8 @@ public class ObjetosPractica1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Telefono telefono=new Telefono(689745878,"lg",200.36);
-		//telefono.insertarTelefono();
+		Telefono telefono=new Telefono(632546787,"huawei",220.36);
+		telefono.insertarTelefono();
 		
 		System.out.println("-------------BÚSQUEDA DE TODOS LOS DATOS DE LA BBDD -----------------");
 		List<Telefono> listaTelefonos = Telefono.buscarTodos();
@@ -23,7 +23,7 @@ public class ObjetosPractica1 {
 		
 		System.out.println("-------------BÚSQUEDA POR MARCA -----------------");
 		
-		Telefono telefono2 = Telefono.buscarUnoPorMarca("lg");
+		Telefono telefono2 = Telefono.buscarUnoPorMarca("xiaomi");
 		System.out.println(telefono2.getNumero());
 		System.out.println(telefono2.getMarca());
 		System.out.println(telefono2.getImporte());
