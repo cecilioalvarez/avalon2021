@@ -4,7 +4,14 @@ public class Capitulo {
 
 	private String titulo;
 	private int paginas;
+	private Libro libro;
 	
+	public Libro getLibro() {
+		return libro;
+	}
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
 	public String getTitulo() {
 		return titulo;
 	}
