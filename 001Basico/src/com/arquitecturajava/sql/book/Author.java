@@ -2,30 +2,46 @@ package com.arquitecturajava.sql.book;
 
 class Author {
 
-    private final String PK_ID;
+    private String pk_id;
     private String name;
     private int age;
 
     Author(String id, String name, int age) {
-        this.PK_ID = id;
+        this.pk_id = id;
         this.name = name;
         this.age = age;
     }
 
-    public String getPK_ID() {
-        return PK_ID;
+    Author(String name) {
+        this.name = name;
     }
 
-    public String getName() {
-        return name;
+    String getPk_id() {
+        return this.pk_id;
     }
 
-    public int getAge() {
-        return age;
+    void setPk_id(String pk_id) {
+        this.pk_id = pk_id;
+    }
+
+    String getName() {
+        return this.name;
+    }
+
+    void setName(String name) {
+        this.name = name;
+    }
+
+    int getAge() {
+        return this.age;
+    }
+
+    void setAge(int age) {
+        this.age = age;
     }
 
     @Override
     public String toString() {
-        return "[" + this.PK_ID + "] " + this.name + " tiene " + this.age + " años.";
+        return "[" + this.pk_id + "] " + this.name + " tiene " + this.age + " años.";
     }
 }

@@ -41,16 +41,16 @@ class PhoneBook {
         PhoneBook.showAllPhones();
         PhoneBook.showPhonesFilteringBrand("Samsung");
         
+        PhoneRepository repository = new PhoneRepositoryJDBC();
         Phone searchedPhone = new Phone(600000123);
-        PhoneRepositoryJDBC repository = new PhoneRepositoryJDBC();
-        repository.select(searchedPhone);
-        System.out.println("El teléfono buscado es:\t" + repository.toString());
+        searchedPhone = repository.select(searchedPhone);
+        System.out.println("El teléfono buscado es:\t" + searchedPhone.toString());
         repository.updateBrand(searchedPhone, "Apple");
-        repository.select(searchedPhone);
-        System.out.println("Cambiamos la marca:\t" + repository.toString());
+        searchedPhone = repository.select(searchedPhone);
+        System.out.println("Cambiamos la marca:\t" + searchedPhone.toString());
         repository.updatePrice(searchedPhone, 999.99);
-        repository.select();
-        System.out.println("Cambiamos el precio:\t" + repository.toString());
+        searchedPhone = repository.select(searchedPhone);
+        System.out.println("Cambiamos el precio:\t" + searchedPhone.toString());
         repository.delete(searchedPhone);
         System.out.print("Lo eliminamos. ");
         PhoneBook.showAllPhones();
