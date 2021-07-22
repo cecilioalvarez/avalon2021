@@ -2,6 +2,7 @@ package ejemplos34_SQL4Patron_Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Libro {
 
@@ -48,6 +49,23 @@ public class Libro {
 
 	public void setListacoCapitulos(List<Capitulo> listacoCapitulos) {
 		this.listacoCapitulos = listacoCapitulos;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(isbn);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Libro other = (Libro) obj;
+		return Objects.equals(isbn, other.isbn);
 	}
 
 	public void addCapitulo(Capitulo capitulo) {

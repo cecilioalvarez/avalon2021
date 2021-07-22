@@ -10,8 +10,6 @@ public interface Capitulo_Repository {
 
 	List<Capitulo> getAllChapters();
 
-	List<Capitulo> getBookChapters(String isbn);
-
 	void modifyChapter(Capitulo chapter);
 
 }

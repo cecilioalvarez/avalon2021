@@ -224,9 +224,9 @@ public class Libro_RepositoryJDBC implements LibroRepository {
 				Libro l = new Libro(rs.getString("isbn"), rs.getString("autor"), rs.getString("titulo"));
 				if (!listaLibros.contains(l)) {
 					listaLibros.add(l);
-					l.addCapitulo(new Capitulo(rs.getString("tituloCapitulo"),rs.getInt("paginas")));
+					l.addCapitulo(new Capitulo(rs.getString("tituloCapitulo"),rs.getInt("paginas"),l));
 				}else {
-					listaLibros.get(listaLibros.size()-1).addCapitulo(new Capitulo(rs.getString("tituloCapitulo"),rs.getInt("paginas")));
+					listaLibros.get(listaLibros.size()-1).addCapitulo(new Capitulo(rs.getString("tituloCapitulo"),rs.getInt("paginas"),l));
 				}
 				
 			}

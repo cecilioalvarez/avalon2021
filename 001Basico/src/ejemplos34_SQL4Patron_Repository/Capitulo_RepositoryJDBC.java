@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Capitulo_RepositoryJDBC implements Capitulo_Repository {
 
-	final static String QUERYINSERT = "INSERT INTO capitulos(titulo, paginas) VALUES(?,?,)";
+	final static String QUERYINSERT = "INSERT INTO capitulos(titulo, paginas,libro_isbn) VALUES(?,?,?)";
 	final static String QUERYDELETE= "DELETE FROM capitulos WHERE titulo=?";
 	final static String QUERYSELECT = "SELECT * FROM capitulos";
 	final static String QUERYFINDONE = "SELECT * FROM capitulos WHERE libro_isbn=?";
@@ -27,7 +27,7 @@ public class Capitulo_RepositoryJDBC implements Capitulo_Repository {
 			
 				prepSentencia.setString(1, chapter.getTitulo());
 				prepSentencia.setInt(2, chapter.getPaginas());
-				//prepSentencia.setString(3, chapter.getLibro_isbn());
+				prepSentencia.setString(3, chapter.getLibro().getIsbn());
 			
 				prepSentencia.execute();
 			}catch (Exception ex) {
@@ -77,7 +77,8 @@ public class Capitulo_RepositoryJDBC implements Capitulo_Repository {
 			ResultSet rs = sentencia.executeQuery(QUERYSELECT);
 			
 			while (rs.next()) {
-				Capitulo chapterAux = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"));
+				Capitulo chapterAux = new Capitulo(rs.getString("titulo"), 
+						rs.getInt("paginas"),new Libro(rs.getString("isbn")));
 				listaCapitulos.add(chapterAux);
 			}
 		}catch (SQLException e) {
@@ -87,28 +88,6 @@ public class Capitulo_RepositoryJDBC implements Capitulo_Repository {
 		return listaCapitulos;
 	}
 	
-	@Override
-	public List<Capitulo> getBookChapters(String isbn){
-		
-		List<Capitulo> listaCapitulos = new ArrayList<Capitulo>();
-		/*try(Connection conn = helper.getConexion();
-				PreparedStatement sentencia = conn.prepareStatement(QUERYFINDONE);) {
-			sentencia.setString(1, isbn);
-			//Para Resultados de SELECT
-			
-			ResultSet rs = sentencia.executeQuery();
-			if(rs.next()) {
-				Capitulo chapterAux = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"), rs.getString("libro_isbn"));
-				listaCapitulos.add(chapterAux);
-			}
-				
-				
-		}catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		return listaCapitulos;
-	}
 	
 	@Override
 	public void modifyChapter(Capitulo chapter) {

@@ -6,17 +6,23 @@ public class Capitulo {
 	private int paginas;
 	private Libro libro;
 	
-	public Capitulo(String titulo) {
+	
+	
+	public Capitulo(String titulo, Libro libro) {
 		super();
 		this.titulo = titulo;
+		this.libro = libro;
 	}
-
-	public Capitulo(String titulo, int paginas) {
+	
+	
+	public Capitulo(String titulo, int paginas, Libro libro) {
 		super();
 		this.titulo = titulo;
 		this.paginas = paginas;
+		this.libro = libro;
 	}
-	
+
+
 	public String getTitulo() {
 		return titulo;
 	}
