@@ -1,10 +1,14 @@
 package ejemplos34_SQL4Patron_Repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Libro {
 
 	private String isbn;
 	private String autor;
 	private String titulo;
+	private List<Capitulo> listacoCapitulos= new ArrayList<Capitulo>();
 	
 	public Libro(String isbn) {
 		super();
@@ -17,6 +21,8 @@ public class Libro {
 		this.autor = autor;
 		this.titulo = titulo;
 	}
+	
+	
 	public String getIsbn() {
 		return isbn;
 	}
@@ -36,6 +42,14 @@ public class Libro {
 		this.titulo = titulo;
 	}
 	
+	public List<Capitulo> getListacoCapitulos() {
+		return listacoCapitulos;
+	}
+
+	public void setListacoCapitulos(List<Capitulo> listacoCapitulos) {
+		this.listacoCapitulos = listacoCapitulos;
+	}
+
 	@Override
 	public String toString() {
 		return "El libro con ISBN " + this.isbn + " es " + this.titulo + ", de " + this.autor + ".";

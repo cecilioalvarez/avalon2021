@@ -10,11 +10,11 @@ import java.util.List;
 
 public class Capitulo_RepositoryJDBC implements Capitulo_Repository {
 
-	final static String QUERYINSERT = "INSERT INTO capitulos(titulo, paginas, libro_isbn) VALUES(?,?,?)";
+	final static String QUERYINSERT = "INSERT INTO capitulos(titulo, paginas) VALUES(?,?,)";
 	final static String QUERYDELETE= "DELETE FROM capitulos WHERE titulo=?";
 	final static String QUERYSELECT = "SELECT * FROM capitulos";
 	final static String QUERYFINDONE = "SELECT * FROM capitulos WHERE libro_isbn=?";
-	final static String QUERYUPDATE = "UPDATE capitulos set titulo=?,paginas=?,libro_isbn=? WHERE titulo=?";
+	final static String QUERYUPDATE = "UPDATE capitulos set titulo=?,paginas=? WHERE titulo=?";
 	private static DataBaseHelper helper= new DataBaseHelper();
 	
 	@Override
@@ -27,7 +27,7 @@ public class Capitulo_RepositoryJDBC implements Capitulo_Repository {
 			
 				prepSentencia.setString(1, chapter.getTitulo());
 				prepSentencia.setInt(2, chapter.getPaginas());
-				prepSentencia.setString(3, chapter.getLibro_isbn());
+				//prepSentencia.setString(3, chapter.getLibro_isbn());
 			
 				prepSentencia.execute();
 			}catch (Exception ex) {
@@ -77,8 +77,8 @@ public class Capitulo_RepositoryJDBC implements Capitulo_Repository {
 			ResultSet rs = sentencia.executeQuery(QUERYSELECT);
 			
 			while (rs.next()) {
-				Capitulo l = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"), rs.getString("libro_isbn"));
-				listaCapitulos.add(l);
+				Capitulo chapterAux = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"));
+				listaCapitulos.add(chapterAux);
 			}
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -91,22 +91,22 @@ public class Capitulo_RepositoryJDBC implements Capitulo_Repository {
 	public List<Capitulo> getBookChapters(String isbn){
 		
 		List<Capitulo> listaCapitulos = new ArrayList<Capitulo>();
-		try(Connection conn = helper.getConexion();
+		/*try(Connection conn = helper.getConexion();
 				PreparedStatement sentencia = conn.prepareStatement(QUERYFINDONE);) {
 			sentencia.setString(1, isbn);
 			//Para Resultados de SELECT
 			
 			ResultSet rs = sentencia.executeQuery();
 			if(rs.next()) {
-				Capitulo l = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"), rs.getString("libro_isbn"));
-				listaCapitulos.add(l);
+				Capitulo chapterAux = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"), rs.getString("libro_isbn"));
+				listaCapitulos.add(chapterAux);
 			}
 				
 				
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		return listaCapitulos;
 	}
 	
@@ -120,7 +120,7 @@ public class Capitulo_RepositoryJDBC implements Capitulo_Repository {
 			
 				prepSentencia.setString(1, chapter.getTitulo());
 				prepSentencia.setInt(2, chapter.getPaginas());
-				prepSentencia.setString(3, chapter.getLibro_isbn());
+				//prepSentencia.setString(3, chapter.getLibro_isbn());
 				prepSentencia.setString(4, chapter.getTitulo());
 			
 				prepSentencia.execute();

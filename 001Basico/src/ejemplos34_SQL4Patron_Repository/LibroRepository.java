@@ -9,6 +9,8 @@ public interface LibroRepository {
 	void removeBook(Libro libro);
 
 	List<Libro> buscarTodosLibros();
+	
+	List<Libro> buscarTodosLibrosConCapitulos();
 
 	Libro buscarLibro(String isbn);
 

@@ -17,6 +17,7 @@ public class Libro_RepositoryJDBC implements LibroRepository {
 	final static String queryFindTitulo = "SELECT * FROM libro WHERE titulo=?";
 	final static String QUERYFINDONE = "SELECT * FROM libro WHERE isbn=?";
 	final static String QUERYUPDATE = "UPDATE libro set autor=?,titulo=? WHERE isbn=?";
+	final static String QUERYSELECTWITHCHAPTERS="SELECT * FROM libro,capitulos WHERE libro.isbn = capitulos.libros_isbn";
 	private static DataBaseHelper helper= new DataBaseHelper();
 	
 	
@@ -209,6 +210,27 @@ public class Libro_RepositoryJDBC implements LibroRepository {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public List<Libro> buscarTodosLibrosConCapitulos() {
+		List<Libro> listaLibros = new ArrayList<Libro>();
+		try(Connection conn = helper.getConexion();
+				Statement sentencia = conn.createStatement();) {
+			//Para Resultados de SELECT
+			ResultSet rs = sentencia.executeQuery(QUERYSELECTWITHCHAPTERS);
+			
+			while (rs.next()) {
+				Libro l = new Libro(rs.getString("isbn"), rs.getString("autor"), rs.getString("titulo"));
+				if (!listaLibros.contains(l)) {
+					listaLibros.add(l);
+				}
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listaLibros;
 	}
 
 	
