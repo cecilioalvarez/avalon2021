@@ -1,25 +1,25 @@
 package ejercicio36;
 
 public class Capitulo {
-	private String nombre;
+	private String titulo;
 	private int paginas;
-	private String libros_isbn;
+	
 	
 	
 	public Capitulo() {
 		super();
 	}
-	public Capitulo(String nombre, int paginas, String libros_isbn) {
-		super();
-		this.nombre = nombre;
+	public Capitulo(String nombre, int paginas) {
+		
+		this.titulo = nombre;
 		this.paginas = paginas;
-		this.libros_isbn = libros_isbn;
+		
 	}
 	public String getNombre() {
-		return nombre;
+		return titulo;
 	}
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+		this.titulo = nombre;
 	}
 	public int getPaginas() {
 		return paginas;
@@ -27,12 +27,7 @@ public class Capitulo {
 	public void setPaginas(int paginas) {
 		this.paginas = paginas;
 	}
-	public String getLibros_isbn() {
-		return libros_isbn;
-	}
-	public void setLibros_isbn(String libros_isbn) {
-		this.libros_isbn = libros_isbn;
-	}
+	
 	
 
 }
