@@ -1,6 +1,5 @@
 package com.arquitecturajava.sql.phone;
 
-import com.arquitecturajava.sql.ActiveRecord;
 import com.arquitecturajava.sql.connection.DbConnectionSingleton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,45 +9,24 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-class PhoneAR implements ActiveRecord {
-    
-    private Phone phone;
-
-    PhoneAR() {
-    }
-
-    PhoneAR(Phone phone) {
-        this.phone = phone;
-    }
-
-    public Phone getPhone() {
-        return phone;
-    }
-
-    @Override
-    public String toString() {
-        return this.phone.toString();
-    }
+class PhoneRepositoryJDBC implements PhoneRepository {
     
     @Override
-    public Phone select() {
+    public Phone select(Phone phone) {
         final String QUERY = "SELECT * FROM phone WHERE pk_number = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
-            preparedStatement.setInt(1, this.phone.getPk_number());
+            preparedStatement.setInt(1, phone.getPk_number());
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                return this.phone = new Phone(resultSet.getInt(1), resultSet.getString(2), resultSet.getDouble(3));
-            } else {
-                return this.phone = null;
-            }
+            return resultSet.next() ? new Phone(resultSet.getInt(1), resultSet.getString(2), resultSet.getDouble(3)) : null;
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de selección: " + sql_ex.getMessage());
         }
         return null;
     }
     
-    public static List<Phone> select(String brand) {
+    @Override
+    public List<Phone> select(String brand) {
         final String QUERY = "SELECT * FROM phone WHERE brand = ?";
         final List<Phone> PHONES = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -64,7 +42,8 @@ class PhoneAR implements ActiveRecord {
         return PHONES;
     }
     
-    public static List<Phone> select(double price) {
+    @Override
+    public List<Phone> select(double price) {
         final String QUERY = "SELECT * FROM phone WHERE price = ?";
         final List<Phone> PHONES = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -80,7 +59,8 @@ class PhoneAR implements ActiveRecord {
         return PHONES;
     }
     
-    public static List<Phone> select(String brand, double price) {
+    @Override
+    public List<Phone> select(String brand, double price) {
         final String QUERY = "SELECT * FROM phone WHERE brand = ? AND price ?";
         final List<Phone> PHONES = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -98,7 +78,7 @@ class PhoneAR implements ActiveRecord {
     }
 
     @Override
-    public List<Phone> selectAll() {
+    public List<Phone> select() {
         final String QUERY = "SELECT * FROM phone";
         final List<Phone> PHONES = new ArrayList<>();
         try (Connection conn = DbConnectionSingleton.getConnection();
@@ -114,13 +94,13 @@ class PhoneAR implements ActiveRecord {
     }
 
     @Override
-    public int insert() {
+    public int insert(Phone phone) {
         final String QUERY = "INSERT INTO phone (pk_number, brand, price) VALUES (?, ?, ?)";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
-            preparedStatement.setDouble(1, this.phone.getPk_number());
-            preparedStatement.setString(2, this.phone.getBrand());
-            preparedStatement.setDouble(3, this.phone.getPrice());
+            preparedStatement.setDouble(1, phone.getPk_number());
+            preparedStatement.setString(2, phone.getBrand());
+            preparedStatement.setDouble(3, phone.getPrice());
             preparedStatement.execute();
             return preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
@@ -130,11 +110,11 @@ class PhoneAR implements ActiveRecord {
     }
 
     @Override
-    public int delete() {
+    public int delete(Phone phone) {
         final String QUERY = "DELETE FROM phone WHERE pk_number = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
-            preparedStatement.setInt(1, this.phone.getPk_number());
+            preparedStatement.setInt(1, phone.getPk_number());
             return preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de borrado: " + sql_ex.getMessage());
@@ -142,7 +122,8 @@ class PhoneAR implements ActiveRecord {
         return 0;
     }
     
-    public static int delete(String brand) {
+    @Override
+    public int delete(String brand) {
         final String QUERY = "DELETE FROM phone WHERE brand = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
@@ -154,7 +135,8 @@ class PhoneAR implements ActiveRecord {
         return 0;
     }
     
-    public static int delete(double price) {
+    @Override
+    public int delete(double price) {
         final String QUERY = "DELETE FROM phone WHERE price = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
@@ -167,13 +149,13 @@ class PhoneAR implements ActiveRecord {
     }
 
     @Override
-    public int update() {
+    public int update(Phone phone) {
         final String QUERY = "UPDATE phone SET brand = ?, price = ? WHERE pk_number = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
-            preparedStatement.setString(1, this.phone.getBrand());
-            preparedStatement.setDouble(2, this.phone.getPrice());
-            preparedStatement.setInt(3, this.phone.getPk_number());
+            preparedStatement.setString(1, phone.getBrand());
+            preparedStatement.setDouble(2, phone.getPrice());
+            preparedStatement.setInt(3, phone.getPk_number());
             return preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de actualización: " + sql_ex.getMessage());
@@ -181,12 +163,13 @@ class PhoneAR implements ActiveRecord {
         return 0;
     }
     
-    int updateBrand(String newValue) {
+    @Override
+    public int updateBrand(Phone phone, String newValue) {
         final String QUERY = "UPDATE phone SET brand = ? WHERE pk_number = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setString(1, newValue);
-            preparedStatement.setInt(2, this.phone.getPk_number());
+            preparedStatement.setInt(2, phone.getPk_number());
             return preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de actualización: " + sql_ex.getMessage());
@@ -194,12 +177,13 @@ class PhoneAR implements ActiveRecord {
         return 0;
     }
     
-    int updatePrice(double newValue) {
+    @Override
+    public int updatePrice(Phone phone, double newValue) {
         final String QUERY = "UPDATE phone SET price = ? WHERE pk_number = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setDouble(1, newValue);
-            preparedStatement.setInt(2, this.phone.getPk_number());
+            preparedStatement.setInt(2, phone.getPk_number());
             return preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de actualización: " + sql_ex.getMessage());

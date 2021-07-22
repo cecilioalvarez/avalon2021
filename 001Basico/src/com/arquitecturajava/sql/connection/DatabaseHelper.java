@@ -8,11 +8,22 @@ import java.util.Properties;
 
 class DatabaseHelper {
 
+    private static final String DEFAULT_PROPERTIES_FILE_PATH = ".\\databaseProperties\\avalonDb.properties";
     private String url;
     private String user;
     private String password;
-    private final Properties properties = new Properties();
-    private static final String DEFAULT_PROPERTIES_FILE_PATH = ".\\databaseProperties\\avalonDb.properties";
+
+    String getUrl() {
+        return this.url;
+    }
+
+    String getUser() {
+        return this.user;
+    }
+
+    String getPassword() {
+        return this.password;
+    }
 
     DatabaseHelper(String url, String user, String password) {
         this.url = url;
@@ -22,7 +33,11 @@ class DatabaseHelper {
 
     DatabaseHelper(String propertiesFilePath) {
         try {
-            this.properties.load(new FileInputStream(new File(propertiesFilePath)));
+            Properties prop = new Properties();
+            prop.load(new FileInputStream(new File(propertiesFilePath)));
+            this.url = prop.getProperty("url");
+            this.user = prop.getProperty("user");
+            this.password = prop.getProperty("password");
         } catch (FileNotFoundException fnf_ex) {
             System.err.println("Se ha producido un error al buscar el fichero de propiedades de la BD: " + fnf_ex.getMessage());
         } catch (IOException io_ex) {
@@ -32,15 +47,15 @@ class DatabaseHelper {
 
     DatabaseHelper() {
         try {
-            this.properties.load(new FileInputStream(new File(DEFAULT_PROPERTIES_FILE_PATH)));
+            Properties prop = new Properties();
+            prop.load(new FileInputStream(new File(DatabaseHelper.DEFAULT_PROPERTIES_FILE_PATH)));
+            this.url = prop.getProperty("url");
+            this.user = prop.getProperty("user");
+            this.password = prop.getProperty("password");
         } catch (FileNotFoundException fnf_ex) {
             System.err.println("Se ha producido un error al buscar el fichero de propiedades de la BD: " + fnf_ex.getMessage());
         } catch (IOException io_ex) {
             System.err.println("Se ha producido un error al leer el fichero de propiedades de la BD: " + io_ex.getMessage());
         }
-    }
-    
-    Properties getProperties() {
-        return this.properties;
     }
 }

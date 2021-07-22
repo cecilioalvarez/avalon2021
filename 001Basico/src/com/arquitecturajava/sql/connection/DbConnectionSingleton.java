@@ -3,18 +3,17 @@ package com.arquitecturajava.sql.connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class DbConnectionSingleton {
     
-    private static final Properties PROPERTIES = new DatabaseHelper().getProperties();
+    private static final DatabaseHelper DB_PROPERTIES = new DatabaseHelper();
     private static Connection conn;
 
     private static void createConnection() throws SQLException {
         DbConnectionSingleton.conn = DriverManager.getConnection(
-                PROPERTIES.getProperty("url"), 
-                PROPERTIES.getProperty("user"), 
-                PROPERTIES.getProperty("password")
+                DB_PROPERTIES.getUrl(), 
+                DB_PROPERTIES.getUser(), 
+                DB_PROPERTIES.getPassword()
         );
     }
 

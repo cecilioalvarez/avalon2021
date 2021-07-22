@@ -6,18 +6,18 @@ import java.util.List;
 class PhoneBook {
     
     private static void insertPhones(Phone ...phones) {
-        Arrays.asList(phones).forEach(phone -> new PhoneAR(phone).insert());
+        Arrays.asList(phones).forEach(phone -> new PhoneRepositoryJDBC().insert(phone));
     }
     
     private static void showAllPhones() {
         System.out.println("A continuación se muestra el listado completo de registros en la tabla Teléfono:");
-        List<Phone> phones = new PhoneAR().selectAll();
+        List<Phone> phones = new PhoneRepositoryJDBC().select();
         phones.forEach(phone -> System.out.println(phone.toString()));
     }
     
     private static void showPhonesFilteringBrand(String brand) {
         System.out.println("A continuación se muestra el listado de registros en la tabla Teléfono con marca «" + brand + "»:");
-        List<Phone> phones = PhoneAR.select(brand);
+        List<Phone> phones = new PhoneRepositoryJDBC().select(brand);
         phones.forEach(phone -> System.out.println(phone.toString()));
     }
 
@@ -42,16 +42,16 @@ class PhoneBook {
         PhoneBook.showPhonesFilteringBrand("Samsung");
         
         Phone searchedPhone = new Phone(600000123);
-        PhoneAR searchedPhoneAr = new PhoneAR(searchedPhone);
-        searchedPhoneAr.select();
-        System.out.println("El teléfono buscado es:\t" + searchedPhoneAr.toString());
-        searchedPhoneAr.updateBrand("Apple");
-        searchedPhoneAr.select();
-        System.out.println("Cambiamos la marca:\t" + searchedPhoneAr.toString());
-        searchedPhoneAr.updatePrice(999.99);
-        searchedPhoneAr.select();
-        System.out.println("Cambiamos el precio:\t" + searchedPhoneAr.toString());
-        searchedPhoneAr.delete();
+        PhoneRepositoryJDBC repository = new PhoneRepositoryJDBC();
+        repository.select(searchedPhone);
+        System.out.println("El teléfono buscado es:\t" + repository.toString());
+        repository.updateBrand(searchedPhone, "Apple");
+        repository.select(searchedPhone);
+        System.out.println("Cambiamos la marca:\t" + repository.toString());
+        repository.updatePrice(searchedPhone, 999.99);
+        repository.select();
+        System.out.println("Cambiamos el precio:\t" + repository.toString());
+        repository.delete(searchedPhone);
         System.out.print("Lo eliminamos. ");
         PhoneBook.showAllPhones();
     }
