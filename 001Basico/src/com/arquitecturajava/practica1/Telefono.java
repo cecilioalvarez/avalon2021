@@ -72,7 +72,6 @@ public class Telefono {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 	}
 	
 	public void actualizar() {
