@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejemplos36;
+package com.arquitecturajava.ejemplos37;
 
 import java.util.List;
 

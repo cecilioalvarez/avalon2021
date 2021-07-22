@@ -1,4 +1,4 @@
-package com.arquitecturajava.ejemplos36;
+package com.arquitecturajava.ejemplos37;
 
 public class Objetos35 {
 public static void main(String[] args) {
