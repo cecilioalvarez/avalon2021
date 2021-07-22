@@ -2,7 +2,13 @@ package practica1;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import ejercicio35.LibroAR;
 
 
 
@@ -82,6 +88,7 @@ public class Telefono {
 			sentencia.setInt(1, this.getNumero());
 			sentencia.setString(2, this.getMarca());
 			sentencia.setDouble(3, this.getImporte());
+			sentencia.setDouble(4, this.getNumero());
 			sentencia.execute();
 
 		} catch (SQLException e) {
@@ -89,6 +96,32 @@ public class Telefono {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public static List<Telefono> mostrarTodos() {
+
+		List<Telefono> listaTelefonos = new ArrayList<Telefono>();
+
+		try {
+			Connection conn = helper.getConexion();
+			Statement sentencia = conn.createStatement();
+			ResultSet rs = sentencia.executeQuery(CONSULTA_BUSCAR_TODOS);
+			while (rs.next()) {
+				Telefono t = new Telefono(rs.getInt("numero"), rs.getString("marca"), rs.getDouble("importe"));
+				listaTelefonos.add(t);
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return listaTelefonos;
+
+	}
+	@Override
+	public String toString() {
+		return "Telefono [numero=" + numero + ", marca=" + marca + ", importe=" + importe + "]";
 	}
 	
 	

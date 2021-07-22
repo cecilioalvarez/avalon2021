@@ -6,7 +6,7 @@ public class Objetos35 {
 		// TODO Auto-generated method stub
 		//DataBaseHelper helper=new DataBaseHelper("jdbc:mysql://localhost:3306/avalon","root","");
 		DataBaseHelper helper=new DataBaseHelper();
-		Libro libro=new Libro("26","javax","anas");
+		LibroAR libro=new LibroAR("26","javax","anas");
 		libro.insertar();
 	
 		

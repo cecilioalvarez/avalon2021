@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Libro {
+public class LibroAR {
 
 	private String isbn;
 	private String titulo;
@@ -24,11 +24,11 @@ public class Libro {
 	final static String CONSULTA_BUSCAR_TITULO = "select * from libros where titulo=?";
 	final static String CONSULTA_BUSCAR_TITULO_AUTOR = "select * from libros where titulo=? AND autor=?";
 
-	public Libro() {
+	public LibroAR() {
 		super();
 	}
 
-	public Libro(String isbn, String titulo, String autor) {
+	public LibroAR(String isbn, String titulo, String autor) {
 		super();
 		this.isbn = isbn;
 		this.titulo = titulo;
@@ -88,16 +88,16 @@ public class Libro {
 
 	}
 
-	public static List<Libro> buscarTodos() {
+	public static List<LibroAR> buscarTodos() {
 
-		List<Libro> listaLibros = new ArrayList<Libro>();
+		List<LibroAR> listaLibros = new ArrayList<LibroAR>();
 
 		try {
 			Connection conn = helper.getConexion();
 			Statement sentencia = conn.createStatement();
 			ResultSet rs = sentencia.executeQuery(CONSULTA_BUSCAR_TODOS);
 			while (rs.next()) {
-				Libro l = new Libro(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
+				LibroAR l = new LibroAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
 				listaLibros.add(l);
 
 			}
@@ -110,8 +110,8 @@ public class Libro {
 
 	}
 
-	public static Libro buscarUno(String isbn) {
-		Libro l = new Libro();
+	public static LibroAR buscarUno(String isbn) {
+		LibroAR l = new LibroAR();
 		try {
 			Connection conn = helper.getConexion();
 			PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_UNO);
@@ -149,9 +149,9 @@ public class Libro {
 
 	}
 
-	public Libro buscarPorTitulo(String titulo) {
+	public LibroAR buscarPorTitulo(String titulo) {
 
-		Libro l = new Libro();
+		LibroAR l = new LibroAR();
 		try {
 			Connection conn = helper.getConexion();
 			PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_TITULO);
@@ -171,9 +171,9 @@ public class Libro {
 		return l;
 	}
 
-	public Libro buscarPorAutor(String autor) {
+	public LibroAR buscarPorAutor(String autor) {
 
-		Libro l = new Libro();
+		LibroAR l = new LibroAR();
 		try {
 			Connection conn = helper.getConexion();
 			PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_TITULO);
@@ -193,9 +193,9 @@ public class Libro {
 		return l;
 	}
 	
-	public static List<Libro> buscarPorIituloAutor(String titulo,String autor) {
+	public static List<LibroAR> buscarPorIituloAutor(String titulo,String autor) {
 
-		List<Libro> lista=new ArrayList<Libro>();
+		List<LibroAR> lista=new ArrayList<LibroAR>();
 		try {
 			Connection conn = helper.getConexion();
 			PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_TITULO_AUTOR);
@@ -204,7 +204,7 @@ public class Libro {
 			sentencia.setString(2, autor);
 			ResultSet rs = sentencia.executeQuery();
 			rs.next();
-			Libro l=new Libro(rs.getString("isbn"),rs.getString("titulo"),rs.getString("autor"));
+			LibroAR l=new LibroAR(rs.getString("isbn"),rs.getString("titulo"),rs.getString("autor"));
 			lista.add(l);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
