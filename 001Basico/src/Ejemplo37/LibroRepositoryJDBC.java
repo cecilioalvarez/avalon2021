@@ -136,12 +136,12 @@ public class LibroRepositoryJDBC implements LibroRepository {
 				if (!listaLibros.contains(l)) {
 
 					listaLibros.add(l);
-					l.addCapitulo(new Capitulo (rs.getString("tituloCapitulo"),rs.getInt("paginas")));
+					l.addCapitulo(new Capitulo (rs.getString("tituloCapitulo"),rs.getInt("paginas"),l));
 				}else {
 					// el libro ya esta en la lista
 					// traeme el ultimo item de la lista
 					// que es el libro y añade el capitulo
-					listaLibros.get(listaLibros.size()-1).addCapitulo(new Capitulo (rs.getString("tituloCapitulo"),rs.getInt("paginas")));
+					listaLibros.get(listaLibros.size()-1).addCapitulo(new Capitulo (rs.getString("tituloCapitulo"),rs.getInt("paginas"),l));
 				}
 
 			}

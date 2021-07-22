@@ -1,141 +1,131 @@
 package Ejemplo36C_Telefono;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
-public class TelefonoAR {
-	private String isbn;
-	private String titulo;
-	private String autor;
+public class Telefono {
+	private int numero;
+	private String marca;
+	private double precio;
 	private static DataBaseHelper helper = new DataBaseHelper();
-	final static String CONSULTA_INSERTAR = "insert into Libro (isbn,titulo,autor) values (?,?,?)";
-	final static String CONSULTA_BORRAR = "delete from Libro  where isbn =?";
-	final static String CONSULTA_BUSCAR_TODOS = "select * from Libro";
-	final static String CONSULTA_BUSCAR_UNO = "select * from Libro where isbn=?";
-	final static String CONSULTA_BUSCAR_TITULO_AUTOR = "select * from Libro where titulo=? and autor=?";
-	final static String CONSULTA_ACTUALIZAR = "update Libro set titulo=? , autor=? where isbn=?";
-	public String getIsbn() {
-		return isbn;
-	}
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-	public String getTitulo() {
-		return titulo;
-	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	public String getAutor() {
-		return autor;
-	}
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-	public TelefonoAR(String isbn, String titulo, String autor) {
+
+	final static String CONSULTA_INSERTAR = "insert into telefono (numero,marca,precio) values (?,?,?)";
+	final static String CONSULTA_BORRAR = "delete from telefono  where numero =?";
+	final static String CONSULTA_BUSCAR_TODOS = "select * from telefono";
+	final static String CONSULTA_UPDATE = "UPDATE `telefono` SET `numero` = ?, `marca` = ?, `precio` = ? WHERE `telefono`.`numero` = ?;";
+
+	public Telefono(int numero, String marca, double precio) {
 		super();
-		this.isbn = isbn;
-		this.titulo = titulo;
-		this.autor = autor;
+		this.numero = numero;
+		this.marca = marca;
+		this.precio = precio;
 	}
-	public TelefonoAR(String isbn) {
-		super();
-		this.isbn = isbn;
+
+	public int getNumero() {
+		return numero;
 	}
-	public void actualizar() {
-		try (Connection conn = helper.getConexion();
-				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_ACTUALIZAR);) {
-			sentencia.setString(1, this.getTitulo());
-			sentencia.setString(2, this.getAutor());
-			sentencia.setString(3, this.getIsbn());
-			sentencia.execute();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
 	public void insertar() {
-		try (Connection conn = helper.getConexion();
+
+		try (Connection conn = DriverManager.getConnection(helper.getUrl(), helper.getUser(), helper.getPassword());
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_INSERTAR);) {
-			sentencia.setString(1, this.getIsbn());
-			sentencia.setString(2, this.getTitulo());
-			sentencia.setString(3, this.getAutor());
+
+			sentencia.setInt(1, this.getNumero());
+			sentencia.setString(2, this.getMarca());
+			sentencia.setDouble(3, this.getPrecio());
 			sentencia.execute();
+			System.out.println("Insertado correctamente");
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
+
+	public void update(int numero) {
+
+		try (Connection conn = DriverManager.getConnection(helper.getUrl(), helper.getUser(), helper.getPassword());
+				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_UPDATE);) {
+
+			sentencia.setInt(1, this.getNumero());
+			sentencia.setString(2, this.getMarca());
+			sentencia.setDouble(3, this.getPrecio());
+			sentencia.setInt(4, numero);
+
+			sentencia.execute();
+			System.out.println(CONSULTA_UPDATE);
+			System.out.println("Actualizado correctamente");
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+
 	public void borrar() {
-		try (Connection conn = helper.getConexion();
+		try (Connection conn = DriverManager.getConnection(helper.getUrl(), helper.getUser(), helper.getPassword());
 				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BORRAR);) {
-			sentencia.setString(1, this.getIsbn());
+
+			sentencia.setInt(1, this.getNumero());
 			sentencia.execute();
+			System.out.println("Telefono borrado correctamente");
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
-	// porque vamos a buscar todos los libros
-	// no tiene mucho sentido instanciar un libro
-	// para luego más adelante buscar todos
-	public static List<TelefonoAR> buscarTodos() {
-		List<TelefonoAR> listaLibros = new ArrayList<TelefonoAR>();
-		try (Connection conn = helper.getConexion();
-				Statement sentencia = conn.createStatement();
-				ResultSet rs = sentencia.executeQuery(CONSULTA_BUSCAR_TODOS);) {
+	public Telefono buscarUno(int numero) {
+
+		String CONSULTA_LIBRO = "select * from telefono where numero = ?";
+
+		Telefono telefonoBuscado = null;
+
+		try (Connection conn = DriverManager.getConnection(helper.getUrl(), helper.getUser(), helper.getPassword());
+				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_LIBRO);) {
+			sentencia.setInt(1, numero);
+			ResultSet rs = sentencia.executeQuery();
+
+
 			while (rs.next()) {
-				TelefonoAR l = new TelefonoAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
-				listaLibros.add(l);
+
+				telefonoBuscado = new Telefono(rs.getInt("numero"), rs.getString("marca"), rs.getDouble("precio"));
+
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return listaLibros;
+		return telefonoBuscado;
 
 	}
 
 
-	public static List<TelefonoAR> buscarTituloyAutor(String titulo, String autor) {
-
-		List<TelefonoAR> listaLibros = new ArrayList<TelefonoAR>();
-		try (Connection conn = helper.getConexion();
-				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_TITULO_AUTOR);) {
-			sentencia.setString(1, titulo);
-			sentencia.setString(2, autor);
-			ResultSet rs = sentencia.executeQuery();
-			while (rs.next()) {
-				TelefonoAR l = new TelefonoAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
-				listaLibros.add(l);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return listaLibros;
-	}
-	public static TelefonoAR buscarUno(String isbn) {
-		TelefonoAR libro = null;
-		try (Connection conn = helper.getConexion();
-				PreparedStatement sentencia = conn.prepareStatement(CONSULTA_BUSCAR_UNO);) {
-			sentencia.setString(1, isbn);
-			ResultSet rs = sentencia.executeQuery();
-			rs.next();
-			libro = new TelefonoAR(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return libro;
-	}
-	@Override
-	public String toString() {
-		return "LibroAR [isbn=" + isbn + ", titulo=" + titulo + ", autor=" + autor + "]";
-	}
 }
