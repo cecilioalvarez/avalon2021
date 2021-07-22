@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Helper {
     
+    private static final Random RANDOM = new Random();
+    
     public static String askForString(String dataName, int minLength, int maxLength) {
         String answer = null;
         boolean valid = false;
@@ -72,10 +74,10 @@ public class Helper {
     }
     
     public static int getRandomInteger(int min, int max) {
-        return new Random().nextInt((max - min) + 1) + min;
+        return RANDOM.nextInt((max - min) + 1) + min;
     }
     
     public static double getRandomDouble(double min, double max) {
-        return min + (new Random().nextDouble()  * (max - min)) ;
+        return min + (RANDOM.nextDouble()  * (max - min)) ;
     }
 }

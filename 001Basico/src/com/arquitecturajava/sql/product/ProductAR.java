@@ -26,100 +26,108 @@ class ProductAr implements ActiveRecord {
     }
     
     @Override
-    public void insert() {
+    public int insert() {
         final String QUERY = "INSERT INTO product (name, price) VALUES (?, ?)";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setString(1, this.product.getName());
             preparedStatement.setDouble(2, this.product.getPrice());
-            preparedStatement.execute();
+            return preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de inserción: " + sql_ex.getMessage());
         }
+        return 0;
     }
 
     @Override
-    public void update() {
+    public int update() {
         final String QUERY = "UPDATE product SET name = ?, price = ? WHERE pk_id = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setString(1, this.product.getName());
             preparedStatement.setDouble(2, this.product.getPrice());
             preparedStatement.setInt(3, this.product.getPk_id());
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de actualización: " + sql_ex.getMessage());
         }
+        return 0;
     }
     
-    void updateName(String newValue) {
+    int updateName(String newValue) {
         final String QUERY = "UPDATE product SET name = ? WHERE pk_id = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setString(1, newValue);
             preparedStatement.setInt(2, this.product.getPk_id());
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de actualización: " + sql_ex.getMessage());
         }
+        return 0;
     }
     
-    void updatePrice(double newValue) {
+    int updatePrice(double newValue) {
         final String QUERY = "UPDATE product SET price = ? WHERE pk_id = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setDouble(1, newValue);
             preparedStatement.setInt(2, this.product.getPk_id());
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de actualización: " + sql_ex.getMessage());
         }
+        return 0;
     }
     
     @Override
-    public void delete() {
+    public int delete() {
         final String QUERY = "DELETE FROM product WHERE pk_id = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setInt(1, this.product.getPk_id());
-            preparedStatement.execute();
+            return preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de borrado: " + sql_ex.getMessage());
         }
+        return 0;
     }
     
-    public static void delete(String name) {
+    public static int delete(String name) {
         final String QUERY = "DELETE FROM product WHERE name = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setString(1, name);
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de borrado: " + sql_ex.getMessage());
         }
+        return 0;
     }
     
-    public static void delete(double price) {
+    public static int delete(double price) {
         final String QUERY = "DELETE FROM product WHERE price = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setDouble(1, price);
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de borrado: " + sql_ex.getMessage());
         }
+        return 0;
     }
     
-    public static void delete(String name, double price) {
+    public static int delete(String name, double price) {
         final String QUERY = "DELETE FROM product WHERE name = ? AND price = ?";
         try (Connection conn = DbConnectionSingleton.getConnection();
                 PreparedStatement preparedStatement = conn.prepareStatement(QUERY)) {
             preparedStatement.setString(1, name);
             preparedStatement.setDouble(2, price);
-            preparedStatement.execute();
+            preparedStatement.executeUpdate();
         } catch (SQLException sql_ex) {
             System.err.println("Error al lanzar la consulta de borrado: " + sql_ex.getMessage());
         }
+        return 0;
     }
     
     @Override

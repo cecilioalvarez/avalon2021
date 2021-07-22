@@ -5,7 +5,7 @@ import java.util.List;
 public interface ActiveRecord {
     Object select();
     List selectAll();
-    void insert();
-    void delete();
-    void update();
+    int insert();
+    int delete();
+    int update();
 }
