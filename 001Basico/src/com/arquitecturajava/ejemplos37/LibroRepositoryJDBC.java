@@ -15,7 +15,7 @@ public class LibroRepositoryJDBC implements LibroRepository {
 	final static String CONSULTA_INSERTAR = "insert into Libros (isbn,titulo,autor) values (?,?,?)";
 	final static String CONSULTA_BORRAR = "delete from Libros  where isbn =?";
 	final static String CONSULTA_BUSCAR_TODOS = "select * from Libros";
-	final static String CONSULTA_BUSCAR_TODOS_CON_CAPITULOS = "select * from Libros,Capitulos where Libros.isbn= Capitulos.libros_isbn";
+	final static String CONSULTA_BUSCAR_TODOS_CON_CAPITULOS = "select Libros.isbn as isbn, Libros.titulo as titulo, Libros.autor as autor, Capitulos.titulo as tituloCapitulo, Capitulos.paginas as paginas from Libros,Capitulos where Libros.isbn= Capitulos.libros_isbn";
 	final static String CONSULTA_BUSCAR_UNO = "select * from Libros where isbn=?";
 	final static String CONSULTA_BUSCAR_TITULO_AUTOR = "select * from Libros where titulo=? and autor=?";
 	final static String CONSULTA_ACTUALIZAR = "update Libros set titulo=? , autor=? where isbn=?";
@@ -144,10 +144,25 @@ public class LibroRepositoryJDBC implements LibroRepository {
 		try (Connection conn = helper.getConexion();
 				Statement sentencia = conn.createStatement();
 				ResultSet rs = sentencia.executeQuery(CONSULTA_BUSCAR_TODOS_CON_CAPITULOS);) {
+			//jdbc los registros que vienen de jdbc son tabulares
+			// es decir es una tabla de la base de datos
+			//o es un array o una matriz
+			// deseamos convertirlo en un grafo
 			while (rs.next()) {
 
 				Libro l = new Libro(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
-				listaLibros.add(l);
+				
+				if (!listaLibros.contains(l)) {
+					
+					listaLibros.add(l);
+					l.addCapitulo(new Capitulo (rs.getString("tituloCapitulo"),rs.getInt("paginas")));
+				}else {
+					// el libro ya esta en la lista
+					// traeme el ultimo item de la lista
+					// que es el libro y añade el capitulo
+					listaLibros.get(listaLibros.size()-1).addCapitulo(new Capitulo (rs.getString("tituloCapitulo"),rs.getInt("paginas")));
+				}
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -17,6 +17,11 @@ public class Libro {
 	public void setCapitulos(List<Capitulo> capitulos) {
 		this.capitulos = capitulos;
 	}
+	// fortalece la relacion y la simplifica entre 
+	//Libro y capitulo
+	public void addCapitulo(Capitulo c) {
+		this.capitulos.add(c);
+	}
 	
 	public String getIsbn() {
 		return isbn;

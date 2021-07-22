@@ -18,6 +18,12 @@ public static void main(String[] args) {
 		System.out.println(l.getTitulo());
 		System.out.println(l.getAutor());
 		System.out.println(l.getIsbn());
+		
+		for (Capitulo c: l.getCapitulos()) {
+			
+			System.out.println(c.getTitulo());
+			System.out.println(c.getPaginas());
+		}
 	}
 	
 	
