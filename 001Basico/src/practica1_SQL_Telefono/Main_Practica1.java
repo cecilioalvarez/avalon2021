@@ -56,6 +56,7 @@ public class Main_Practica1 {
 		tel1=Telefono.getPhone(1);
 		myPhonesList=Telefono.getAllPhones();
 		System.out.println(tel1.toString());
+		
 
 	}
 
