@@ -11,8 +11,8 @@ public class Objetos38 {
 		// a mi me gustaria gestionar un interface
 		LibroRepository repositorio = new LibroRepositoryJDBC();
 		CapituloRepository repositorioCap = new CapituloRepositoryJDBC();
-		repositorioCap.insertar(new Capitulo("capit2", 25, new Libro("25", "pigmeos", "ayende")));
-		//repositorio.insertar(new Libro("25", "pigmeos", "ayende"));
+		//repositorioCap.insertar(new Capitulo("capit2", 25, new Libro("25", "pigmeos", "ayende")));
+		// repositorio.insertar(new Libro("25", "pigmeos", "ayende"));
 
 		List<Libro> libros = repositorio.buscarTodosConCapitulos();
 
@@ -21,6 +21,11 @@ public class Objetos38 {
 			System.out.println(l.getTitulo());
 			System.out.println(l.getAutor());
 			System.out.println(l.getIsbn());
+			for (Capitulo c : l.getCapitulos()) {
+
+				System.out.println(c.getTitulo());
+				System.out.println(c.getPaginas());
+			}
 		}
 
 	}

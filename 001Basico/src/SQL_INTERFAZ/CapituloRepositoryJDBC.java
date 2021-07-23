@@ -49,7 +49,6 @@ public class CapituloRepositoryJDBC  implements CapituloRepository{
 			sentencia.setString(1, capitulo.getTitulo());
 			sentencia.setInt(2, capitulo.getPaginas());
 			sentencia.setString(3, capitulo.getLibro().getIsbn());
-			
 			sentencia.execute();
 
 		} catch (SQLException e) {
