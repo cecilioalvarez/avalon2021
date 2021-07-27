@@ -2,6 +2,7 @@ package com.arquitecturajava.ejemplos37;
 
 import java.util.List;
 
+
 public class Objetos37 {
 	public static void main(String[] args) {
 
@@ -12,6 +13,10 @@ public class Objetos37 {
 			System.out.println(c1.getTitulo());
 			System.out.println(c1.getAutor());
 			System.out.println(c1.getIsbn());
+			for(Capitulo c: c1.getCapitulos()) {
+				System.out.println(c.getTitulo());
+				System.out.println(c.getPaginas());
+			}
 		}
 
 		System.out.println("-----------------------------------");

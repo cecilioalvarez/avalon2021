@@ -8,13 +8,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.arquitecturajava.ejemplos37.DataBaseHelper;
+import com.arquitecturajava.ejemplos37.Libro;
+import com.arquitecturajava.ejemplos37.LibroRepository;
+
 public class LibroRepositoryJDBC implements LibroRepository {
 
 	private static DataBaseHelper helper = new DataBaseHelper();
 	final static String CONSULTA_INSERTAR = "insert into Libro (isbn,titulo,autor) values (?,?,?)";
 	final static String CONSULTA_BORRAR = "delete from Libro where isbn =?";
 	final static String CONSULTA = "select * from Libro";
-	final static String CONSULTA_TODOS_CON_CAPITULOS = "select * from libro,capitulos where libro.isbn=capitulos.libros_isbn;";
+	final static String CONSULTA_TODOS_CON_CAPITULOS = "SELECT libro.isbn as isbn, libro.titulo as titulo, libro.autor as autor, capitulos.titulo as tituloCapitulo, capitulos.paginas as paginas from Libro, capitulos where Libro.isbn = capitulos.libros_isbn;";
 	final static String CONSULTA_BUSCAR_UNO = "select * from Libro where isbn=?";
 	final static String CONSULTA_BUSCAR_UNO_TITULO = "select * from Libro where titulo=?";
 	final static String CONSULTA_BUSCAR_UNO_AUTOR = "select * from Libro where autor=?";
@@ -33,7 +37,6 @@ public class LibroRepositoryJDBC implements LibroRepository {
 			sentencia.execute();
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -180,10 +183,19 @@ public class LibroRepositoryJDBC implements LibroRepository {
 		try (Connection conn = helper.getConexion();
 				Statement sentencia = conn.createStatement();
 				ResultSet rs = sentencia.executeQuery(CONSULTA_TODOS_CON_CAPITULOS);) {
+			
 			while (rs.next()) {
 
 				Libro l = new Libro(rs.getString("isbn"), rs.getString("titulo"), rs.getString("autor"));
-				listaLibros.add(l);
+				//Le decimos que si contiene un libro ya con el mismo isbn, no lo vuelva a repetir el mismo libro dos veces.
+				
+				if(!listaLibros.contains(l)) {
+					//Añadimos libro y capitulo
+					listaLibros.add(l);
+					l.addCapitulo(new Capitulo(rs.getString("tituloCapitulo"), rs.getInt("paginas"),l));
+				}else {
+					listaLibros.get(listaLibros.size()-1).addCapitulo(new Capitulo(rs.getString("tituloCapitulo"), rs.getInt("paginas"),l));
+				}
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

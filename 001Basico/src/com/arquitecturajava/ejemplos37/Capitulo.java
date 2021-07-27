@@ -26,11 +26,11 @@ public class Capitulo {
 		this.paginas = paginas;
 	}
 
-	public Capitulo(String titulo, int paginas) {
+	public Capitulo(String titulo, int paginas, Libro libro) {
 		super();
 		this.titulo = titulo;
 		this.paginas = paginas;
-
+		this.libro = libro;
 	}
 	public Capitulo(String titulo) {
 		super();

@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CapituloRepositoryJDBC implements CapituloRepository{
 	private static DataBaseHelper helper = new DataBaseHelper();
-	final static String CONSULTA_INSERTAR = "insert into Capitulos (titulo,paginas) values (?,?)";
+	final static String CONSULTA_INSERTAR = "insert into Capitulos (titulo,paginas,libros_isbn) values (?,?,?)";
 	final static String CONSULTA_BORRAR = "delete from Capitulos where titulo =?";
 	final static String CONSULTA = "select * from Capitulos";
 	final static String CONSULTA_BUSCAR_UNO = "select * from Capitulos where titulo=?";
@@ -26,6 +26,7 @@ public class CapituloRepositoryJDBC implements CapituloRepository{
 
 			sentencia.setString(1, capitulo.getTitulo());
 			sentencia.setInt(2, capitulo.getPaginas());
+			sentencia.setString(3,capitulo.getLibro().getIsbn());
 			sentencia.execute();
 
 		} catch (SQLException e) {
@@ -75,7 +76,7 @@ public class CapituloRepositoryJDBC implements CapituloRepository{
 				ResultSet rs = sentencia.executeQuery(CONSULTA);) {
 			while (rs.next()) {
 
-				Capitulo l = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"));
+				Capitulo l = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"),new Libro(rs.getString("libros_isbn")));
 				listaCapitulos.add(l);
 			}
 		} catch (SQLException e) {
@@ -96,7 +97,7 @@ public class CapituloRepositoryJDBC implements CapituloRepository{
 				ResultSet rs = sentencia.executeQuery();
 				rs.next();
 
-				capitulo = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"));
+				capitulo = new Capitulo(rs.getString("titulo"), rs.getInt("paginas"),new Libro(rs.getString("libros_isbn")));
 				
 			
 		} catch (SQLException e) {

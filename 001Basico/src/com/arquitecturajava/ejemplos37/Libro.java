@@ -17,6 +17,11 @@ public class Libro {
 		this.capitulos = capitulos;
 	}
 	
+	//Fortalece la relacion y la simplifica entre libro y capitulo
+	public void addCapitulo(Capitulo c) {
+		this.capitulos.add(c);
+	}
+	
 	public String getIsbn() {
 		return isbn;
 	}
