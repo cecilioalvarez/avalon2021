@@ -16,7 +16,7 @@ public class Principal5 {
 		lista.add(new Persona("maria", "blanco", 30));
 		lista.add(new Persona("gema", "perez", 10));
 
-		List<Persona> nueva = filtrarPersonas("pedro", lista);
+		List<Persona> nueva = filtrarPersonas(new FiltroPersonaNombre("pedro"), lista);
 
 		for (Persona p : nueva) {
 
@@ -24,7 +24,7 @@ public class Principal5 {
 		}
 		
 		System.out.println("*************");
-		nueva = filtrarPersonas("perez", lista);
+		nueva = filtrarPersonas(new FiltroPersonaApellidos("perez"), lista);
 
 		for (Persona p : nueva) {
 
