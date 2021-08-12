@@ -12,7 +12,9 @@ public class Principal5 {
 		lista.add(new Persona("maria", "blanco", 30));
 		lista.add(new Persona("gema", "perez", 10));
 
-		List<Persona> nueva = filtrarPersonas(new FiltroPersonaNombre("pedro"), lista);
+		//List<Persona> nueva = filtrarPersonas(new FiltroPersonaNombre("pedro"), lista);
+		
+		List<Persona> nueva = filtrarPersonas((Persona p)->p.getNombre().equals("pedro"), lista);
 
 		for (Persona p : nueva) {
 			System.out.println(p);
@@ -20,8 +22,8 @@ public class Principal5 {
 		
 		System.out.println("**********************");
 		
-		nueva = filtrarPersonas(new filtroPersonaApellidos("perez"), lista);
-		
+//		nueva = filtrarPersonas(new filtroPersonaApellidos("perez"), lista);
+		nueva=filtrarPersonas((p)->p.getApellidos().equals("perez"),lista);
 		for (Persona p : nueva) {
 			System.out.println(p);
 		}
