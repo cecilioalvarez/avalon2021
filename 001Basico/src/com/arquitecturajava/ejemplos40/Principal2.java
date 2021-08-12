@@ -2,10 +2,9 @@ package com.arquitecturajava.ejemplos40;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
-public class Principal {
+public class Principal2 {
 
 	public static void main(String[] args) {
 
@@ -15,19 +14,26 @@ public class Principal {
 		lista.add(new Persona("maria", "blanco", 30));
 		lista.add(new Persona("gema", "perez", 10));
 
+		Collections.sort(lista);
 
-		// anonimous class
-		lista.sort((Persona o1, Persona o2)-> {
-				// TODO Auto-generated method stub
-				return o1.getNombre().compareTo(o2.getNombre());
-			});
+		for (Persona p : lista) {
+
+			System.out.println(p);
+		}
+
+		lista.sort(new PersonaNombreComparator());
 		System.out.println("**************");
 		for (Persona p : lista) {
 
 			System.out.println(p);
 		}
 		
-		
+		lista.sort(new PersonaApellidosComparator());
+		System.out.println("**************");
+		for (Persona p : lista) {
+
+			System.out.println(p);
+		}
 
 	}
 
