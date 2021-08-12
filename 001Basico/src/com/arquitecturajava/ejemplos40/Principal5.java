@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class Principal4 {
+public class Principal5 {
 
 	public static void main(String[] args) {
 
@@ -16,7 +16,7 @@ public class Principal4 {
 		lista.add(new Persona("maria", "blanco", 30));
 		lista.add(new Persona("gema", "perez", 10));
 
-		List<Persona> nueva = filtrarPersonasPorNombre("pedro", lista);
+		List<Persona> nueva = filtrarPersonas("pedro", lista);
 
 		for (Persona p : nueva) {
 
@@ -24,7 +24,7 @@ public class Principal4 {
 		}
 		
 		System.out.println("*************");
-		nueva = filtrarPersonasPorApellidos("perez", lista);
+		nueva = filtrarPersonas("perez", lista);
 
 		for (Persona p : nueva) {
 
@@ -32,13 +32,13 @@ public class Principal4 {
 		}
 
 	}
-
-	public static List<Persona> filtrarPersonasPorNombre(String nombre, List<Persona> listaPersonas) {
+	//un interface pero claso este interface no tiene implementacion ahora mismo
+	public static List<Persona> filtrarPersonas(FiltroPersona filtro, List<Persona> listaPersonas) {
 
 		List<Persona> listaFinal = new ArrayList<Persona>();
 		for (Persona p : listaPersonas) {
 
-			if (p.getNombre().equals(nombre)) {
+			if (filtro.test(p)) {
 
 				listaFinal.add(p);
 			}
@@ -47,18 +47,6 @@ public class Principal4 {
 
 	}
 
-	public static List<Persona> filtrarPersonasPorApellidos(String apellidos, List<Persona> listaPersonas) {
-
-		List<Persona> listaFinal = new ArrayList<Persona>();
-		for (Persona p : listaPersonas) {
-
-			if (p.getApellidos().equals(apellidos)) {
-
-				listaFinal.add(p);
-			}
-		}
-		return listaFinal;
-
-	}
+	
 
 }
