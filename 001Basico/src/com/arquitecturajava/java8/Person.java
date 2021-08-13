@@ -2,7 +2,7 @@ package com.arquitecturajava.java8;
 
 import java.util.Objects;
 
-public class Person implements Comparable<Person>{
+public class Person implements Comparable<Person> {
 
     private String name;
     private String surname;
@@ -66,8 +66,6 @@ public class Person implements Comparable<Person>{
         }
         return true;
     }
-    
-    
 
     @Override
     public String toString() {

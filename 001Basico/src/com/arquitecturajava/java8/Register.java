@@ -45,11 +45,7 @@ class Register {
     
     private List<Person> filterPeople(Predicate<Person> filter) {
         final List<Person> SEARCHED_PEOPLE = new ArrayList<>();
-        for (Person person: this.PEOPLE) {
-            if (filter.test(person)) {
-                SEARCHED_PEOPLE.add(person);
-            }
-        }
+        this.PEOPLE.stream().filter(person -> (filter.test(person))).forEachOrdered(SEARCHED_PEOPLE::add);
         return SEARCHED_PEOPLE;
     }
 
