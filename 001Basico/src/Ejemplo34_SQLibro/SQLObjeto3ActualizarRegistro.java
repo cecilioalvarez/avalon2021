@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import Estudio001.Estudio007_SentenciasControl_if_else;
+import com.arquitecturajava._010Java_SentenciasControl_if;
 
 public class SQLObjeto3ActualizarRegistro {
 
